@@ -1,0 +1,4 @@
+Database name: vertexDezign
+Database username: vertexUser
+Password: c0S?bb64
+Database IP: 5.45.105.165
