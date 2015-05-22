@@ -13,10 +13,17 @@
 
 Route::get('/', 'IndexController@index');
 
-
+//Userhandling Auth
 Route::get('login', "LoginController@index");
 Route::post('login', 'LoginController@login');
-
+Route::get('logout', 'LoginController@logout');
+//Public News
+Route::get('news', "NewsController@index");
+Route::get('news/{id}', "NewsController@show");
+//Public Projects
+Route::get('projects', "ProjectsController@index");
+//Public Downloads
+Route::get('downloads', "DownloadsController@index");
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -25,5 +32,6 @@ Route::controllers([
 
 Route::group(['middleware' => 'auth'], function() {
     // Store routes here when logged in!
+    Route::get('backend', "BackendController@index");
 });
 

@@ -1,0 +1,40 @@
+body {margin: 0 auto;font-family:verdana;position:absolute;top:0;left:0;right:0;bottom:0;background-color:#e5e9ec;font-size:12px;}
+nav {position:fixed;left:0;top:0;bottom:0;width:250px;background-color:#22262e;color:#fff;}
+nav h1 {font-size:20px;height:60px;line-height:60px;padding:0;padding-left:25px;margin:0;width:calc(100% - 70px);float:left;}
+nav h1 span {font-weight:normal;}
+nav button {background-color:#1b1e24;border:none;padding:7.5px;margin-top:7.5px;}
+nav ul {background-color:#1b1e24;}
+nav ul li {padding-left:25px;height:40px;line-height:40px;font-size:13px;}
+nav ul li a {color:#aaa;text-decoration:none;transition:.5s;}
+nav ul li:hover a {color:#fff;}
+header {height:60px;background-color:#fff;z-index:2;position:relative;padding-left:10px;padding-right:5px;}
+header button {cursor:pointer;outline:none;float:left;background-color:transparent;border:none;height:60px;padding:4px 10px 0 10px;margin-top:0;transition:.5s;}
+header button.rotate:hover {}
+header button img {width:20px;opacity:.65;transition:.5s;}
+header button:hover img {opacity:1;}
+header input[type="search"] {height:60px;width:calc(100% - 510px);padding:0 10px 0 10px;background:transparent;border:0;padding-left:45px;outline:none;}
+header img.search-icon {position:absolute;margin-top:22.5px;margin-left:15px;z-index:-1;width:16px;opacity:.65;}
+header p {height:60px;}
+header .dropdown {display:none;border-radius:3px;opacity:0;background:#fff;width:150px;position:absolute;right:15px;margin-top:5px;padding:5px;box-shadow:0px 0px 5px rgba(86,96,117,0.2);}
+header .dropdown li {list-style-type:none;cursor:pointer;}
+header .dropdown li:hover {background:#EFF2F3;}
+header .dropdown:before {content:'';width:10px;border-left:1px solid #ddd;border-top:1px solid #ddd;height:10px;position:absolute;margin-top:-11px;margin-left:135px;z-index:100;background:#fff;display:block;-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);transform: rotate(45deg);}
+header .dropdown a {text-decoration:none;:none;color:#2A2E36;display:block;width:100%;padding:10px 15px 10px 15px;box-sizing:border-box;}
+button.btn {padding:10px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
+button.btn img {margin-top:-5px;margin-left:-0px;position:relative;top:2px;}
+button.btn.blue {background:#0AA699;color:#fff;} button.btn.blue:hover {background:#099A8C;}
+button.btn.red {background:#F35958;color:#fff;} button.btn.red:hover {background:#F14D4D;}
+button.btn.border {background:Transparent;border:3px solid #aaa;border-radius:15px;color:#515050;font-weight:bold;}
+.container {position:fixed;left:250px;right:0;bottom:0;top:0;overflow-y:auto;}
+table.tbl {background:#fff;width:100%;border:1px solid rgb(221, 221, 221);}
+table.tbl thead th {text-align:left;padding:7.5px;border-bottom:1px solid rgb(221, 221, 221);}
+table.tbl tbody td {padding:5px;}
+div.pad {padding:25px;}
+div.pad h2 {color:#515050;font-size:22px;font-weight:normal;width:50%;float:left;}
+.modal {position:fixed;bottom:-125px;left:0;right:0;height:125px;z-index:50;padding:10px 40px 10px 40px;box-sizing:Border-box;color:#fff;}
+.modal p {font-size:20px;}
+.modal input[type=file] {background:#fff;padding:5px;}
+.modal.red {background: #F35958;}.modal.red button,  .modal.red input{color:#F35958;}
+.modal.blue {background:#0AA699;}.modal.blue button,  .modal.blue input {color:#0AA699;}
+.modal button {cursor:pointer;font-size:20px;float:right;margin-right:25px;background:transparent;background:#fff;font-weight:bold;border:3px solid #fff;padding:7.5px 15px 7.5px 15px;}
+.left, .right {width:50%;float:left;}

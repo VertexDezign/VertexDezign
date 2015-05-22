@@ -12,13 +12,14 @@
             <ul class="controllers">
               @if (! \Auth::check())
                     <li><a href="{{{URL('/news')}}}">News</a></li>
-              @endif
                     <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                     <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-              @if (! \Auth::check())
                     <li><a href="{{{URL('/login')}}}">Login</a></li>
               @else
-                    <li><a href="{{{URL('/dashboard')}}}">Dashboard</a></li>
+                    <li><a href="{{{URL('/news')}}}">News</a></li>
+                    <li><a href="{{{URL('/projects')}}}">Projects</a></li>
+                    <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
+                    <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
                     <li><a href="{{{URL('/logout')}}}">Logout</a></li>
               @endif
                   </ul>
