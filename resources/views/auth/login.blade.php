@@ -16,6 +16,7 @@
 
                         <span class="form-sign"><img src="{{ url('/images/key.png') }}" style="position:Relative;top:12px;" /></span>
                         <input name="password" type="password" placeholder="password" style="padding-left:60px;" REQUIRED />
+                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                         <div class="pass-icon"></div>
                         <button style="width:100%;background:#3FCC3F;border:0;margin-top:2px;border-radius:0;height:40px;line-height:10px;">Inloggen</button>
                     </div>
