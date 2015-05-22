@@ -1,7 +1,7 @@
 @extends('layout/master')
 
 @section('content')
-<div class="container">    
+<div class="container content">
     <article style="float:left;width:75%;">
         <h2><a id="">News article</a></h2>        
         <p>This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text.</p>

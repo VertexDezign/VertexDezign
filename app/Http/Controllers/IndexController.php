@@ -1,6 +1,11 @@
 <?php namespace App\Http\Controllers;
 
-class HomeController extends Controller {
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Http\Request;
+
+class IndexController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,11 +35,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-            if(DB::connection()->getDatabaseName())
-            {
-               echo "conncted sucessfully to database ".DB::connection()->getDatabaseName();
-            }
-            return view('index');
+        return view('index');
 	}
 
 }

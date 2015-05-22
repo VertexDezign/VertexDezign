@@ -1,61 +1,35 @@
-@extends('app')
+@extends('layout/master')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+    <header style="height:calc(100% - 75px)">
+        <div class="container content">
+            <section class="loginform" style="margin-bottom:10%;">
+                <form method="post">
+                    <div class="content" style="padding-top:30%;text-align:left;">
+                        <h2>Inloggen</h2>
+                        @if (Session::has('error'))
+                            <p class="error">{{Session::get('error')}}</p>
+                        @endif
+                        <span class="form-sign"><img src="{{ url('/images/user.png') }}" style="position:Relative;top:12px;" /></span>
+                        <input name="username" type="text" placeholder="username" style="padding-left:60px;" REQUIRED style="margin-top:10px;" />
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+                        <span class="form-sign"><img src="{{ url('/images/key.png') }}" style="position:Relative;top:12px;" /></span>
+                        <input name="password" type="password" placeholder="password" style="padding-left:60px;" REQUIRED />
+                        <div class="pass-icon"></div>
+                        <button style="width:100%;background:#3FCC3F;border:0;margin-top:2px;border-radius:0;height:40px;line-height:10px;">Inloggen</button>
+                    </div>
+                    <div class="two" style="text-align: left;">
+                        <p style="text-align:left;">Nog geen account?</p>
+                    </div>
+                    <div class="two" style="text-align: right;">
+                        <a href="{{URL('/aanmelden')}}" class="white">Aanmelden</a>
+                    </div>
+                    <div style="clear: both">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
-
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </header>
 @endsection

@@ -2,3 +2,13 @@ Database name: vertexDezign
 Database username: vertexUser
 Password: v1aJb59$
 Database IP: 5.45.105.165
+
+
+
+        User::create(array(
+            'firstname'     => 'Admin',
+            'lastname'     => 'Admin',
+            'username' => 'admin',
+            'email'    => 'Admin@gmail.com',
+            'password' => \Hash::make('admin'),
+        ));

@@ -11,9 +11,19 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'IndexController@index');
+
+
+Route::get('login', "LoginController@index");
+Route::post('login', 'LoginController@login');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['middleware' => 'auth'], function() {
+    // Store routes here when logged in!
+});
+
