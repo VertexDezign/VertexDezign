@@ -5,8 +5,9 @@
     <article style="float:left;width:75%;">
         @foreach ($entry as $news)
             <h2><a id="{{$news->id}}">{{$news->title}}</a></h2>
-            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }}</p>
+            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }} by </p>
             <p>{{$news->body}}</p>
+            <a><span class="box">></span> Read more</a>
         @endforeach
     </article>
     <section class="four">

@@ -21,6 +21,7 @@ class CreateProjectsTable extends Migration {
             $table->text('info')->nullable();
             $table->text('features')->nullable();
             $table->text('credits')->nullable();
+            $table->string('images', 255)->nullable();
             $table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();

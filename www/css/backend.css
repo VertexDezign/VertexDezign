@@ -5,8 +5,7 @@ nav h1 span {font-weight:normal;}
 nav button {background-color:#1b1e24;border:none;padding:7.5px;margin-top:7.5px;}
 nav ul {background-color:#1b1e24;}
 nav ul li a {color:#aaa;transition:.5s;}
-nav ul li:hover a {color:#fff;}
-nav ul li button {height:40px;line-height:40px;margin-left:1px;width:245px;color:#aaa;text-decoration:none;text-align:inherit;font-size:13px;transition:.5s;}
+nav ul li button {height:40px;line-height:40px;margin-left:1px;width:245px;color:#aaa;text-align:inherit;font-size:13px;transition:.5s;}
 nav ul li button:hover {color:#fff;}
 nav ul li button img {padding-right:5px;transition:.5s;opacity:.65;}
 nav ul li button:hover img {opacity:1;}

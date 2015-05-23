@@ -19,4 +19,8 @@ class News extends Model implements AuthenticatableContract, CanResetPasswordCon
  */
     protected $fillable = ['title', 'body', 'author_id'];
 
+    public function author_id()
+    {
+        return $this->belongsTo('User');
+    }
 }
