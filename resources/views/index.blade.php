@@ -10,25 +10,17 @@
         @endforeach
     </article>
     <section class="four">
+        <p class="panel-title">Latest downloads</p>
         <ul style="list-style:none;padding:0;margin:0;">
-            <li>
-                <p>Latest downloads</p>
-            </li>
-            <ul style="list-style:none;padding:0;margin:0;">
-                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
-                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
-                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
-            </ul>            
+            <li><a href="#">Download entry</a></li>
+            <li><a href="#">Download entry</a></li>
+            <li><a href="#">Download entry</a></li>
         </ul>
+        <p class="panel-title">Partners</p>
         <ul style="list-style:none;padding:0;margin:0;">
-            <li>
-                <p>Partners</p>
-            </li>
-            <ul style="list-style:none;padding:0;margin:0;">
-                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
-                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
-                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
-            </ul>
+            <li><a href="#"><img src=""/></a></li>
+            <li><a href="#"><img src=""/></a></li>
+            <li><a href="#"><img src=""/></a></li>
         </ul>
     </section>
     <div style="clear:both;"></div>

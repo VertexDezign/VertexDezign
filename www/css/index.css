@@ -53,7 +53,12 @@ select {height:40px;border:1px solid #ccc;}
 section.form p {margin:0px;}
 section.form h4 {margin-bottom:0px;}
 section.form a {color:#2d8633;text-decoration:none;}
-section.form a:hover {color:#2d8633;text-decoration:underline;}
+section.form a:hover {color:#2d8633;}
+section p.panel-title {margin-bottom:0;padding:0px 10px 0px 10px;height:40px;line-height:40px;background:#2d8633;color:#fff;}
+section ul li {margin-bottom:-1px;border:1px solid #2d8633;padding:0px 10px 0px 10px;height:40px;line-height:40px;}
+section ul li a {text-decoration:none;}
+section ul li:hover {background:#2d8633;}
+section ul li:hover a {color:#fff;}
 .map-overlay {background:rgba(255, 255, 255, 0.4);position:absolute;z-index:10;width:100%;cursor:pointer;}
 article h2 {color:#000;text-decoration:none;font-size:28px;font-weight:400;position:relative;}
 
