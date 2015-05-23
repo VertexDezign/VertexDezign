@@ -45,7 +45,7 @@
 <body>
 <nav>
     <h1><span>Vertex</span>backend</h1>
-    <button><img src="{{URL('/images/backend/home.png')}}" /></button>
+    <button onclick="window.location.href='{{URL('/')}}'"><img src="{{URL('/images/backend/home.png')}}" /></button>
     <div style="clear:both;"></div>
     <ul style="list-style:none;padding:1px;margin:0;height:250px;">
         <li><a class="green" href="{{URL('/backend/news')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>Manage news</button></a></li>
