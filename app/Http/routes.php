@@ -41,5 +41,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('backend/news/update', array('as'=>'update_news', 'uses'=>'BackendNewsController@update'));
     Route::post('backend/news/delete/{id}', array('as'=>'delete_news', 'uses'=>'BackendNewsController@delete'));
     Route::post('backend/news/insert', array('as'=>'insert_news', 'uses'=>'BackendNewsController@insert'));
+    //Backend Projects
+    Route::get('backend/projects', array('as'=>'project', 'uses'=>'BackendProjectsController@index'));
+    Route::get('backend/projects/show/{id}', array('as'=>'edit_project', 'uses'=>'BackendProjectsController@show'));
+    Route::get('backend/projects/add', array('as'=>'add_project', 'uses'=>'BackendProjectsController@add'));
+    Route::post('backend/projects/update', array('as'=>'update_project', 'uses'=>'BackendProjectsController@update'));
+    Route::post('backend/projects/delete/{id}', array('as'=>'delete_project', 'uses'=>'BackendProjectsController@delete'));
+    Route::post('backend/projects/insert', array('as'=>'insert_project', 'uses'=>'BackendProjectsController@insert'));
 });
 
