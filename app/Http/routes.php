@@ -19,8 +19,7 @@ Route::post('login', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
 //Public News
 Route::get('news', "NewsController@index");
-Route::get('news/{id}', "NewsController@show");
-//Public Projects
+Route::get('news/{id}', array('as'=>'show_news', 'uses'=>'NewsController@show'));
 Route::get('projects', "ProjectsController@index");
 //Public Downloads
 Route::get('downloads', "DownloadsController@index");

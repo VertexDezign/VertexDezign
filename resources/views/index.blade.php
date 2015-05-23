@@ -4,10 +4,18 @@
 <div class="container content">
     <article style="float:left;width:75%;">
         @foreach ($entry as $news)
-            <h2><a id="{{$news->id}}">{{$news->title}}</a></h2>
-            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }} by </p>
+            <h2><a href="{{ URL::route('show_news', $news->id) }}">{{$news->title}}</a></h2>
+            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }} by Admin</p>
             <p>{{$news->body}}</p>
-            <a><span class="box">></span> Read more</a>
+            <?php
+            if (isset($news->images))
+            {
+            ?>
+                <img src="{{$news->images}}" />
+            <?php
+            }
+            ?>
+            <a href="{{ URL::route('show_news', $news->id) }}"><span class="box">></span> Read more</a>
         @endforeach
     </article>
     <section class="four">

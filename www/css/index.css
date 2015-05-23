@@ -60,13 +60,14 @@ section ul li a {text-decoration:none;}
 section ul li:hover {background:#2d8633;}
 section ul li:hover a {color:#fff;}
 .map-overlay {background:rgba(255, 255, 255, 0.4);position:absolute;z-index:10;width:100%;cursor:pointer;}
-article h2 {margin-bottom:0px;color:#000;text-decoration:none;font-size:28px;font-weight:400;position:relative;}
-article h2 a {cursor:pointer;}
+article h2 {margin-bottom:0px;color:#000;font-size:28px;font-weight:400;position:relative;}
+article h2 a {cursor:pointer;text-decoration:none;}
 article p {margin-top:2px;}
 article a span.box {background:#2d8633;color:#fff;width:4px;padding:1px 5px 1px 5px;margin-right:5px;opacity:.65;}
-article a {cursor:pointer;}
+article a {cursor:pointer;text-decoration:none;}
 article a:hover {color:#2d8633;}
 article a:hover span.box {opacity:1;}
+article img {width:512px;color:#fff;margin-bottom:10px;display: block;}
 
 button.green {background:#2D8633;color:#fff;height:40px;padding-left:17.5px;padding-right:17.5px;border:0;}
 button.white {color:#2D8633;background:transparent;border:0;height:50px;width:100%;text-align:left;cursor:pointer;}

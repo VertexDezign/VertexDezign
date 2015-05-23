@@ -12,4 +12,8 @@ class NewsController extends Controller {
         return \View::make('index')->with('entry', News::all());
     }
 
+    public function show($id)
+    {
+        return \View::make('news')->with('entry', News::findOrFail($id));
+    }
 }
