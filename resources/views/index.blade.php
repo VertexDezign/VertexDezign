@@ -5,6 +5,7 @@
     <article style="float:left;width:75%;">
         @foreach ($entry as $news)
             <h2><a id="{{$news->id}}">{{$news->title}}</a></h2>
+            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }}</p>
             <p>{{$news->body}}</p>
         @endforeach
     </article>
@@ -18,6 +19,16 @@
                 <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
                 <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
             </ul>            
+        </ul>
+        <ul style="list-style:none;padding:0;margin:0;">
+            <li>
+                <p>Partners</p>
+            </li>
+            <ul style="list-style:none;padding:0;margin:0;">
+                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
+                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
+                <li><a class="green" href="#" onclick="scroll('#');">Download entry</a></li>
+            </ul>
         </ul>
     </section>
     <div style="clear:both;"></div>
