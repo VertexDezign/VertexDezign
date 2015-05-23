@@ -49,6 +49,9 @@
             theme: "modern",
             resize: false,
             statusbar : false,
+            forced_root_block : "",
+            force_br_newlines : true,
+            force_p_newlines : false,
             height: 800,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",

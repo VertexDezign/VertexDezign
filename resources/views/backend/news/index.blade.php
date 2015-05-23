@@ -39,6 +39,7 @@
                             <button>Delete</button>
                             <button onclick="closeModal('delete{{$news->id}}');return false;">Cancel</button>
                         </div>
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     </form>
                 </div>
             @endforeach

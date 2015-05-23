@@ -4,13 +4,13 @@ nav h1 {font-size:20px;height:60px;line-height:60px;padding:0;padding-left:25px;
 nav h1 span {font-weight:normal;}
 nav button {background-color:#1b1e24;border:none;padding:7.5px;margin-top:7.5px;}
 nav ul {background-color:#1b1e24;}
-nav ul li {padding-left:25px;height:40px;line-height:40px;font-size:13px;}
-nav ul li a {color:#aaa;text-decoration:none;transition:.5s;}
+nav ul li a {color:#aaa;transition:.5s;}
 nav ul li:hover a {color:#fff;}
-nav ul li button {color:#aaa;text-decoration:none;text-align:center;transition:.5s;}
+nav ul li button {height:40px;line-height:40px;margin-left:1px;width:245px;color:#aaa;text-decoration:none;text-align:inherit;font-size:13px;transition:.5s;}
 nav ul li button:hover {color:#fff;}
 nav ul li button img {padding-right:5px;transition:.5s;opacity:.65;}
 nav ul li button:hover img {opacity:1;}
+
 header {height:60px;background-color:#fff;z-index:2;position:relative;padding-left:10px;padding-right:5px;}
 header button {cursor:pointer;outline:none;float:left;background-color:transparent;border:none;height:60px;padding:4px 10px 0 10px;margin-top:0;transition:.5s;}
 header button.rotate:hover {}
