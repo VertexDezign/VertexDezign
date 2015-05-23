@@ -2,14 +2,14 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-//use App\Projects;
+use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller {
 
     public function index()
     {
-        return view('index');
+        return \View::make('projects')->with('entry', Project::all());
     }
 
 }
