@@ -3,14 +3,10 @@
 @section('content')
 <div class="container content">
     <article style="float:left;width:75%;">
-        <h2><a id="">News article</a></h2>        
-        <p>This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text.</p>
-        <h2><a id="">News article</a></h2>        
-        <p>This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text.</p>
-        <h2><a id="">News article</a></h2>        
-        <p>This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text.</p>
-        <h2><a id="">News article</a></h2>        
-        <p>This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text. This is the article text.</p>
+        @foreach ($entry as $news)
+            <h2><a id="{{$news->id}}">{{$news->title}}</a></h2>
+            <p>{{$news->body}}</p>
+        @endforeach
     </article>
     <section class="four">
         <ul style="list-style:none;padding:0;margin:0;">

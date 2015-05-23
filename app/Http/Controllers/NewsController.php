@@ -2,14 +2,14 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-//use App\News;
+use App\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller {
 
     public function index()
     {
-        return view('index');
+        return \View::make('index')->with('entry', News::all());
     }
 
 }

@@ -32,6 +32,14 @@ Route::controllers([
 
 Route::group(['middleware' => 'auth'], function() {
     // Store routes here when logged in!
+    //Backend
     Route::get('backend', "BackendController@index");
+    //Backend News
+    Route::get('backend/news', array('as'=>'news', 'uses'=>'BackendNewsController@index'));
+    Route::get('backend/news/show/{id}', array('as'=>'edit_news', 'uses'=>'BackendNewsController@show'));
+    Route::get('backend/news/add', array('as'=>'add_news', 'uses'=>'BackendNewsController@add'));
+    Route::post('backend/news/update', array('as'=>'update_news', 'uses'=>'BackendNewsController@update'));
+    Route::post('backend/news/delete/{id}', array('as'=>'delete_news', 'uses'=>'BackendNewsController@delete'));
+    Route::post('backend/news/insert', array('as'=>'insert_news', 'uses'=>'BackendNewsController@insert'));
 });
 

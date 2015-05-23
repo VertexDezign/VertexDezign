@@ -7,6 +7,10 @@ nav ul {background-color:#1b1e24;}
 nav ul li {padding-left:25px;height:40px;line-height:40px;font-size:13px;}
 nav ul li a {color:#aaa;text-decoration:none;transition:.5s;}
 nav ul li:hover a {color:#fff;}
+nav ul li button {color:#aaa;text-decoration:none;text-align:center;transition:.5s;}
+nav ul li button:hover {color:#fff;}
+nav ul li button img {padding-right:5px;transition:.5s;opacity:.65;}
+nav ul li button:hover img {opacity:1;}
 header {height:60px;background-color:#fff;z-index:2;position:relative;padding-left:10px;padding-right:5px;}
 header button {cursor:pointer;outline:none;float:left;background-color:transparent;border:none;height:60px;padding:4px 10px 0 10px;margin-top:0;transition:.5s;}
 header button.rotate:hover {}
@@ -38,3 +42,9 @@ div.pad h2 {color:#515050;font-size:22px;font-weight:normal;width:50%;float:left
 .modal.blue {background:#0AA699;}.modal.blue button,  .modal.blue input {color:#0AA699;}
 .modal button {cursor:pointer;font-size:20px;float:right;margin-right:25px;background:transparent;background:#fff;font-weight:bold;border:3px solid #fff;padding:7.5px 15px 7.5px 15px;}
 .left, .right {width:50%;float:left;}
+.h2 {color:#515050;font-size:22px;font-weight:normal;}
+
+form input[type="submit"] {background:#0AA699;color:#fff;padding:10px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
+form input[type="submit"]:hover {background:#099A8C;}
+form input[type="text"], input[type=password], input[type=email], input[type=date], input[type=number] {box-sizing:border-box;width:100%;height:40px;margin-bottom:8.5px;padding-left:15px;border:1px solid #ccc;}
+form label {font-size: 15px;position:relative;}

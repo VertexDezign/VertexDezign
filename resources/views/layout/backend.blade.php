@@ -48,12 +48,11 @@
     <button><img src="{{URL('/images/backend/home.png')}}" /></button>
     <div style="clear:both;"></div>
     <ul style="list-style:none;padding:1px;margin:0;height:250px;">
-        <li><a class="green" href="{{URL('/backend/gebruikers')}}" onclick="scroll('#');">Manage news</a></li>
-        <li><a class="green" href="{{URL('/backend/nieuws')}}" onclick="scroll('#');">Manage projects</a></li>
-        <li><a class="green" href="{{URL('/backend/rapportage')}}" onclick="scroll('#');">Manage dowloads</a></li>
-        <li><a class="green" href="{{URL('/backend/grafieken')}}" onclick="scroll('#');">Manage media</a></li>
-        <li><a class="green" href="{{URL('/backend/media')}}" onclick="scroll('#');">WIP mangement</a></li>
-        <li><a class="green" href="{{URL('/backend/informatie')}}" onclick="scroll('#');">Give me more!!</a></li>
+        <li><a class="green" href="{{URL('/backend/news')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>Manage news</button></a></li>
+        <li><a class="green" href="{{URL('/backend/projects')}}" onclick="scroll('#');">Manage projects</a></li>
+        <li><a class="green" href="{{URL('/backend/downloads')}}" onclick="scroll('#');">Manage dowloads</a></li>
+        <li><a class="green" href="{{URL('/backend/media')}}" onclick="scroll('#');">Manage media</a></li>
+        <li><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');">WIP mangement</a></li>
     </ul>
 </nav>
 <div class="container">
