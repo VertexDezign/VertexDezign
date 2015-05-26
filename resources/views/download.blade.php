@@ -1,7 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Stijn
- * Date: 23-5-2015
- * Time: 22:43
- */
+@extends('layout/master')
+
+@section('content')
+    <header style="height:20px;"></header>
+    <div class='container'>
+
+    </div>
+@endsection

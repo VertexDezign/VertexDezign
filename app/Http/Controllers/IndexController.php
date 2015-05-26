@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\News;
+use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,6 @@ class IndexController extends Controller {
 
 	public function index()
 	{
-        $user = User::find(1);
-        return \View::make('index')->with('entry', News::all());
+        return \View::make('index')->with('newsEntry', News::all())->with('projectsEntry', Project::all());
 	}
 }

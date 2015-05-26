@@ -3,9 +3,9 @@
 @section('content')
 <div class="container content">
     <article style="float:left;width:75%;">
-        @foreach ($entry as $news)
+        @foreach ($newsEntry as $news)
             <h2><a href="{{ URL::route('show_news', $news->id) }}">{{$news->title}}</a></h2>
-            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }} by Admin</p>
+            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($news->created_at)) }} by {{$news->getAuthor->username}}</p>
             <p>{{$news->body}}</p>
             <?php
             if (isset($news->images))
@@ -24,6 +24,12 @@
             <li><a href="#">Download entry</a></li>
             <li><a href="#">Download entry</a></li>
             <li><a href="#">Download entry</a></li>
+        </ul>
+        <p class="panel-title">Latest projects</p>
+        <ul style="list-style:none;padding:0;margin:0;">
+            @foreach ($projectsEntry as $project)
+                <li><a href="#">{{$project->title}}</a></li>
+            @endforeach
         </ul>
         <p class="panel-title">Partners</p>
         <ul style="list-style:none;padding:0;margin:0;">
