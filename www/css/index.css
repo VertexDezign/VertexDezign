@@ -33,14 +33,12 @@ footer ul.controllers li a {color:#777;text-decoration:none;font-size:12px;text-
 
 header {height:475px;background:url(http://vertexdezign.net/images/ggg.jpg) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;}
 header .content {height:100%;width:100%;opacity:1;padding:0 1%;z-index:10;float:none;display:block;margin-left:auto;margin-right:auto;text-align:center;position:absolute;}
-header .content  hr {opacity:0.5;display: block;width:10%;margin: 1em auto;border: 1px solid #fff;transition: width 1s ease 0s;}
 header h2 {margin-bottom:0px;text-align:center;font-size:40px;margin-top:0px;padding-top:140px; color:white;}
 header p {text-align:center;font-size:22px;color:white;}
 header .content button {font-weight:bold;font-size:18px;color:#fff;background:transparent;border:2px solid white;border-radius:5px;padding:15px 75px 15px 75px;margin-top:15px;}
 header .content button:hover {background-color:#fff;color:#000;cursor:pointer;transition:.3s;}
-header:hover .content hr {width:20%;}
-header .overlay {height:100%;width:100%;}
-header:hover .overlay {opacity:0.35;background-color:#2D8633;transition:background-color 1s ease;}
+header .overlay {height:100%;width:100%;opacity:0.75;-webkit-transition: background-color 1s ease;-moz-transition: background-color 1s ease;-o-transition: background-color 1s ease;transition: background-color 1s ease;}
+header:hover .overlay {background-color:#2E3539;}
 
 button.green {background:#2D8633;color:#fff;height:40px;padding-left:17.5px;padding-right:17.5px;border:0;}
 button.white {color:#2D8633;background:transparent;border:0;height:50px;width:100%;text-align:left;cursor:pointer;}
@@ -81,8 +79,8 @@ button.white {color:#2D8633;background:transparent;border:0;height:50px;width:10
 .container {width:1000px;margin:0 auto;}
 p.error {background:#c9302c;padding:7.5px;color:#fff;}
 .toButton {height:40px;margin-right:-7px;}
-.roundButton {font-weight:bold;font-size:18px;color:#fff;line-height:40px;background:transparent;border:2px solid white;border-radius:5px;margin-top:15px;}
-.roundButton:hover {}
+.roundButton {background-color:#2D8633;font-weight:bold;padding:10px 75px 10px 75px;font-size:18px;color:#fff;line-height:40px;border:2px solid #fff;border-radius:5px;margin-top:10px;}
+.roundButton:hover {border:2px solid #2D8633;background-color:#fff;color:#000;cursor:pointer;}
 
 .spoiler {margin-top:25px;}
 .spoiler > .header {background:green;height:50px;color:#fff;-webkit-user-select: none;  -moz-user-select: none;  -ms-user-select: none;  -o-user-select: none;  user-select: none; }
@@ -100,8 +98,8 @@ p.error {background:#c9302c;padding:7.5px;color:#fff;}
 
 .articlePanel {color:#fff;opacity: 0.95;transition:.3s;position: relative;}
 .articlePanel:hover {cursor:pointer;}
-.articlePanel .overlay {height:100%;width:100%;opacity: 0;}
-.articlePanel:hover .overlay {opacity: 0.35;background:#2D8633;transition:opacity 1s ease-in-out 0s;}
+.articlePanel .overlay {height:100%;width:100%;opacity:0.75;-webkit-transition: background-color 1s ease;-moz-transition: background-color 1s ease;-o-transition: background-color 1s ease;transition: background-color 1s ease;}
+.articlePanel:hover .overlay {background:#2D8633;}
 .articlePanel hr {display: block;width: 15%;margin: 1em auto;border: 1px solid #fff;transition: width 1s ease 0s;}
 .articlePanel:hover hr {width:50%;}
 .articlePanel div.content {width:100%;opacity:1;padding:0 1%;z-index:10;float:none;display:block;margin-left:auto;margin-right:auto;text-align:center;position:absolute;top:50%;}

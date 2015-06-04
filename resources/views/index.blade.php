@@ -5,7 +5,6 @@
     <div style="height:100%;">
         <div class="content">
             <h2>Find our projects!</h2>
-            <hr>
             <p>Check on what projects VertexDezign is working on.</p>
             <button onclick="window.location.href='{{URL('/projects')}}'">Find out!</button>
         </div>
@@ -13,6 +12,7 @@
     </div>
     <div style="clear:both;"></div>
 </header>
+<div style="height:5px;background:#2D8633;"></div>
 <div class="container content" style="margin-top:100px;">
     <div style="text-align: center;">
         <h1>WELCOME TO VERTEXDEZIGN</h1>
@@ -40,12 +40,13 @@
     @endforeach
     <div style="clear:both;"></div>
 </section>
+<div style="height:15px;background:#2E3539;"></div>
 <div class="container content" style="margin-top:100px;">
     <div style="text-align: center;">
         <h1>MEET THE TEAM</h1>
         <hr style="display: block;width: 15%;margin: 1em auto;border: 1px solid #2D8633;">
         <p style="color:#999;">Curious what makes VertexDezign?</p>
-        <button class="roundButton green" onclick="window.location.href='{{URL('/projects')}}'">Find out!</button>
+        <button class="roundButton" onclick="window.location.href='{{URL('/projects')}}'">Find out!</button>
     </div>
 </div>
 <section style="margin-top:100px;">
