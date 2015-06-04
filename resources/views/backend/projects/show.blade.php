@@ -4,76 +4,78 @@
         <?php
         if (isset($entry)){
         ?>
-        <h3 class="h2">Edit: {{ $entry->title }}</h3>
-        {!! Form::open(array('route' => 'update_project','method' => 'post', 'files' => true)) !!}
-        <p>
-            {!! Form::label('name', 'Name:') !!}<br>
-            {!! Form::text('name', $entry->name) !!}
-        </p>
-        <p>
-            {!! Form::label('title', 'Title:') !!}<br>
-            {!! Form::text('title', $entry->title) !!}
-        </p>
-        <p>
-            {!! Form::label('desc', 'Description:') !!}<br>
-            {!! Form::textarea('desc', $entry->desc) !!}
-        </p>
-        <p>
-            {!! Form::label('info', 'Information:') !!}<br>
-            {!! Form::textarea('info', $entry->info) !!}
-        </p>
-        <p>
-            {!! Form::label('features', 'Features:') !!}<br>
-            {!! Form::textarea('features', $entry->features) !!}
-        </p>
-        <p>
-            {!! Form::label('credits', 'Credits:') !!}<br>
-            {!! Form::textarea('credits', $entry->credits) !!}
-        </p>
-        </p>
-        {!! Form::hidden('id', $entry->id) !!}
-        {!! Form::hidden('user_id', Auth::user()->id) !!}
-        <p>
-            {!! Form::submit('Save',['class' => 'btn blue']) !!}
-        </p>
-        {!! Form::token() !!}
-        {!! Form::close() !!}
+            {{--    EDIT  --}}
+            {!! Form::open(array('route' => 'update_project','method' => 'post', 'files' => true)) !!}
+                <p style="float:left;width:75%;margin-bottom:0px;font-style:italic;">You are edditing the following item:</p>
+                <h3 style="float:left;width:90%;margin-top:0px;color:#515050;font-size:22px;weight:normal;">{{ $entry->title }}</h3>
+
+                {!! Form::submit('Save',['class' => 'btn blue']) !!}
+
+                {!! Form::label('name', 'Name') !!}
+                {!! Form::text('name', $entry->name, array('required' => 'required', 'class' => 'edit')) !!}
+
+                {!! Form::label('title', 'Title') !!}
+                {!! Form::text('title', $entry->title, array('required' => 'required', 'class' => 'edit')) !!}
+
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('desc', $entry->desc) !!}</div>
+                    <div>{!! Form::label('desc', 'Description',['class' => 'min']) !!}</div>
+                </div>
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('info', $entry->info) !!}</div>
+                    <div>{!! Form::label('info', 'Information',['class' => 'min']) !!}</div>
+                </div>
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('features', $entry->features) !!}</div>
+                    <div>{!! Form::label('features', 'Features',['class' => 'min']) !!}</div>
+                </div>
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('credits', $entry->credits) !!}</div>
+                    <div>{!! Form::label('credits', 'Credits',['class' => 'min']) !!}</div>
+                </div>
+
+                {{--    HIDDEN  --}}
+                {!! Form::hidden('id', $entry->id) !!}
+                {!! Form::hidden('user_id', Auth::user()->id) !!}
+                {!! Form::token() !!}
+            {!! Form::close() !!}
         <?php
         }
         else{?>
-        <h3 class="h2">Add new</h3>
-        {!! Form::open(array('route' => 'insert_project','method' => 'post', 'files' => true)) !!}
-        <p>
-            {!! Form::label('name', 'Name:') !!}<br>
-            {!! Form::text('name', '') !!}
-        </p>
-        <p>
-            {!! Form::label('title', 'Title:') !!}<br>
-            {!! Form::text('title', '') !!}
-        </p>
-        <p>
-            {!! Form::label('desc', 'Description:') !!}<br>
-            {!! Form::textarea('desc', '') !!}
-        </p>
-        <p>
-            {!! Form::label('info', 'Information:') !!}<br>
-            {!! Form::textarea('info', '') !!}
-        </p>
-        <p>
-            {!! Form::label('features', 'Features:') !!}<br>
-            {!! Form::textarea('features', '') !!}
-        </p>
-        <p>
-            {!! Form::label('credits', 'Credits:') !!}<br>
-            {!! Form::textarea('credits', '') !!}
-        </p>
-        {!! Form::hidden('id', '') !!}
-        {!! Form::hidden('user_id', Auth::user()->id) !!}
-        <p>
-            {!! Form::submit('Save',['class' => 'btn blue']) !!}
-        </p>
-        {!! Form::token() !!}
-        {!! Form::close() !!}
+            {{--    ADD  --}}
+            {!! Form::open(array('route' => 'insert_project','method' => 'post', 'files' => true)) !!}
+                <p style="float:left;width:75%;margin-bottom:0px;font-style:italic;">You are adding the following item:</p>
+                <h3 style="float:left;width:90%;margin-top:0px;color:#515050;font-size:22px;weight:normal;">Project</h3>
+                {!! Form::submit('Save',['class' => 'btn blue']) !!}
+
+                {!! Form::label('name', 'Name') !!}
+                {!! Form::text('name', '', array('placeholder' => 'Name', 'required' => 'required', 'class' => 'edit')) !!}
+
+                {!! Form::label('title', 'Title') !!}
+                {!! Form::text('title', '', array('placeholder' => 'Title', 'required' => 'required', 'class' => 'edit')) !!}
+
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('desc', '') !!}</div>
+                    <div>{!! Form::label('desc', 'Description',['class' => 'min']) !!}</div>
+                </div>
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('info', '') !!}</div>
+                    <div>{!! Form::label('info', 'Information',['class' => 'min']) !!}</div>
+                </div>
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('features', '') !!}</div>
+                    <div>{!! Form::label('features', 'Features',['class' => 'min']) !!}</div>
+                </div>
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('credits', '') !!}</div>
+                    <div>{!! Form::label('credits', 'Credits',['class' => 'min']) !!}</div>
+                </div>
+
+                {{--    HIDDEN  --}}
+                {!! Form::hidden('id', '') !!}
+                {!! Form::hidden('user_id', Auth::user()->id) !!}
+                {!! Form::token() !!}
+            {!! Form::close() !!}
         <?php
         }
         ?>
@@ -84,9 +86,7 @@
             theme: "modern",
             resize: false,
             statusbar : false,
-            forced_root_block : "",
-            force_br_newlines : true,
-            force_p_newlines : false,
+            menubar : false,
             height: 200,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -101,7 +101,6 @@
                 {title: 'Test template 1', content: 'Test 1'},
                 {title: 'Test template 2', content: 'Test 2'}
             ]
-
         });
     </script>
 @endsection

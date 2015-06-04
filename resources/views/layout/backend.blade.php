@@ -1,3 +1,7 @@
+<?php
+use App\Project;
+use App\News;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,15 +48,15 @@
 </head>
 <body>
 <nav>
-    <h1><span>Vertex</span>backend</h1>
+    <a href="{{URL('/backend/')}}"><h1><span>Vertex</span>backend</h1></a>
     <button onclick="window.location.href='{{URL('/')}}'"><img src="{{URL('/images/backend/home.png')}}" /></button>
     <div style="clear:both;"></div>
-    <ul style="list-style:none;padding:1px;margin:0;height:250px;">
-        <li><a class="green" href="{{URL('/backend/news')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>Manage news</button></a></li>
-        <li><a class="green" href="{{URL('/backend/projects')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>Manage projects</button></a></li>
-        <li><a class="green" href="{{URL('/backend/downloads')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>Manage dowloads</button></a></li>
-        <li><a class="green" href="{{URL('/backend/media')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>Manage media</button></a></li>
-        <li><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');"><button><img src="{{URL('/images/backend/news.png')}}"/>WIP mangement</button></a></li>
+    <ul style="list-style:none;height:100%;">
+        <li><img src="{{URL('/images/backend/menu/media.png')}}"/><a class="green" href="{{URL('/backend/media')}}" onclick="scroll('#');">Manage media</a></li>
+        <li><img src="{{URL('/images/backend/menu/news.png')}}"/><a class="green" href="{{URL('/backend/news')}}" onclick="scroll('#');">Manage news</a><span>{{News::count()}}</span></li>
+        <li><img src="{{URL('/images/backend/menu/projects.png')}}"/><a class="green" href="{{URL('/backend/projects')}}" onclick="scroll('#');">Manage projects</a><span>{{Project::count()}}</span></li>
+        <li><img src="{{URL('/images/backend/menu/downloads.png')}}"/><a class="green" href="{{URL('/backend/downloads')}}" onclick="scroll('#');">Manage dowloads</a></li>
+        <li><img src="{{URL('/images/backend/menu/partners.png')}}"/><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');">Manage partners</a></li>
     </ul>
 </nav>
 <div class="container">

@@ -2,7 +2,13 @@
 @section('content')
     <div class="pad">
         <h2>News mangement</h2>
-        <a href="{{ route('add_news') }}"><button class="btn blue" style="float:right;position:relative;" >Create new</button></a>
+        <button onclick="window.location.href='{{ route('add_news') }}'" class="btn blue" style="float:right;position:relative;margin-left:1px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+        <button onclick="window.location.href='{{ route('add_news') }}'" class="btn blue" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
+        @if (Session::has('error'))
+            <p class="error">{{Session::get('error')}}</p>
+        @elseif (Session::has('succes'))
+            <p class="succes">{{Session::get('succes')}}</p>
+        @endif
         <table class="tbl">
             <thead>
             <tr>
@@ -45,10 +51,5 @@
             @endforeach
             </tbody>
         </table>
-        @if (Session::has('error'))
-            <p class="error">{{Session::get('error')}}</p>
-        @elseif (Session::has('succes'))
-            <p class="error">{{Session::get('succes')}}</p>
-        @endif
     </div>
 @endsection

@@ -5,7 +5,7 @@
         <div class="container content">
             <section class="loginform" style="margin-bottom:10%;">
                 <form method="post">
-                    <div class="content" style="padding-top:30%;text-align:left;">
+                    <div class="login" style="padding-top:30%;text-align:left;">
                         <h2>Inloggen</h2>
                         @if (Session::has('error'))
                             <p class="error">{{Session::get('error')}}</p>
@@ -18,7 +18,7 @@
                         <input name="password" type="password" placeholder="password" style="padding-left:60px;" REQUIRED />
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="pass-icon"></div>
-                        <button style="width:100%;background:#3FCC3F;border:0;margin-top:2px;border-radius:0;height:40px;line-height:10px;">Log in</button>
+                        <button style="width:100%;background:#2d8633;border:0;margin-top:2px;border-radius:0;height:40px;line-height:10px;">Log in</button>
                     </div>
                 </form>
             </section>

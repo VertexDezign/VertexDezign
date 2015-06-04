@@ -11,14 +11,14 @@
               <div class="menu-holder">
                 <ul class="controllers">
               @if (! \Auth::check())
-                    <li><a href="{{{URL('/news')}}}">News</a></li>
                     <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                     <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
+                    <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                     <li><a href="{{{URL('/login')}}}">Login</a></li>
               @else
-                    <li><a href="{{{URL('/news')}}}">News</a></li>
                     <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                     <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
+                    <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                     <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
                     <li><a href="{{{URL('/logout')}}}">Logout</a></li>
               @endif
@@ -28,12 +28,12 @@
               <div class="mobile-menu-toggler"></div>
           </div>
         </nav>
-        <div style="height:15px;background:#2E3539;"></div>
+        <div style="height:5px;background:#2E3539;"></div>
           @yield('content')
         <footer>
             <section class="top">
                 <div class="container content">
-                    <h4>VertexDezign</h4>
+                    <h3>VertexDezign</h3>
                 </div>
             </section>
             <div class="container content">
@@ -41,13 +41,11 @@
                     <h3>Navigation</h3>
                     <ul class="controllers">
                         @if (! \Auth::check())
-                            <li><a href="{{{URL('/news')}}}">News</a></li>
                             <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                             <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                             <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                             <li><a href="{{{URL('/login')}}}">Login</a></li>
                         @else
-                            <li><a href="{{{URL('/news')}}}">News</a></li>
                             <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                             <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                             <li><a href="{{{URL('/forum')}}}">Forum</a></li>

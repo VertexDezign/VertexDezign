@@ -4,41 +4,48 @@
         <?php
         if (isset($entry)){
         ?>
-        <h3 class="h2">Edit: {{ $entry->title }}</h3>
-        {!! Form::open(array('route' => 'update_news','method' => 'post', 'files' => true)) !!}
-        <p>
-            {!! Form::label('title', 'Title:') !!}<br />
-            {!! Form::text('title', $entry->title) !!}
-        </p>
-        <p>
-            {!! Form::textarea('body', $entry->body) !!}
-        </p>
-        {!! Form::hidden('id', $entry->id) !!}
-        {!! Form::hidden('author_id', Auth::user()->id) !!}
-        <p>
-            {!! Form::submit('Save',['class' => 'btn blue']) !!}
-        </p>
-        {!! Form::token() !!}
-        {!! Form::close() !!}
+            {{--    EDIT  --}}
+            {!! Form::open(array('route' => 'update_news','method' => 'post', 'files' => true)) !!}
+                <p style="float:left;width:75%;margin-bottom:0px;font-style:italic;">You are edditing the following item:</p>
+                <h3 style="float:left;width:90%;margin-top:0px;color:#515050;font-size:22px;weight:normal;">{{ $entry->title }}</h3>
+                {!! Form::submit('Save') !!}
+
+                {!! Form::label('title', 'Title') !!}
+                {!! Form::text('title', $entry->title, array('placeholder' => 'Title', 'required' => 'required', 'class' => 'edit')) !!}
+
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('body', $entry->body) !!}</div>
+                    <div>{!! Form::label('desc', 'Body',['class' => 'max']) !!}</div>
+                </div>
+
+                {{--    HIDDEN  --}}
+                {!! Form::hidden('id', $entry->id) !!}
+                {!! Form::hidden('author_id', Auth::user()->id) !!}
+                {!! Form::token() !!}
+            {!! Form::close() !!}
         <?php
         }
         else{?>
-        <h3 class="h2">Add new</h3>
-        {!! Form::open(array('route' => 'insert_news','method' => 'post', 'files' => true)) !!}
-        <p>
-            {!! Form::label('title', 'Title:') !!}<br />
-            {!! Form::text('title', '') !!}
-        </p>
-        <p>
-            {!! Form::textarea('body', '') !!}
-        </p>
-        {!! Form::hidden('id', '') !!}
-        {!! Form::hidden('author_id', Auth::user()->id) !!}
-        <p>
-            {!! Form::submit('Save',['class' => 'btn blue']) !!}
-        </p>
-        {!! Form::token() !!}
-        {!! Form::close() !!}
+            {{--    ADD  --}}
+            {!! Form::open(array('route' => 'insert_news','method' => 'post', 'files' => true)) !!}
+                <p style="float:left;width:75%;margin-bottom:0px;font-style:italic;">You are adding the following item:</p>
+                <h3 style="float:left;width:90%;margin-top:0px;color:#515050;font-size:22px;weight:normal;">News item</h3>
+
+                {!! Form::submit('Save') !!}
+
+                {!! Form::label('title', 'Title') !!}
+                {!! Form::text('title', '', array('placeholder' => 'Title', 'required' => 'required', 'class' => 'edit')) !!}
+
+                <div>
+                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('body', '') !!}</div>
+                    <div>{!! Form::label('desc', 'Body',['class' => 'max']) !!}</div>
+                </div>
+
+                {{--    HIDDEN  --}}
+                {!! Form::hidden('id', '') !!}
+                {!! Form::hidden('author_id', Auth::user()->id) !!}
+                {!! Form::token() !!}
+            {!! Form::close() !!}
         <?php
         }
         ?>
@@ -49,10 +56,7 @@
             theme: "modern",
             resize: false,
             statusbar : false,
-            forced_root_block : "",
-            force_br_newlines : true,
-            force_p_newlines : false,
-            height: 800,
+            height: 500,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
                 "searchreplace visualblocks visualchars code fullscreen",
@@ -66,7 +70,6 @@
                 {title: 'Test template 1', content: 'Test 1'},
                 {title: 'Test template 2', content: 'Test 2'}
             ]
-
         });
     </script>
 @endsection
