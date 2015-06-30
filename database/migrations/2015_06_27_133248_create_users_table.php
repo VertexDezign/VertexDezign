@@ -30,17 +30,30 @@ class CreateUsersTable extends Migration {
             $table->string('token');
             $table->timestamps();
         });
-
+        $passwordAdmin = bcrypt('admin');
+        $passwordUser = bcrypt('user');
         DB::table('users')->insert(
             array(
                 'id' => '1',
-                'username' => 'Wopster',
-                'email' => 'stijnwop@gmail.com',
-                'password' => '$2y$10$GP/tIKpy3.CGHpVr1OBDYuWx5KzMqlh7KXccHsplokFps.l3.5psO',
-                'firstname' => 'Stijn',
-                'surname' => 'Wopereis',
+                'username' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => $passwordAdmin,
+                'firstname' => 'Firstname',
+                'surname' => 'Surname',
                 'birthdate' => '1995-01-27',
                 'permission_id' => '1',
+            )
+        );
+        DB::table('users')->insert(
+            array(
+                'id' => '2',
+                'username' => 'user',
+                'email' => 'user@gmail.com',
+                'password' => $passwordUser,
+                'firstname' => 'Firstname',
+                'surname' => 'Surname',
+                'birthdate' => '1995-01-27',
+                'permission_id' => '2',
             )
         );
 	}
