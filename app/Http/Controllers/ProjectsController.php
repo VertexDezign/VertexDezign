@@ -9,7 +9,11 @@ class ProjectsController extends Controller {
 
     public function index()
     {
-        return \View::make('projects')->with('entry', Project::all());
+        return \View::make('projects.index')->with('entry', Project::all());
     }
 
+    public function show($id)
+    {
+        return \View::make('projects.show')->with('entry', Project::findOrFail($id));
+    }
 }

@@ -17,7 +17,7 @@ class Downloads extends Model implements AuthenticatableContract, CanResetPasswo
      *
      * @var array
      */
-    protected $fillable = ['title', 'body', 'author_id'];
+    protected $fillable = ['name', 'title', 'state', 'category', 'desc', 'info', 'features', 'credits', 'log', 'images', 'download', 'user_id'];
 
     public function getAuthor()
     {

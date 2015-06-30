@@ -58,7 +58,7 @@ use App\News;
 
         <li><img src="{{URL('/images/backend/menu/projects.png')}}"/><a class="green" href="{{URL('/backend/projects')}}" onclick="scroll('#');">Manage projects</a><span>{{Project::count()}}</span></li>
         <li><img src="{{URL('/images/backend/menu/downloads.png')}}"/><a class="green" href="{{URL('/backend/downloads')}}" onclick="scroll('#');">Manage dowloads</a></li>
-        <li><img src="{{URL('/images/backend/menu/partners.png')}}"/><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');">Manage partners</a></li>
+        <li><img src="{{URL('/images/backend/menu/partners.png')}}"/><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');">Manage slider</a></li>
     </ul>
 </nav>
 <div class="container">

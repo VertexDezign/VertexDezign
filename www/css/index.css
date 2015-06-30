@@ -109,13 +109,16 @@ p.error {background:#c9302c;padding:7.5px;color:#fff;}
 
 .sect-news {margin-top:100px;background:#fff;}
 
+hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s ease 0s;}
 .panel {border:1px solid #919496;box-shadow:0 0 4px rgba(0,0,0,0.1);padding:-5px;margin:5px;background:#fff;min-height:150px;transition:.3s;}
 .panel:hover {transform: scale(1.01);}
 .panel h2 {}
 .panel p.author {font-size:11px;margin-top:2px;}
 .panel a {text-decoration:none;}
 .panel a button {height:35px;width:100%;border:0;background:transparent;color:#2D8633;}
-.panel a button:hover {background:#2D8633;color:#fff;}
+.panel a button:hover {background:#2D8633;color:#fff;cursor:pointer;}
+.panel-body ul {}
+.panel-body ul li {list-style-type:square;}
 
 .articlePanel {color:#fff;opacity: 0.95;transition:.3s;position: relative;}
 .articlePanel:hover {cursor:pointer;}

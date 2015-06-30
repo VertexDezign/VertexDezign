@@ -18,7 +18,7 @@
     </script>
     <body>
         <div class="logo four">
-            <h2>VERTEXDEZIGN</h2>
+            <h2><a style="text-decoration: none;color: inherit;" href="{{{URL('/')}}}">VERTEXDEZIGN</a></h2>
         </div>
         <nav>
           <div class="container">

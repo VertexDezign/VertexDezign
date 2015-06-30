@@ -1,4 +1,4 @@
-@extends('layout/master')
+@extends('layout.master')
 
 @section('content')
 <div class="container content">
@@ -6,12 +6,12 @@
         @foreach ($entry as $project)
         <div class="three">
             <div class="panel" style="!important;text-align:left;">
-                <div style="height:200px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
+                <div style="height:200px;background:url(http://vertexdezign.net/images/ddd.jpg);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
                 <div style="padding:15px;padding-bottom:5px;">
                     <h4><a id="{{$project->id}}">{{$project->title}}</a></h4>
-                    <p>{!! $project->desc !!}</p>
+                    <p>{!!str_limit($project->desc, 55, "...")!!}</p>
                 </div>
-                <a href="#"><button>View</button></a>
+                <a href="{{ URL::route('show_projects', $project->id) }}"><button>View</button></a>
             </div>
         </div>
         @endforeach
