@@ -7,7 +7,7 @@
         <hr/>
         <article>
             <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($entry->created_at)) }} by {{$entry->getAuthor->username}}</p>
-            <p>{{$entry->body}}</p>
+            <p>{!!$entry->body!!}</p>
             <?php
             if (isset($entry->images))
             {
