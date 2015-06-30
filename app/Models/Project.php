@@ -17,7 +17,7 @@ class Project extends Model implements AuthenticatableContract, CanResetPassword
  *
  * @var array
  */
-    protected $fillable = ['name', 'title', 'desc', 'info', 'features', 'credits', 'user_id'];
+    protected $fillable = ['name', 'title', 'state', 'category', 'desc', 'info', 'features', 'credits', 'log', 'images', 'user_id'];
 
     public function user_id()
     {

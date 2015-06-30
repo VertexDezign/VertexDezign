@@ -7,11 +7,13 @@ nav button {background-color:#22262e;border:none;padding:7.5px;margin-top:10px;c
 nav button:hover {background-color:#1b1e24;}
 nav ul {background-color:#1b1e24;}
 nav ul li {border-top:1px solid #1b1e24;margin-left:-40px;background-color:#22262e;height:50px;line-height:50px;font-size:13px;}
+
 nav ul li img {position:fixed;margin:9px 10px 9px 10px;opacity:.75;transition:.5s;}
-nav ul li a {margin-left:50px;color:#aaa;text-decoration:none;transition:.5s;width:150px;display:inline-block;}
+nav ul li a {margin-left:50px;color:#aaa;text-decoration:none;transition:.5s;display:inline-block;}
 nav ul li:hover a {color:#fff;}
 nav ul li:hover img {opacity:1;}
-nav ul li:hover {border-bottom:1px solid #22262e;background-color:#1b1e24;}
+nav ul li:hover {background-color:#1b1e24;}
+.active {background-color:#1b1e24;}
 nav ul li span {float:right;font-size:11px;border-radius:5px;margin-right:15px;position:relative;top:15px;padding:0 5px 0 5px;background:#2A2E36;color:#8B91A0;height:20px;line-height:20px;}
 header {height:60px;background-color:#fff;z-index:2;position:relative;padding-left:10px;padding-right:5px;}
 header button {cursor:pointer;outline:none;float:left;background-color:transparent;border:none;height:60px;padding:4px 10px 0 10px;margin-top:0;transition:.5s;}
@@ -41,7 +43,13 @@ div.pad h2 {color:#515050;font-size:22px;font-weight:normal;width:50%;float:left
 .modal {position:fixed;bottom:-125px;left:0;right:0;height:125px;z-index:50;padding:10px 40px 10px 40px;box-sizing:Border-box;color:#fff;}
 .modal p {font-size:20px;}
 .modal input[type=file] {background:#fff;padding:5px;}
-.red {background: #F35958;}.modal.red button,  .modal.red input{color:#F35958;}
+
+.edit-header h1 {color:#515050;font-size:22px;}
+.edit-header p {padding-left:10px;color:#515050;}
+
+.red {background:#F35958;}.modal.red button,  .modal.red input{color:#F35958;}
+.red:hover{background:#d3504f;}
+
 .blue {background:#0AA699;}.modal.blue button,  .modal.blue input {color:#0AA699;}
 .lightblue {background:#0090D9;}
 .purple {background:#735F87;}
@@ -49,12 +57,24 @@ div.pad h2 {color:#515050;font-size:22px;font-weight:normal;width:50%;float:left
 .white {background:#fff;}
 .modal button {cursor:pointer;font-size:20px;float:right;margin-right:25px;background:transparent;background:#fff;font-weight:bold;border:3px solid #fff;padding:7.5px 15px 7.5px 15px;}
 .left, .right {width:50%;float:left;box-sizing:border-box;}
-form input[type="submit"] {float:right;background:#0AA699;color:#fff;padding:15px;margin-top:-20px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
+.h2 {color:#515050;font-size:22px;font-weight:normal;}
+.four, .three, .three-two, .two {float:left;box-sizing:border-box;}
+.four {width:25%;}
+.three{width:33.33333333%;}
+.three-two {width:66.6666666%;}
+.two {width:50%;}
+.round {margin:0 auto;margin-top:5px;text-align:center;display:block;transition: all .3s ease-in-out;border-radius:75px;}
+
+form input[type="submit"] {color:#fff;padding:15px;margin-top:5px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
 form input[type="submit"]:hover {background:#099A8C;}
+form input[type="button"] {color:#fff;padding:15px;margin-top:5px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
 form input[type="text"], input[type=password], input[type=email], input[type=date], input[type=number] {box-sizing:border-box;width:100%;height:40px;margin-bottom:8.5px;padding-left:15px;border:1px solid #ccc;}
-form input[type="text"].edit {width:85%;}
-form label {text-align:center;padding-left:15px;background:#ccc;color:#515050;border:1px solid #ccc;height:38px;line-height:38px;width:calc(15% - 17px);float:left;font-size:13px;font-weight:bold;position:relative;}
-form label.min {height:267px;margin-bottom:8.5px;}
-form label.max {height:602px;margin-bottom:8.5px;}
-p.error {margin:60px 0px 0px 0px;background:#c9302c;padding:7.5px;color:#fff;}
-p.succes {margin:60px 0px 0px 0px;background:#2d8633;padding:7.5px;color:#fff;}
+
+p.error {margin:0;background:#c9302c;padding:7.5px;color:#fff;}
+p.success {margin:0;background:#2d8633;padding:7.5px;color:#fff;}
+
+form td label, .basic-label{width:calc(15% - 15px);float:left;height:40px;line-height:40px;background-color:#0AA699;color:#fff;font-weight:bold;padding-left:15px;}
+.basic-label {width:100%;}
+
+form select{padding-left:15px;width:85%;float:right;height:40px;line-height:40px;margin-bottom:8.5px;}
+label select {float:none;height:initial;line-height:initial;margin-bottom:initial;width:initial;padding:4px;margin-bottom:5px;}

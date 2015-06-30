@@ -1,54 +1,47 @@
 @extends('layout/backend')
 @section('content')
+    <div class="edit-header" style="background-color: #f1f1f1;padding:2px;">
+        <p>Backend / <span style="color:#0AA699;">News</span> / @if(isset($entry)) Edit @else Add @endif</p>
+    </div>
+    <div class="edit-header">
+        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/addContent.png')}}"></div><h1 style="float:left;margin-left:10px;">@if(isset($entry)) Edit @else Add @endif news</h1><div style="clear:both;"></div>
+        <hr/>
+    </div>
     <div class="pad">
-        <?php
-        if (isset($entry)){
-        ?>
-            {{--    EDIT  --}}
-            {!! Form::open(array('route' => 'update_news','method' => 'post', 'files' => true)) !!}
-                <p style="float:left;width:75%;margin-bottom:0px;font-style:italic;">You are edditing the following item:</p>
-                <h3 style="float:left;width:90%;margin-top:0px;color:#515050;font-size:22px;weight:normal;">{{ $entry->title }}</h3>
-                {!! Form::submit('Save') !!}
+        @if (Session::has('error'))
+            <p class="error">{{Session::get('error')}}</p>
+        @elseif (Session::has('succes'))
+            <p class="succes">{{Session::get('succes')}}</p>
+        @endif
+        <form method="post" role="post" action="@if(isset($entry)){{route('update_news')}}@else{{route('insert_news')}}@endif">
+            <!-- News title -->
+            <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Title</label></div>
+            <div class="three-two">
+                <input name="title" placeholder="Title" type="text" value="@if(isset($entry)){{$entry['title']}}@endif" REQUIRED />
+            </div>
+            <div style="clear:both;"></div>
+            <!-- News body -->
+            <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Body</label></div>
+            <div class="three-two" style="width:100%;margin-bottom:8.5px;">
+                <textarea name="body">@if(isset($entry)){{$entry['body']}}@endif</textarea>
+            </div>
+            <div style="clear:both;"></div>
 
-                {!! Form::label('title', 'Title') !!}
-                {!! Form::text('title', $entry->title, array('placeholder' => 'Title', 'required' => 'required', 'class' => 'edit')) !!}
+            @if(isset($entry))
+                <input type="hidden" name="id" value="{{$entry->id}}">
+            @endif
+            <input type="hidden" name="author_id" value="{{Auth::user()->id}}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <hr/>
 
-                <div>
-                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('body', $entry->body) !!}</div>
-                    <div>{!! Form::label('desc', 'Body',['class' => 'max']) !!}</div>
+            <div style="background-color: #f1f1f1;padding:2px;height:55px;width:100%;">
+                <div style="margin:0 auto;width:200px;">
+                    <input type="submit" name="Save" value="Save" class="btn blue">
+                    <input type="button" name="Cancel" value="Cancel" class="btn red" onclick="">
                 </div>
-
-                {{--    HIDDEN  --}}
-                {!! Form::hidden('id', $entry->id) !!}
-                {!! Form::hidden('author_id', Auth::user()->id) !!}
-                {!! Form::token() !!}
-            {!! Form::close() !!}
-        <?php
-        }
-        else{?>
-            {{--    ADD  --}}
-            {!! Form::open(array('route' => 'insert_news','method' => 'post', 'files' => true)) !!}
-                <p style="float:left;width:75%;margin-bottom:0px;font-style:italic;">You are adding the following item:</p>
-                <h3 style="float:left;width:90%;margin-top:0px;color:#515050;font-size:22px;weight:normal;">News item</h3>
-
-                {!! Form::submit('Save') !!}
-
-                {!! Form::label('title', 'Title') !!}
-                {!! Form::text('title', '', array('placeholder' => 'Title', 'required' => 'required', 'class' => 'edit')) !!}
-
-                <div>
-                    <div style="float:right;width:85%;margin-bottom:8.5px;">{!! Form::textarea('body', '') !!}</div>
-                    <div>{!! Form::label('desc', 'Body',['class' => 'max']) !!}</div>
-                </div>
-
-                {{--    HIDDEN  --}}
-                {!! Form::hidden('id', '') !!}
-                {!! Form::hidden('author_id', Auth::user()->id) !!}
-                {!! Form::token() !!}
-            {!! Form::close() !!}
-        <?php
-        }
-        ?>
+            </div>
+            <div style="background-color:#ccc;height:5px;"></div>
+        </form>
     </div>
     <script>
         tinymce.init({

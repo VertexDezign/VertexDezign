@@ -51,9 +51,11 @@ use App\News;
     <a href="{{URL('/backend/')}}"><h1><span>Vertex</span>backend</h1></a>
     <button onclick="window.location.href='{{URL('/')}}'"><img src="{{URL('/images/backend/home.png')}}" /></button>
     <div style="clear:both;"></div>
-    <ul style="list-style:none;height:100%;">
+    <ul id="menu" style="list-style:none;height:100%;">
+        <li><img src="{{URL('/images/backend/menu/dashboard.png')}}"/><a class="green" href="{{URL('/backend/')}}" onclick="scroll('#');">Dashboard</a></li>
         <li><img src="{{URL('/images/backend/menu/media.png')}}"/><a class="green" href="{{URL('/backend/media')}}" onclick="scroll('#');">Manage media</a></li>
         <li><img src="{{URL('/images/backend/menu/news.png')}}"/><a class="green" href="{{URL('/backend/news')}}" onclick="scroll('#');">Manage news</a><span>{{News::count()}}</span></li>
+
         <li><img src="{{URL('/images/backend/menu/projects.png')}}"/><a class="green" href="{{URL('/backend/projects')}}" onclick="scroll('#');">Manage projects</a><span>{{Project::count()}}</span></li>
         <li><img src="{{URL('/images/backend/menu/downloads.png')}}"/><a class="green" href="{{URL('/backend/downloads')}}" onclick="scroll('#');">Manage dowloads</a></li>
         <li><img src="{{URL('/images/backend/menu/partners.png')}}"/><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');">Manage partners</a></li>

@@ -1,13 +1,20 @@
 @extends('layout/backend')
 @section('content')
+    <div class="edit-header" style="background-color: #f1f1f1;padding:2px;">
+        <p>Backend / <span style="color:#0AA699;">Downloads</span></p>
+    </div>
+    <div class="edit-header">
+        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/menu/projects.png')}}"></div><h1 style="float:left;margin-left:10px;">Download management</h1>
+        <button onclick="window.location.href='{{ route('add_project') }}'" class="btn blue" style="float:right;position:relative;margin-right:6px;margin-left:5px;margin-top:6px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+        <button onclick="window.location.href='{{ route('add_project') }}'" class="btn blue" style="float:right;position:relative;margin-top:6px;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
+        <div style="clear:both;"></div>
+        <hr/>
+    </div>
     <div class="pad">
-        <h2>Project management</h2>
-        <button onclick="window.location.href='{{ route('add_project') }}'" class="btn blue" style="float:right;position:relative;margin-left:1px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
-        <button onclick="window.location.href='{{ route('add_project') }}'" class="btn blue" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
         @if (Session::has('error'))
             <p class="error">{{Session::get('error')}}</p>
-        @elseif (Session::has('succes'))
-            <p class="succes">{{Session::get('succes')}}</p>
+        @elseif (Session::has('success'))
+            <p class="success">{{Session::get('success')}}</p>
         @endif
         <table class="tbl">
             <thead>

@@ -24,28 +24,56 @@ class BackendProjectsController extends Controller {
 
     public function insert()
     {
-        $entry = Input::all();
+        $entry = array(
+            'name'=>\Input::get('name'),
+            'title'=>\Input::get('title'),
+            'state'=>\Input::get('state'),
+            'category'=>\Input::get('category'),
+            'desc'=>\Input::get('desc'),
+            'info'=>\Input::get('info'),
+            'features'=>\Input::get('features'),
+            'credits'=>\Input::get('credits'),
+            'log'=>\Input::get('log'),
+//            'images'=>\Input::get('images'),
+            'user_id'=>\Input::get('user_id'),
+            // --*
+            '_token'=>\Input::get('_token')
+        );
+        unset($entry['_token']);
 
         if (isset($entry)){
             Project::create($entry);
-            return \Redirect::route('project', array($entry['id']))->with('success', 'Project added successfully!');
+            return \Redirect::route('project')->with('success', 'Project added successfully!');
         }else{
-            return \Redirect::route('add_project', array($entry['id']))->with('error', 'Failed to add, invalid credentials.');
+            return \Redirect::route('add_project')->with('error', 'Failed to add, invalid credentials.');
         }
     }
 
     public function update()
     {
-        $input = Input::all();
-        $id = $input['id'];
-
-        unset($input['_token']);
+        $entry = array(
+            'name'=>\Input::get('name'),
+            'title'=>\Input::get('title'),
+            'state'=>\Input::get('state'),
+            'category'=>\Input::get('category'),
+            'desc'=>\Input::get('desc'),
+            'info'=>\Input::get('info'),
+            'features'=>\Input::get('features'),
+            'credits'=>\Input::get('credits'),
+            'log'=>\Input::get('log'),
+            // 'images'=>\Input::get('images'),
+            'user_id'=>\Input::get('user_id'),
+            // --*
+            '_token'=>\Input::get('_token')
+        );
+        unset($entry['_token']);
+        $id = \Input::get('id');
 
         if (isset($id)){
-            Project::where('id',$id)->update($input);
-            return \Redirect::route('project', array($id))->with('success', Input::get('title').' updated successfully!');
+            Project::where('id',$id)->update($entry);
+            return \Redirect::route('project')->with('success', $entry['name'].' updated successfully!');
         }else{
-            return \Redirect::route('edit_project', array($id))->with('error', 'Failed to update, invalid credentials.');
+            return \Redirect::route('edit_project')->with('error', 'Failed to update, invalid credentials.');
         }
     }
 
