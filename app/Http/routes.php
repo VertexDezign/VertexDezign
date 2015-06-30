@@ -57,5 +57,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('backend/downloads/update', array('as'=>'update_downloads', 'uses'=>'BackendDownloadsController@update'));
     Route::post('backend/downloads/delete/{id}', array('as'=>'delete_downloads', 'uses'=>'BackendDownloadsController@delete'));
     Route::post('backend/downloads/insert', array('as'=>'insert_downloadst', 'uses'=>'BackendDownloadsController@insert'));
+    //Backend Media
+    Route::get('backend/media', array('as'=>'media', 'uses'=>'BackendMediaController@index'));
 });
 
