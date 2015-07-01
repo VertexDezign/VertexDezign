@@ -48,25 +48,27 @@ use App\News;
 </head>
 <body>
 <nav>
-    <a href="{{URL('/backend/')}}"><h1><span>Vertex</span>backend</h1></a>
-    <button onclick="window.location.href='{{URL('/')}}'"><img src="{{URL('/images/backend/home.png')}}" /></button>
-    <div style="clear:both;"></div>
+    <div style="height:60px;background-color:#0AA699;">
+        <a href="{{URL('/backend/')}}"><h1><span>Vertex</span>backend</h1></a>
+    </div>
     <ul id="menu" style="list-style:none;height:100%;">
-        <li><img src="{{URL('/images/backend/menu/dashboard.png')}}"/><a class="green" href="{{URL('/backend/')}}" onclick="scroll('#');">Dashboard</a></li>
-        <li><img src="{{URL('/images/backend/menu/media.png')}}"/><a class="green" href="{{URL('/backend/media')}}" onclick="scroll('#');">Manage media</a></li>
-        <li><img src="{{URL('/images/backend/menu/news.png')}}"/><a class="green" href="{{URL('/backend/news')}}" onclick="scroll('#');">Manage news</a><span>{{News::count()}}</span></li>
-
-        <li><img src="{{URL('/images/backend/menu/projects.png')}}"/><a class="green" href="{{URL('/backend/projects')}}" onclick="scroll('#');">Manage projects</a><span>{{Project::count()}}</span></li>
-        <li><img src="{{URL('/images/backend/menu/downloads.png')}}"/><a class="green" href="{{URL('/backend/downloads')}}" onclick="scroll('#');">Manage dowloads</a></li>
-        <li><img src="{{URL('/images/backend/menu/partners.png')}}"/><a class="green" href="{{URL('/backend/wip')}}" onclick="scroll('#');">Manage slider</a></li>
+        <li><a href="{{URL('/backend/')}}"><img src="{{URL('/images/backend/menu/dashboard.png')}}"/><p>Dashboard</p></a></li>
+        <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>Todo's</p></a></li>
+        <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/news.png')}}"/><p>News</p></a></li>
+        <li><a href="{{URL('/backend/projects')}}"><img src="{{URL('/images/backend/menu/projects.png')}}"/><p>Projects</p></a></li>
+        <li><a href="{{URL('/backend/downloads')}}"><img src="{{URL('/images/backend/menu/downloads.png')}}"/><p>Downloads</p></a></li>
+        <li><a href="{{URL('/backend/media')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Media</p></a></li>
+        <li><a href="{{URL('/backend/slider')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Slider</p></a></li>
     </ul>
 </nav>
 <div class="container">
     <header>
         <button onclick="toggleSideMenu()"><img src="{{URL('/images/backend/menu-alt.png')}}" /></button>
+        <button onclick="window.location.href='{{URL('/')}}'"><img src="{{URL('/images/backend/home.png')}}" /></button>
         <img src="{{URL('/images/backend/search.png')}}" class="search-icon"/>
         <input type="search" placeholder="Search in admin panel" />
         <button style="float:right;margin-right:5px;" class="rotate" onclick="toggleMenu('settings-menu');"><img src="{{URL('/images/backend/settings.png')}}" /></button>
+        <button style="float:right;margin-right:5px;"><img src="{{URL('/images/backend/bell.png')}}" /></button>
         <ul class="dropdown" id="settings-menu">
             <li><a>My Account</a></li>
             <li><a>Settings</a></li>
@@ -74,7 +76,7 @@ use App\News;
         </ul>
 
         <?php
-        echo '<a style="float:right;margin-top:20px;margin-right:5px;">'.Auth::user()->firstname . ' <strong>' . Auth::user()->lastname.'</strong></a>';
+        echo '<a style="float:right;margin-top:20px;margin-right:5px;">'.Auth::user()->firstname . ' <strong>' . Auth::user()->surname.'</strong></a>';
         ?>
 
     </header>

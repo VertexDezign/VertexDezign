@@ -21,13 +21,13 @@
             <div class="three">
                 <div class="panel-body" style="!important;text-align:left;">
                     <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">Credits</h4>
-                    {!! $entry->info !!}
+                    {!! $entry->credits !!}
                 </div>
             </div>
             <div class="three">
                 <div class="panel-body" style="!important;text-align:left;">
                     <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">Features</h4>
-                    {!! $entry->info !!}
+                    {!! $entry->features !!}
                 </div>
             </div>
             <div style="clear:both;"></div>
