@@ -7,19 +7,36 @@ use Illuminate\Validation\Validator;
 use Illuminate\Http\Request;
 class BackendNewsController extends Controller {
 
+    public function __CONSTRUCT(){
+        if( \Auth::user()->permission->name != 'admin'){
+            exit;
+        }
+    }
+
     public function index()
     {
-        return \View::make('backend.news.index')->with('entry', News::all());
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name,
+            'entry' => News::where('trash', '=', '0')->get()
+        );
+        return \View::make('backend.news.index', $viewBag);
     }
 
     public function show($id)
     {
-        return \View::make('backend.news.show')->with('entry', News::findOrFail($id));
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name,
+            'entry' => News::find($id)
+        );
+        return \View::make('backend.news.show', $viewBag);
     }
 
     public function add()
     {
-        return \View::make('backend.news.show');
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name
+        );
+        return \View::make('backend.news.show', $viewBag);
     }
 
     public function insert()
@@ -58,10 +75,10 @@ class BackendNewsController extends Controller {
 
     public function delete($id)
     {
-        $entry = News::findOrFail($id);
+        $entry = News::find($id);
 
         if (isset($entry)){
-            $entry->delete();
+            News::where('id',$id)->update(array('trash' => 1));
             return \Redirect::route('news', array($id))->with('succes', $entry->title.' deleted succesfully!');
         }else{
             return \Redirect::route('news', array($id))->with('error', 'Failed to delete, invalid credentials.');

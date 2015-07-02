@@ -7,19 +7,36 @@ use Illuminate\Validation\Validator;
 use Illuminate\Http\Request;
 class BackendProjectsController extends Controller {
 
+    public function __CONSTRUCT(){
+        if( \Auth::user()->permission->name != 'admin'){
+            exit;
+        }
+    }
+
     public function index()
     {
-        return \View::make('backend.projects.index')->with('entry', Project::all());
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name,
+            'entry' => Project::where('trash', '=', '0')->get()
+        );
+        return \View::make('backend.projects.index', $viewBag);
     }
 
     public function show($id)
     {
-        return \View::make('backend.projects.show')->with('entry', Project::findOrFail($id));
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name,
+            'entry' => Project::find($id)
+        );
+        return \View::make('backend.projects.show', $viewBag);
     }
 
     public function add()
     {
-        return \View::make('backend.projects.show');
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name
+        );
+        return \View::make('backend.projects.show', $viewBag);
     }
 
     public function insert()
@@ -79,10 +96,10 @@ class BackendProjectsController extends Controller {
 
     public function delete($id)
     {
-        $entry = Project::findOrFail($id);
+        $entry = Project::find($id);
 
         if (isset($entry)){
-            $entry->delete();
+            Project::where('id',$id)->update(array('trash' => 1));
             return \Redirect::route('project', array($id))->with('success', $entry->title.' deleted successfully!');
         }else{
             return \Redirect::route('project', array($id))->with('error', 'Failed to delete, invalid credentials.');

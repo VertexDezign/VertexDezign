@@ -55,15 +55,23 @@ use App\News;
         <li><a href="{{URL('/backend/')}}"><img src="{{URL('/images/backend/menu/dashboard.png')}}"/><p>Dashboard</p></a></li>
         <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>WIP</p></a></li>
         <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>Todo's</p></a></li>
-
+        @if($permission == 'admin')
         <li>
             <a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/news.png')}}"/><p>News</p></a>
-
         </li>
-        <li><a href="{{URL('/backend/projects')}}"><img src="{{URL('/images/backend/menu/projects.png')}}"/><p>Projects</p></a></li>
-        <li><a href="{{URL('/backend/downloads')}}"><img src="{{URL('/images/backend/menu/downloads.png')}}"/><p>Downloads</p></a></li>
-        <li><a href="{{URL('/backend/media')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Media</p></a></li>
-        <li><a href="{{URL('/backend/slider')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Slider</p></a></li>
+        <li>
+            <a href="{{URL('/backend/projects')}}"><img src="{{URL('/images/backend/menu/projects.png')}}"/><p>Projects</p></a>
+        </li>
+        <li>
+            <a href="{{URL('/backend/downloads')}}"><img src="{{URL('/images/backend/menu/downloads.png')}}"/><p>Downloads</p></a>
+        </li>
+        <li>
+            <a href="{{URL('/backend/media')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Media</p></a>
+        </li>
+        <li>
+            <a href="{{URL('/backend/slider')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Slider</p></a>
+        </li>
+        @endif
     </ul>
 </nav>
 <div class="container">

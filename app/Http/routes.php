@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('backend', "BackendController@index");
     //Backend News
     Route::get('backend/news', array('as'=>'news', 'uses'=>'BackendNewsController@index'));
-    Route::get('backend/news/show/{id}', array('as'=>'edit_news', 'uses'=>'BackendNewsController@show'));
+    Route::get('backend/news/edit/{id}', array('as'=>'edit_news', 'uses'=>'BackendNewsController@show'));
     Route::get('backend/news/add', array('as'=>'add_news', 'uses'=>'BackendNewsController@add'));
     Route::post('backend/news/update', array('as'=>'update_news', 'uses'=>'BackendNewsController@update'));
     Route::post('backend/news/delete/{id}', array('as'=>'delete_news', 'uses'=>'BackendNewsController@delete'));
@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('backend/projects/insert', array('as'=>'insert_project', 'uses'=>'BackendProjectsController@insert'));
     //Backend Downloads
     Route::get('backend/downloads', array('as'=>'downloads', 'uses'=>'BackendDownloadsController@index'));
-    Route::get('backend/downloads/show/{id}', array('as'=>'edit_downloadst', 'uses'=>'BackendDownloadsController@show'));
+    Route::get('backend/downloads/edit/{id}', array('as'=>'edit_downloadst', 'uses'=>'BackendDownloadsController@show'));
     Route::get('backend/downloads/add', array('as'=>'add_downloads', 'uses'=>'BackendDownloadsController@add'));
     Route::post('backend/downloads/update', array('as'=>'update_downloads', 'uses'=>'BackendDownloadsController@update'));
     Route::post('backend/downloads/delete/{id}', array('as'=>'delete_downloads', 'uses'=>'BackendDownloadsController@delete'));

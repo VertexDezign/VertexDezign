@@ -24,14 +24,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-    public function permission() {
-        $this->hasOne('permission');
-    }
+
     public function hasPermission($permission) {
         if ($this->permission()->name == $permission) {
             return true;
         }
         return false;
+    }
+    public function permission()
+    {
+        return $this->hasOne('App\Permission', 'id', 'permission_id');
     }
 
     public function news()

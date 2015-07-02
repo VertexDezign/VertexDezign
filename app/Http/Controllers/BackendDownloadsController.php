@@ -7,19 +7,36 @@ use Illuminate\Validation\Validator;
 use Illuminate\Http\Request;
 class BackendDownloadsController extends Controller {
 
+    public function __CONSTRUCT(){
+        if( \Auth::user()->permission->name != 'admin'){
+            exit;
+        }
+    }
+
     public function index()
     {
-        return \View::make('backend.downloads.index')->with('entry', Downloads::all());
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name,
+            'entry' => Downloads::where('trash', '=', '0')->get()
+        );
+        return \View::make('backend.downloads.index', $viewBag);
     }
 
     public function show($id)
     {
-        return \View::make('backend.downloads.show')->with('entry', Downloads::findOrFail($id));
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name,
+            'entry' => Downloads::find($id)
+        );
+        return \View::make('backend.downloads.show', $viewBag);
     }
 
     public function add()
     {
-        return \View::make('backend.downloads.show');
+        $viewBag = array(
+            'permission' => \Auth::user()->permission->name
+        );
+        return \View::make('backend.downloads.show', $viewBag);
     }
 
     public function insert()
@@ -58,10 +75,10 @@ class BackendDownloadsController extends Controller {
 
     public function delete($id)
     {
-        $entry = Downloads::findOrFail($id);
+        $entry = Downloads::find($id);
 
         if (isset($entry)){
-            $entry->delete();
+            Downloads::where('id',$id)->update(array('trash' => 1));
             return \Redirect::route('downloads', array($id))->with('succes', $entry->title.' deleted succesfully!');
         }else{
             return \Redirect::route('downloads', array($id))->with('error', 'Failed to delete, invalid credentials.');
