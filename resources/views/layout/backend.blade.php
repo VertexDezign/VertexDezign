@@ -15,6 +15,12 @@ use App\News;
         function closeModal(id){
             $( "#" + id ).animate({bottom: '-125px'});
         }
+
+        $(window).load(function () {
+            $( "#message").animate({bottom: '0'},{duration:1000});
+            $( "#message" ).delay(2000).animate({bottom: '-125px'},{duration:1000});
+        });
+
         var toggleMenuTimer = false;
         function toggleMenu(id){
             element = $( "#" + id );

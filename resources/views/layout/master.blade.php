@@ -3,6 +3,8 @@
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="//unslider.com/unslider.min.js"></script>
+        <title>Home - VertexDezign</title>
+        <link rel="shortcut icon" href="{{{URL('/images/layout/fb.png')}}}">
         <link href="{{ asset('/css/index.css') }}" rel="stylesheet">        
     </head>
     <script>

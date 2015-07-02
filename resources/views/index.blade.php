@@ -3,33 +3,21 @@
 @section('content')
 <div class="banner has-dots" style="overflow:hidden;height:576px;">
     <ul style="width: 200%;position:relative;overflow:hidden;left:0%;height:400px;">
-        <li style="width: 50%; background:url(http://vertexdezign.net/images/ggg.jpg) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
-            <div class="container">
-                <div class="row">
-                    <div class="two" style="margin-left:25%;">
-                        <div class="content">
-                            <h2>JCB 320T</h2>
-                            <p>VertexDezign is currently working on a new project!</p>
+        @foreach($sliderEntry as $slide)
+            <li style="width: 50%; background:url({{URL('images', $slide->image)}}) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
+                <div class="container">
+                    <div class="row">
+                        <div class="two" style="margin-left:25%;">
+                            <div class="content">
+                                <h2>{{$slide->title}}</h2>
+                                <p>{!!$slide->desc!!}</p>
+                            </div>
+                            <a href="{{{URL('/', $slide->link)}}}" class="button">Check out!</a>
                         </div>
-                        <a href="#" class="button">Check out!</a>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li style="width: 50%; background:url(http://ls-bilder.de/uploads/SZDGNPnqkk.jpg) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
-            <div class="container">
-                <div class="row">
-                    <div class="two" style="margin-left:25%;">
-                        <div class="content">
-                            <h2>Niggels spoiled!</h2>
-                            <p>View these screenshots from Niggels.</p>
-                        </div>
-
-                        <a href="#" class="button">Check out!</a>
-                    </div>
-                </div>
-            </div>
-        </li>
+            </li>
+        @endforeach
     </ul>
 </div>
 <div class="container">
