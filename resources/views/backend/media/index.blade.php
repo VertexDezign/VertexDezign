@@ -13,19 +13,92 @@
         @elseif (Session::has('success'))
             <p class="success">{{Session::get('success')}}</p>
         @endif
+        <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
         <!--TODO Add something like windows Editor for file view-->
         <div style="padding:10px;background-color:#fff;">
             <div style="width:50%;float:left;">
                 <h4 style="font-size:14px;float:left;margin:0;padding:20px;font-weight:600;color:#515050;">Manage rows</h4>
             </div>
             <div style="width:50%;float:right;">
-                <button onclick="window.location.href=''" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
-                <button onclick="window.location.href=''" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
+                <button onclick="addFolder()" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+                <button onclick="doRefresh()" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
+            <input type="text" id="path" value="">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Change Date</th>
+                    <th>Size</th>
+                </thead>
+                <tbody id="tableBody">
 
+                </tbody>
+            </table>
             <!--TABLE-->
         </div>
     </div>
+
+<script type="text/javascript">
+    var tbody = $('#tableBody');
+    var path_prefix = 'media';
+    var path = path_prefix;
+
+    $(document).ready(function() {
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('#_token').val()
+                }
+            });
+        });
+
+        doRefresh();
+    });
+
+    function doRefresh() {
+        path = path_prefix + '/' + $('#path').val();
+        $.get('media/getfolder', {folder: path} ,function(data, textstatus, xhr) {
+            if (textstatus == 'success') {
+                tbody.empty();
+                $.each(data, function(i, e) {
+                    var tr = $('<tr>');
+                    var text;
+                    if (e[1]) {
+                        text = '<img src="../images/backend/folder.png">' + e[0];
+                    } else {
+                        text = '<img src="../images/backend/file.png">' + e[0];
+                    }
+                    tr.append($('<td>' + text + '</td>'));
+                    tr.append($('<td>' + e[2] + '</td>'));
+                    tr.append($('<td>' + e[3] + '</td>'));
+                    tbody.append(tr);
+                });
+            }
+        });
+    }
+
+    function addFolder() {
+        var folderName = prompt("Please enter the Folder Name", "");
+        if (endsWith(path, '/')) {
+            folderName = path + folderName;
+        } else {
+            folderName = path + '/' + folderName;
+        }
+        $.post('media/addfolder', { name: folderName} ,function(data, textstatus, xhr) {
+            if (textstatus == 'success') {
+                if (data) {
+                    doRefresh();
+                } else {
+                    alert("Something went wrong");
+                }
+            }
+        });
+    }
+
+    function endsWith(str, suffix) {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+</script>
 @endsection
