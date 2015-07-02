@@ -42,8 +42,8 @@
 
 <script type="text/javascript">
     var tbody = $('#tableBody');
-    var path_prefix = 'media';
-    var path = path_prefix;
+    var path_prefix = 'media/';
+    var path = '';
 
     $(document).ready(function() {
         $(function() {
@@ -58,14 +58,21 @@
     });
 
     function doRefresh() {
-        path = path_prefix + '/' + $('#path').val();
-        $.get('media/getfolder', {folder: path} ,function(data, textstatus, xhr) {
+        var pathInput = $('#path');
+        path = pathInput.val();
+        $.get('media/getfolder', {folder: path_prefix + path} ,function(data, textstatus, xhr) {
             if (textstatus == 'success') {
                 tbody.empty();
                 $.each(data, function(i, e) {
                     var tr = $('<tr>');
                     var text;
                     if (e[1]) {
+                        tr.attr('name', e[0]);
+                        tr.dblclick(function(e){
+                            path += $(this).attr('name');
+                            $('#path').val(path);
+                            doRefresh();
+                        });
                         text = '<img src="../images/backend/folder.png">' + e[0];
                     } else {
                         text = '<img src="../images/backend/file.png">' + e[0];
