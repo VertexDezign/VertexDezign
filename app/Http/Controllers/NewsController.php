@@ -9,7 +9,7 @@ class NewsController extends Controller {
 
     public function index()
     {
-        return \View::make('index')->with('entry', News::all());
+        return \View::make('index')->with('entry', News::where('trash', '=', '0')->get());
     }
 
     public function show($id)

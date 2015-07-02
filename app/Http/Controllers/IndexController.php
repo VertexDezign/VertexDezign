@@ -11,6 +11,9 @@ class IndexController extends Controller {
 
 	public function index()
 	{
-        return \View::make('index')->with('newsEntry', News::all())->with('projectsEntry', Project::all());
+        $viewBag = array(
+            'newsEntry' => News::where('trash', '=', '0')->get()
+        );
+        return \View::make('index', $viewBag);
 	}
 }

@@ -50,7 +50,7 @@ class BackendNewsController extends Controller {
 
         if (isset($entry)){
             News::create($entry);
-            return \Redirect::route('news', array($entry['id']))->with('succes', 'News added succesfully!');
+            return \Redirect::route('news')->with('success', $entry['title'].' added succesfully!');
         }else{
             return \Redirect::route('add_news', array($entry['id']))->with('error', 'Failed to add, invalid credentials.');
         }
@@ -67,7 +67,7 @@ class BackendNewsController extends Controller {
                 'body'=>Input::get('body'),
                 'author_id'=>Input::get('author_id')
             ));
-            return \Redirect::route('news', array($id))->with('succes', Input::get('title').' updated succesfully!');
+            return \Redirect::route('news')->with('success', Input::get('title').' updated succesfully!');
         }else{
             return \Redirect::route('edit_news', array($id))->with('error', 'Failed to update, invalid credentials.');
         }
@@ -79,9 +79,9 @@ class BackendNewsController extends Controller {
 
         if (isset($entry)){
             News::where('id',$id)->update(array('trash' => 1));
-            return \Redirect::route('news', array($id))->with('succes', $entry->title.' deleted succesfully!');
+            return \Redirect::route('news')->with('success', $entry->title.' deleted succesfully!');
         }else{
-            return \Redirect::route('news', array($id))->with('error', 'Failed to delete, invalid credentials.');
+            return \Redirect::route('news')->with('error', 'Failed to delete, invalid credentials.');
         }
     }
 }
