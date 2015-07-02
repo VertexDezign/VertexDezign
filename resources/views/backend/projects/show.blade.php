@@ -1,11 +1,11 @@
 @extends('layout/backend')
 @section('content')
-    <div class="edit-header" style="background-color: #f1f1f1;padding:2px;">
+    <div class="edit-header" style="background-color:#f1f4f9;padding:2px;border-bottom:1px solid #dee2e8;">
         <p>Backend / <span style="color:#0AA699;">Projects</span> / @if(isset($entry)) Edit @else Add @endif</p>
     </div>
-    <div class="edit-header">
-        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/addContent.png')}}"></div><h1 style="float:left;margin-left:10px;">@if(isset($entry)) Edit @else Add @endif project</h1><div style="clear:both;"></div>
-        <hr/>
+    <div class="edit-header" style="background-color:#e9edf2;border-bottom:1px solid #dee2e8;">
+        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/addContent.png')}}"></div><h1 style="float:left;margin-left:10px;">@if(isset($entry)) Edit @else Add @endif project</h1>
+        <div style="clear:both;"></div>
     </div>
     <div class="pad">
         @if (Session::has('error'))

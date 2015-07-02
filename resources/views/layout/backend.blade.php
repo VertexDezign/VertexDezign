@@ -35,11 +35,11 @@ use App\News;
         function toggleSideMenu(){
             element = $('nav');
             container = $('.container');
-            if(element.css('marginLeft')=='-250px'){
+            if(element.css('marginLeft')=='-200px'){
                 element.animate({marginLeft: '0'});
-                container.animate({'left': '250px'});
+                container.animate({'left': '200px'});
             }else{
-                element.animate({marginLeft: '-250px'});
+                element.animate({marginLeft: '-200px'});
                 container.animate({'left': '0'});
             }
             console.log('finished');
@@ -53,8 +53,13 @@ use App\News;
     </div>
     <ul id="menu" style="list-style:none;height:100%;">
         <li><a href="{{URL('/backend/')}}"><img src="{{URL('/images/backend/menu/dashboard.png')}}"/><p>Dashboard</p></a></li>
+        <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>WIP</p></a></li>
         <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>Todo's</p></a></li>
-        <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/news.png')}}"/><p>News</p></a></li>
+
+        <li>
+            <a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/news.png')}}"/><p>News</p></a>
+
+        </li>
         <li><a href="{{URL('/backend/projects')}}"><img src="{{URL('/images/backend/menu/projects.png')}}"/><p>Projects</p></a></li>
         <li><a href="{{URL('/backend/downloads')}}"><img src="{{URL('/images/backend/menu/downloads.png')}}"/><p>Downloads</p></a></li>
         <li><a href="{{URL('/backend/media')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Media</p></a></li>

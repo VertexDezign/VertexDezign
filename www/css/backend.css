@@ -1,4 +1,4 @@
-body {margin: 0 auto;font-family:verdana;position:absolute;top:0;left:0;right:0;bottom:0;background-color:#e5e9ec;font-size:12px;}
+body {margin: 0 auto;font-family:verdana;position:absolute;top:0;left:0;right:0;bottom:0;background-color:#f1f4f9;font-size:12px;}
 nav {position:fixed;left:0;top:0;bottom:0;width:200px;background-color:#22262e;color:#fff;}
 nav a {color:#fff;}
 nav a h1 {font-size:20px;height:60px;line-height:60px;padding:0;padding-left:20px;margin:0;width:calc(100% - 70px);float:left;}
@@ -29,8 +29,8 @@ header .dropdown li:hover {background:#EFF2F3;}
 header .dropdown:before {content:'';width:10px;border-left:1px solid #ddd;border-top:1px solid #ddd;height:10px;position:absolute;margin-top:-11px;margin-left:135px;z-index:100;background:#fff;display:block;-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);transform: rotate(45deg);}
 header .dropdown a {text-decoration:none;:none;color:#2A2E36;display:block;width:100%;padding:10px 15px 10px 15px;box-sizing:border-box;}
 button.btn {padding:10px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
-button.btn img {margin-top:-5px;margin-left:-0px;position:relative;top:2px;}
-button.btn.blue {background:#22262e;color:#fff;} button.btn.blue:hover {background:#1b1e24;}
+button.btn img {margin-top:-2px;margin-left:-0px;position:relative;top:2px;}
+button.btn.blue {padding:10px;margin:5px;color:#fff;} button.btn.blue:hover {background:#1b1e24;}
 button.btn.red {background:#F35958;color:#fff;} button.btn.red:hover {background:#F14D4D;}
 button.btn.border {background:Transparent;border:3px solid #aaa;border-radius:15px;color:#515050;font-weight:bold;}
 button.btn.small {padding:5px;}
