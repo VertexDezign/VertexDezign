@@ -25,6 +25,15 @@ class CreateNewsTable extends Migration {
             $table->integer('trash')->default(0);
             $table->timestamps();
 		});
+        DB::table('news')->insert(
+            array(
+                'id' => '1',
+                'title' => 'DTS Released',
+                'body' => 'Get it now!',
+                'imgsrc' => '',
+                'author_id' => '1',
+            )
+        );
 	}
 
 	/**

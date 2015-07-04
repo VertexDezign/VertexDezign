@@ -1,14 +1,25 @@
 @extends('layout/master')
 
 @section('content')
-    <header style="height:50px;"></header>
-    <div class='container content'>
-        <h2>VertexDezign</h2>
-        <hr style="color:#ccc;"/>
+    <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
+        <div class="container">
+            <div class="two">
+                <h1 style="line-height:70px;font-size:23px;font-weight:100;">About us</h1>
+            </div>
+            <div class="two">
+                <div class="page-route">
+                    <span>You are here: </span><a href="{{URL('/')}}">Home</a> \ About
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+        <div class='container content'>
         <div>
             <div>
                 <div class="" style="!important;text-align:left;">
-                    <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">About us</h4>
+                    <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">VertexDezign</h4>
                     <div style="margin:5px;">
                        <p>
                            Welcom to VertexDezign. Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.

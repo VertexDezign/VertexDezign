@@ -23,6 +23,15 @@ class CreateSliderTable extends Migration {
             $table->integer('trash')->default(0);
 			$table->timestamps();
 		});
+        DB::table('slider')->insert(
+            array(
+                'id' => '1',
+                'title' => 'JCB320T',
+                'desc' => 'We are working on a new project!',
+                'link' => 'projects',
+                'image' => 'slide.jpg',
+            )
+        );
 	}
 
 	/**
