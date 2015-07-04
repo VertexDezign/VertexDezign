@@ -26,6 +26,8 @@ Route::get('projects/{id}', array('as'=>'show_projects', 'uses'=>'ProjectsContro
 //Public Downloads
 Route::get('downloads', "DownloadsController@index");
 Route::get('downloads/{id}', array('as'=>'show_downloads', 'uses'=>'DownloadsController@show'));
+//Public Downloads
+Route::get('about', "IndexController@indexAbout");
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -52,11 +54,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('backend/projects/insert', array('as'=>'insert_project', 'uses'=>'BackendProjectsController@insert'));
     //Backend Downloads
     Route::get('backend/downloads', array('as'=>'downloads', 'uses'=>'BackendDownloadsController@index'));
-    Route::get('backend/downloads/edit/{id}', array('as'=>'edit_downloadst', 'uses'=>'BackendDownloadsController@show'));
-    Route::get('backend/downloads/add', array('as'=>'add_downloads', 'uses'=>'BackendDownloadsController@add'));
-    Route::post('backend/downloads/update', array('as'=>'update_downloads', 'uses'=>'BackendDownloadsController@update'));
-    Route::post('backend/downloads/delete/{id}', array('as'=>'delete_downloads', 'uses'=>'BackendDownloadsController@delete'));
-    Route::post('backend/downloads/insert', array('as'=>'insert_downloadst', 'uses'=>'BackendDownloadsController@insert'));
+    Route::get('backend/downloads/edit/{id}', array('as'=>'edit_download', 'uses'=>'BackendDownloadsController@show'));
+    Route::get('backend/downloads/add', array('as'=>'add_download', 'uses'=>'BackendDownloadsController@add'));
+    Route::post('backend/downloads/update', array('as'=>'update_download', 'uses'=>'BackendDownloadsController@update'));
+    Route::post('backend/downloads/delete/{id}', array('as'=>'delete_download', 'uses'=>'BackendDownloadsController@delete'));
+    Route::post('backend/downloads/insert', array('as'=>'insert_download', 'uses'=>'BackendDownloadsController@insert'));
     //Backend Media
     Route::get('backend/media', array('as'=>'media', 'uses'=>'BackendMediaController@index'));
     Route::get('backend/media/getfolder', array('as'=>'get_folder', 'uses'=>'BackendMediaController@getFolderContent'));

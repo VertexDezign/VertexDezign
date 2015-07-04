@@ -18,8 +18,8 @@
                 <h4 style="font-size:14px;float:left;margin:0;padding:20px;font-weight:600;color:#515050;">Manage rows</h4>
             </div>
             <div style="width:50%;float:right;">
-                <button onclick="window.location.href='{{ route('add_news') }}'" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
-                <button onclick="window.location.href='{{ route('add_news') }}'" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
+                <button onclick="window.location.href='{{ route('add_download') }}'" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+                <button onclick="window.location.href='{{ route('downloads') }}'" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
@@ -46,13 +46,13 @@
                         <td>{{$project->updated_at}}</td>
                         <td>{{$project->created_at}}</td>
                         <td>
-                            <a href="{{ URL::route('edit_project', $project->id) }}"><button class="btn blue"><img src="{{URL('/images/backend/edit.png')}}" class="edit-icon"/></button></a>
+                            <a href="{{ URL::route('edit_download', $project->id) }}"><button class="btn blue"><img src="{{URL('/images/backend/edit.png')}}" class="edit-icon"/></button></a>
                             <button class="btn red" style="font-weight:bold;" onclick="openModal('delete{{$project->id}}')">X</button>
                         </td>
                     </tr>
 
                     <div class="modal red" id="delete{{$project->id}}">
-                        <form action="{!! URL::route('delete_project', $project->id) !!}" method="post">
+                        <form action="{!! URL::route('delete_download', $project->id) !!}" method="post">
                             <input name="file" value="{{$project->title}}" style="display:none;" />
                             <div class="left">
                                 <p>Are you sure to delete this item?</p>

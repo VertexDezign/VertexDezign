@@ -1,15 +1,26 @@
 @extends('layout/master')
 
 @section('content')
-    <header style="height:50px;"></header>
-    <div class='container content'>
-        <h2>{{$entry->title}}</h2>
-        <hr style="color:#ccc;"/>
-        <div style="margin:5px;">
-            <p style="float:left;color:#aaa;">Created at {{ date("d M Y",strtotime($entry->created_at)) }}</p>
-            <p style="float:right;color:#aaa;">Category: {{$entry->category}}</p>
+    <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
+        <div class="container">
+            <div class="two">
+                <h1 style="line-height:70px;font-size:23px;font-weight:100;">{{$entry->title}}</h1>
+            </div>
+            <div class="two">
+                <div class="page-route">
+                    <span>Category: </span>{{$entry->category}}
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
             <div style="clear:both;"></div>
-            <p>{!!$entry->desc!!}</p>
+        </div>
+    </div>
+    <div class='container content'>
+        <div class="" style="!important;text-align:left;">
+            <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">Description</h4>
+            <div style="margin:10px;">
+                {!!$entry->desc!!}
+            </div>
         </div>
         <div>
             <div class="three">
@@ -45,6 +56,7 @@
                     </div>
                 </div>
             </div>
+            @if($entry->log != '')
             <div>
                 <div class="" style="!important;text-align:left;">
                     <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">Change log</h4>
@@ -53,6 +65,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection
