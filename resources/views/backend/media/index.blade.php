@@ -52,7 +52,7 @@
             <!--TABLE-->
         </div>
     </div>
-    <input type="file" multiple id="fileInput">
+    <input type="file" multiple id="fileInput" style="display: none">
 <script type="text/javascript">
     var tbody = $('#tableBody');
     var path_prefix = 'media/';

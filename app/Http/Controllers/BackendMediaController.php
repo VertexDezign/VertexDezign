@@ -28,7 +28,6 @@ class BackendMediaController extends Controller {
     public function getFolderContent()
     {
         $folder = Input::get('folder');
-        //TODO Advanced, add CreateDate and/or modified Date
         $dirs = scandir($folder);
         unset($dirs[0]);
         unset($dirs[1]);
