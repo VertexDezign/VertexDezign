@@ -47,9 +47,19 @@ class BackendMediaController extends Controller {
         return response()->json(mkdir($folder));
     }
 
-    public function addFile($file)
+    public function addFile()
     {
-        //TODO
+        $path = Input::get('path');
+        $files = Input::file('files');
+        //$files = $files['files'];
+
+        foreach($files as $f) {
+            if ($f->isValid()) {
+                $f->move($path, $f->getClientOriginalName());
+            }
+        }
+
+        return print_r($files, true);
     }
 
 

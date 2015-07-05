@@ -1,5 +1,16 @@
 @extends('layout/backend')
 @section('content')
+<style>
+    .custom-menu {
+        z-index:1000;
+        position: absolute;
+        background-color:#C0C0C0;
+        border: 1px solid black;
+        padding: 2px;
+    }
+
+</style>
+
     <div class="edit-header" style="background-color:#f1f4f9;padding:2px;border-bottom:1px solid #dee2e8;">
         <p>Backend / <span style="color:#0AA699;">Media</span></p>
     </div>
@@ -20,17 +31,19 @@
                 <h4 style="font-size:14px;float:left;margin:0;padding:20px;font-weight:600;color:#515050;">Manage rows</h4>
             </div>
             <div style="width:50%;float:right;">
-                <button onclick="addFolder()" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+                <button onclick="addFile()" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+                <button onclick="addFolder()" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/addFolder.png')}}"></button>
                 <button onclick="doRefresh()" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
-            <input type="text" id="path" value="">
+            <input type="text" id="path" value="" readonly> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
             <table>
                 <thead>
                     <th>Name</th>
                     <th>Change Date</th>
                     <th>Size</th>
+                    <th></th>
                 </thead>
                 <tbody id="tableBody">
 
@@ -39,7 +52,7 @@
             <!--TABLE-->
         </div>
     </div>
-
+    <input type="file" multiple id="fileInput">
 <script type="text/javascript">
     var tbody = $('#tableBody');
     var path_prefix = 'media/';
@@ -66,10 +79,13 @@
                 $.each(data, function(i, e) {
                     var tr = $('<tr>');
                     var text;
+                    tr.css('user-select', 'none');
+                    tr.css('cursor', 'pointer');
                     if (e[1]) {
                         tr.attr('name', e[0]);
                         tr.dblclick(function(e){
-                            path += $(this).attr('name');
+                            cutLastSlash();
+                            path += '/' + $(this).attr('name');
                             $('#path').val(path);
                             doRefresh();
                         });
@@ -80,32 +96,106 @@
                     tr.append($('<td>' + text + '</td>'));
                     tr.append($('<td>' + e[2] + '</td>'));
                     tr.append($('<td>' + e[3] + '</td>'));
+                    tr.append();
                     tbody.append(tr);
                 });
             }
         });
+
+        if(path == "") {
+            $('#dirUp').hide();
+        } else {
+            $('#dirUp').show();
+        }
     }
 
     function addFolder() {
         var folderName = prompt("Please enter the Folder Name", "");
-        if (endsWith(path, '/')) {
-            folderName = path + folderName;
-        } else {
-            folderName = path + '/' + folderName;
-        }
-        $.post('media/addfolder', { name: folderName} ,function(data, textstatus, xhr) {
-            if (textstatus == 'success') {
-                if (data) {
-                    doRefresh();
-                } else {
-                    alert("Something went wrong");
-                }
+        if (folderName != "") {
+            if (endsWith(path, '/')) {
+                folderName = path_prefix + path + folderName;
+            } else {
+                folderName = path_prefix + path + '/' + folderName;
             }
-        });
+            $.post('media/addfolder', {name: folderName}, function (data, textstatus, xhr) {
+                if (textstatus == 'success') {
+                    if (data) {
+                        doRefresh();
+                    } else {
+                        alert("Something went wrong");
+                    }
+                }
+            });
+        }
+    }
+
+    function cutLastSlash() {
+        if (endsWith(path, '/')) {
+            path = path.substring(0, path.length);
+        }
+    }
+
+    function goUp() {
+        cutLastSlash();
+        if (path.contains("/")) {
+            path = path.substring(0, path.lastIndexOf("/"));
+        } else {
+            path = "";
+        }
+        $('#path').val(path);
+        doRefresh();
     }
 
     function endsWith(str, suffix) {
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
+
+    function addFile() {
+        $('#fileInput').click().on('change', function(e) {
+            var serverpath = path_prefix + path;
+
+            var formData = new FormData();
+            var xhr = new XMLHttpRequest();
+            var token = $('#_token').val();
+            var files = $("#fileInput")[0].files;
+
+            formData.append('path', path_prefix + path);
+            $.each(files, function(i, f) {
+                formData.append('files[]', f);
+            });
+
+            xhr.upload.addEventListener("progress", function(e){
+                var percent = (e.loaded / e.total)*100;
+                //TODO add Progressbar
+            }, false);
+
+            xhr.open('POST', 'media/addfile', true);
+            xhr.setRequestHeader("X-CSRF-Token", token);
+            //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+
+                if (xhr.readyState==4){
+
+                    var response = xhr.responseText;
+                    try {
+                        response = $.parseJSON(response);
+                    } catch(e) {
+                        response = false;
+                    }
+                    doRefresh();
+                }
+            };
+            xhr.send(formData);
+
+            resetFormElement($("#fileInput"));
+        });
+
+    }
+
+    function resetFormElement(e) {
+        e.wrap('<form>').closest('form').get(0).reset();
+        e.unwrap();
+    }
+
 </script>
 @endsection
