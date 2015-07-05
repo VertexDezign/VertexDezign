@@ -33,10 +33,22 @@ class BackendMediaController extends Controller {
         unset($dirs[1]);
 
         $result = array();
+        $i = 0;
         foreach ($dirs as $f) {
             $file = $folder . '/' . $f;
-            array_push($result, array($f, is_dir($file),  date ("F d Y H:i:s.", filemtime($file)), filesize($file)));
+            $isDir = is_dir($file);
+            if ($isDir) {
+                array_push($result, array($f, $isDir, date("F d Y H:i:s", filemtime($file)), filesize($file)));
+                unset($dirs[$i]);
+            }
+            $i++;
         }
+
+        foreach ($dirs as $f) {
+            $file = $folder . '/' . $f;
+            array_push($result, array($f, false, date("F d Y H:i:s", filemtime($file)), filesize($file)));
+        }
+
         return response()->json($result);
     }
 

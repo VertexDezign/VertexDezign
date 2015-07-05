@@ -1,12 +1,9 @@
 @extends('layout/backend')
 @section('content')
 <style>
-    .custom-menu {
-        z-index:1000;
-        position: absolute;
-        background-color:#C0C0C0;
-        border: 1px solid black;
-        padding: 2px;
+    tr:hover.highlight
+    {
+        background-color: #cccccc;
     }
 
 </style>
@@ -38,7 +35,7 @@
             </div>
             <div style="clear:both;"></div>
             <input type="text" id="path" value="" readonly> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
-            <table>
+            <table style="width: 100%;">
                 <thead>
                     <th>Name</th>
                     <th>Change Date</th>
@@ -81,6 +78,7 @@
                     var text;
                     tr.css('user-select', 'none');
                     tr.css('cursor', 'pointer');
+                    tr.addClass('highlight');
                     if (e[1]) {
                         tr.attr('name', e[0]);
                         tr.dblclick(function(e){
@@ -94,8 +92,12 @@
                         text = '<img src="../images/backend/file.png">' + e[0];
                     }
                     tr.append($('<td>' + text + '</td>'));
-                    tr.append($('<td>' + e[2] + '</td>'));
-                    tr.append($('<td>' + e[3] + '</td>'));
+                    tr.append($('<td style="text-align: center">' + e[2] + '</td>'));
+                    if (e[3] > Math.pow(10, 6)) {
+                        tr.append($('<td style="text-align: right;">' + MRound(e[3] / Math.pow(10, 6), 2) + ' Mb' + '</td>'));
+                    } else {
+                        tr.append($('<td style="text-align: right;">' + MRound(e[3] / 1000, 2) + ' kb' + '</td>'));
+                    }
                     tr.append();
                     tbody.append(tr);
                 });
@@ -195,6 +197,10 @@
     function resetFormElement(e) {
         e.wrap('<form>').closest('form').get(0).reset();
         e.unwrap();
+    }
+
+    function MRound(num, places){
+        return +(Math.round(num + "e+" + places)  + "e-" + places);
     }
 
 </script>
