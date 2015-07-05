@@ -34,7 +34,7 @@
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
-            <input type="text" id="path" value="" readonly> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
+            <input type="text" id="path" value="" readonly style="width: 80%"> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
             <table style="width: 100%;">
                 <thead>
                     <th>Name</th>
@@ -79,8 +79,8 @@
                     tr.css('user-select', 'none');
                     tr.css('cursor', 'pointer');
                     tr.addClass('highlight');
+                    tr.attr('name', e[0]);
                     if (e[1]) {
-                        tr.attr('name', e[0]);
                         tr.dblclick(function(e){
                             cutLastSlash();
                             path += '/' + $(this).attr('name');
@@ -98,7 +98,7 @@
                     } else {
                         tr.append($('<td style="text-align: right;">' + MRound(e[3] / 1000, 2) + ' kb' + '</td>'));
                     }
-                    tr.append($('<div style="float: right"><button class="btn blue small"><img src="../images/backend/edit.png" width="19"></button><button class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div>'));
+                    tr.append($('<td><div style="float: right"><button class="btn blue small"><img src="../images/backend/edit.png" width="19"></button><button onclick="deleteMedia(this)" class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div></td>'));
                     tbody.append(tr);
                 });
             }
@@ -113,7 +113,7 @@
 
     function addFolder() {
         var folderName = prompt("Please enter the Folder Name", "");
-        if (folderName != "") {
+        if (folderName != "" && folderName != null && folderName != undefined) {
             if (endsWith(path, '/')) {
                 folderName = path_prefix + path + folderName;
             } else {
@@ -146,6 +146,31 @@
         }
         $('#path').val(path);
         doRefresh();
+    }
+
+    function deleteMedia(o) {
+        var media = $(o).parent().parent().parent().attr('name');
+        $.post('media/delete', {file: path_prefix + path + '/' + media}, function(data, textstatus, xhr) {
+            if (textstatus == 'success') {
+                if (data.type = 'file') {
+                    if (data.done) {
+                        doRefresh();
+                    } else {
+                        alert("Something went wrong");
+                    }
+
+                } else if (data.type = 'dir' ) {
+                    if (data.done) {
+                        doRefresh();
+                    } else {
+                        alert("Dir must be empty!");
+                    }
+                } else {
+                    alert("Something went wrong");
+
+                }
+            }
+        });
     }
 
     function endsWith(str, suffix) {

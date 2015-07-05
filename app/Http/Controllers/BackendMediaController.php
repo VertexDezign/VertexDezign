@@ -33,20 +33,19 @@ class BackendMediaController extends Controller {
         unset($dirs[1]);
 
         $result = array();
-        $i = 0;
         foreach ($dirs as $f) {
             $file = $folder . '/' . $f;
             $isDir = is_dir($file);
             if ($isDir) {
                 array_push($result, array($f, $isDir, date("F d Y H:i:s", filemtime($file)), filesize($file)));
-                unset($dirs[$i]);
             }
-            $i++;
         }
 
         foreach ($dirs as $f) {
             $file = $folder . '/' . $f;
-            array_push($result, array($f, false, date("F d Y H:i:s", filemtime($file)), filesize($file)));
+            if (!is_dir($file)) {
+                array_push($result, array($f, false, date("F d Y H:i:s", filemtime($file)), filesize($file)));
+            }
         }
 
         return response()->json($result);
@@ -74,9 +73,15 @@ class BackendMediaController extends Controller {
     }
 
 
-    public function deleteFile($file)
+    public function delete()
     {
-        return response()->json(unlink($file));
+
+        $file = Input::get('file');
+        if (is_dir($file)) {
+            return response()->json(array('type' => 'dir', 'done' => rmdir($file)));
+        } else {
+            return response()->json(array('type' => 'file', 'done' => unlink($file)));
+        }
     }
 
 }
