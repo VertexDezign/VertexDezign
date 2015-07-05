@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1c52ec-aa51-48d3-8044-d00dcea90e66" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/images/backend/file.png" afterPath="$PROJECT_DIR$/www/images/backend/file.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/images/backend/folder.png" afterPath="$PROJECT_DIR$/www/images/backend/folder.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendMediaController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendMediaController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backend/media/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backend/media/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -41,18 +38,20 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/media/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1880531">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.48230088">
+              <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-                <marker date="1436123489697" expanded="true" signature="4148:4166" placeholder="..." />
-                <marker date="1436123489697" expanded="true" signature="4288:4306" placeholder="..." />
-                <marker date="1436123489697" expanded="true" signature="4444:4462" placeholder="..." />
+                <marker date="1436123976717" expanded="true" signature="4148:4166" placeholder="..." />
+                <marker date="1436123976717" expanded="true" signature="4288:4306" placeholder="..." />
+                <marker date="1436123976717" expanded="true" signature="4444:4462" placeholder="..." />
+                <marker date="1436123976717" expanded="true" signature="4579:4591" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -804,7 +803,7 @@
       <workItem from="1435867314180" duration="6268000" />
       <workItem from="1435921247304" duration="946000" />
       <workItem from="1435922351617" duration="59000" />
-      <workItem from="1436106413388" duration="7548000" />
+      <workItem from="1436106413388" duration="7968000" />
     </task>
     <task id="LOCAL-00001" summary="Scan dir, add folders">
       <created>1435872620040</created>
@@ -836,11 +835,17 @@
       <option name="project" value="LOCAL" />
       <updated>1436112836715</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add hover">
+      <created>1436123596041</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1436123596041</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14821000" />
+    <option name="totallyTimeSpent" value="15241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -892,7 +897,8 @@
     <MESSAGE value="added doubleclick for folders" />
     <MESSAGE value="Added missing images" />
     <MESSAGE value="Upload working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload working" />
+    <MESSAGE value="add hover" />
+    <option name="LAST_COMMIT_MESSAGE" value="add hover" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -908,13 +914,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1255,6 +1254,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/images/backend/edit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/images/backend/file.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1262,18 +1266,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/media/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1880531">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.48230088">
+          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-            <marker date="1436123489697" expanded="true" signature="4148:4166" placeholder="..." />
-            <marker date="1436123489697" expanded="true" signature="4288:4306" placeholder="..." />
-            <marker date="1436123489697" expanded="true" signature="4444:4462" placeholder="..." />
+            <marker date="1436123976717" expanded="true" signature="4148:4166" placeholder="..." />
+            <marker date="1436123976717" expanded="true" signature="4288:4306" placeholder="..." />
+            <marker date="1436123976717" expanded="true" signature="4444:4462" placeholder="..." />
+            <marker date="1436123976717" expanded="true" signature="4579:4591" placeholder="..." />
           </folding>
         </state>
       </provider>

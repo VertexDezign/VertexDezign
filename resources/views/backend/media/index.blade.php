@@ -98,7 +98,7 @@
                     } else {
                         tr.append($('<td style="text-align: right;">' + MRound(e[3] / 1000, 2) + ' kb' + '</td>'));
                     }
-                    tr.append();
+                    tr.append($('<div style="float: right"><button class="btn blue small"><img src="../images/backend/edit.png" width="19"></button><button class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div>'));
                     tbody.append(tr);
                 });
             }
