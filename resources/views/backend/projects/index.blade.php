@@ -4,7 +4,7 @@
         <p>Backend / <span style="color:#0AA699;">Projects</span></p>
     </div>
     <div class="edit-header" style="background-color:#e9edf2;border-bottom:1px solid #dee2e8;">
-        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/menu/black/projects.png')}}"></div><h1 style="float:left;margin-left:10px;">News management</h1>
+        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/menu/black/projects.png')}}"></div><h1 style="float:left;margin-left:10px;">Projects management</h1>
         <div style="clear:both;"></div>
     </div>
     <div class="pad">

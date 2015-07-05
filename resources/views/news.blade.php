@@ -1,21 +1,26 @@
 @extends('layout/master')
 
 @section('content')
-    <header style="height:20px;"></header>
+    <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
+        <div class="container">
+            <div class="two">
+                <h1 style="line-height:70px;font-size:23px;font-weight:100;">{{$entry->title}}</h1>
+            </div>
+            <div class="two">
+                <div class="page-route">
+                    <span>Posted at: </span>{{ date("d M Y",strtotime($entry->created_at)) }}<span> by </span>{{$entry->getAuthor->username}}
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
     <div class='container'>
-        <h2>{{$entry->title}}</h2>
-        <hr/>
-        <article>
-            <p style="color:#aaa;">Posted at {{ date("d M Y",strtotime($entry->created_at)) }} by {{$entry->getAuthor->username}}</p>
-            <p>{!!$entry->body!!}</p>
-            <?php
-            if (isset($entry->images))
-            {
-            ?>
-            <img src="{{$entry->images}}" />
-            <?php
-            }
-            ?>
+        <article style="padding:5px;">
+            @if(isset($entry->imgsrc))
+                <img src="{{URL('/images/', $entry->imgsrc)}}" />
+            @endif
+            {!!$entry->body!!}
         </article>
     </div>
 @endsection

@@ -30,6 +30,7 @@
                 <div class="icon">
                     <div class="round green" style="width:100px;height:100px;line-height:150px;"><a href="{{{URL('/projects')}}}"><img src="{{URL('/images/layout/project.png')}}"/></a></div>
                     <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/projects')}}}">Projects</a></h2>
+                    <hr style="width:25%;border-color:#eee;"/>
                 </div>
                 <p>Check out our latest projects.</p>
             </div>
@@ -39,6 +40,7 @@
                 <div class="icon">
                     <div class="round green" style="width:100px;height:100px;line-height:150px;"><a href="{{{URL('/downloads')}}}"><img src="{{URL('/images/layout/download.png')}}"/></a></div>
                     <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/downloads')}}}">Downloads</a></h2>
+                    <hr style="width:25%;border-color:#eee;"/>
                 </div>
                 <p>Get our latest mods here.</p>
             </div>
@@ -48,6 +50,7 @@
                 <div class="icon">
                     <div class="round green" style="width:100px;height:100px;line-height:150px;"><a href="{{{URL('/about')}}}"><img src="{{URL('/images/layout/people.png')}}"/></a></div>
                     <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/about')}}}">About us</a></h2>
+                    <hr style="width:25%;border-color:#eee;"/>
                 </div>
                 <p>Curious what makes VertexDezign?</p>
             </div>
@@ -62,24 +65,31 @@
         {{--<p style="color:#999;">Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.</p>--}}
     {{--</div>--}}
 {{--</div>--}}
-<section class="sect-news">
-    @foreach($newsEntry as $news)
-        <article>
-            <div class="two" style="text-align:center;padding:0;height:500px;">
-                <a href="{{ URL::route('show_news', $news->id) }}">
-                    <div class="articlePanel" style="height:100%;background:url(http://ls-bilder.de/uploads/lyHKTmjLkk.png);background-size:cover;background-position:center center;background-repeat:no-repeat;">
-                        <div class="content">
-                            <h1>{{$news->title}}</h1>
-                            <hr>
-                            <p class="author">Posted on {{ date("d m Y",strtotime($news->created_at)) }} by {{$news->getAuthor->username}}</p>
-                            <p>{!! $news->body !!}</p>
+<div style="height:100px;background:#f7f7f7;"></div>
+<div style="background:#f7f7f7;">
+    <div class="sect-news">
+        @foreach($newsEntry as $news)
+            <article>
+                <div class="two" style="text-align:center;padding:1px;height:500px;width:calc(50% - 2px);">
+                    <a href="{{ URL::route('show_news', $news->id) }}">
+                        <div class="articlePanel" style="height:100%;background:url(http://ls-bilder.de/uploads/lyHKTmjLkk.png);background-size:cover;background-position:center center;background-repeat:no-repeat;">
+                            <div class="content">
+                                <h1>{{$news->title}}</h1>
+                                <hr>
+                                <p class="author">Posted on {{ date("d m Y",strtotime($news->created_at)) }} by {{$news->getAuthor->username}}</p>
+                                <p>{!! $news->body !!}</p>
+                            </div>
+                            <div class="overlay"></div>
                         </div>
-                        <div class="overlay"></div>
-                    </div>
-                </a>
-            </div>
-        </article>
-    @endforeach
-    <div style="clear:both;"></div>
-</section>
+                    </a>
+                </div>
+            </article>
+        @endforeach
+        <div style="clear:both;"></div>
+        <div style="text-align:center;">
+            <?php echo $newsEntry->render(); ?>
+        </div>
+    </div>
+</div>
+<section style="margin-top:100px;"></section>
 @endsection

@@ -42,32 +42,53 @@ class BackendDownloadsController extends Controller {
     public function insert()
     {
         $entry = array(
-            'id'=>Input::get('id'),
-            'title'=>Input::get('title'),
-            'body'=>Input::get('body'),
-            'author_id'=>Input::get('author_id')
+            'name'=>\Input::get('name'),
+            'title'=>\Input::get('title'),
+            'state'=>\Input::get('state'),
+            'category'=>\Input::get('category'),
+            'desc'=>\Input::get('desc'),
+            'info'=>\Input::get('info'),
+            'features'=>\Input::get('features'),
+            'credits'=>\Input::get('credits'),
+            'log'=>\Input::get('log'),
+//            'images'=>\Input::get('images'),
+            'user_id'=>\Input::get('user_id'),
+            // --*
+            '_token'=>\Input::get('_token')
         );
+        unset($entry['_token']);
 
         if (isset($entry)){
             Downloads::create($entry);
-            return \Redirect::route('downloads', array($entry['id']))->with('succes', 'Download added succesfully!');
+            return \Redirect::route('downloads')->with('success', 'Download added succesfully!');
         }else{
-            return \Redirect::route('add_downloads', array($entry['id']))->with('error', 'Failed to add, invalid credentials.');
+            return \Redirect::route('add_downloads')->with('error', 'Failed to add, invalid credentials.');
         }
     }
 
     public function update()
     {
-        $id = Input::get('id');
-        //$validation = News::validate(Input::all());
+        $entry = array(
+            'name'=>\Input::get('name'),
+            'title'=>\Input::get('title'),
+            'state'=>\Input::get('state'),
+            'category'=>\Input::get('category'),
+            'desc'=>\Input::get('desc'),
+            'info'=>\Input::get('info'),
+            'features'=>\Input::get('features'),
+            'credits'=>\Input::get('credits'),
+            'log'=>\Input::get('log'),
+            // 'images'=>\Input::get('images'),
+            'user_id'=>\Input::get('user_id'),
+            // --*
+            '_token'=>\Input::get('_token')
+        );
+        unset($entry['_token']);
+        $id = \Input::get('id');
 
         if (isset($id)){
-            Downloads::where('id',$id)->update(array(
-                'title'=>Input::get('title'),
-                'body'=>Input::get('body'),
-                'author_id'=>Input::get('author_id')
-            ));
-            return \Redirect::route('downloads', array($id))->with('succes', Input::get('title').' updated succesfully!');
+            Downloads::where('id',$id)->update($entry);
+            return \Redirect::route('downloads')->with('success', Input::get('title').' updated succesfully!');
         }else{
             return \Redirect::route('edit_downloads', array($id))->with('error', 'Failed to update, invalid credentials.');
         }
@@ -79,7 +100,7 @@ class BackendDownloadsController extends Controller {
 
         if (isset($entry)){
             Downloads::where('id',$id)->update(array('trash' => 1));
-            return \Redirect::route('downloads', array($id))->with('succes', $entry->title.' deleted succesfully!');
+            return \Redirect::route('downloads', array($id))->with('success', $entry->title.' deleted succesfully!');
         }else{
             return \Redirect::route('downloads', array($id))->with('error', 'Failed to delete, invalid credentials.');
         }
