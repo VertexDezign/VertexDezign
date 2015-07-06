@@ -2,6 +2,7 @@
 use App\Project;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Support\Str;
 use Input;
 use Illuminate\Validation\Validator;
@@ -78,7 +79,14 @@ class BackendMediaController extends Controller {
 
         $file = Input::get('file');
         if (is_dir($file)) {
-            return response()->json(array('type' => 'dir', 'done' => rmdir($file)));
+            $result = false;
+            $msg = "";
+            try {
+                $result = rmdir($file);
+            } catch (Exception $e) {
+                $msg = $e->getMessage();
+            }
+            return response()->json(array('type' => 'dir', 'done' => $result, 'msg' => $msg));
         } else {
             return response()->json(array('type' => 'file', 'done' => unlink($file)));
         }

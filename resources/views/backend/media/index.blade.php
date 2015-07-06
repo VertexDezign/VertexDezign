@@ -152,18 +152,18 @@
         var media = $(o).parent().parent().parent().attr('name');
         $.post('media/delete', {file: path_prefix + path + '/' + media}, function(data, textstatus, xhr) {
             if (textstatus == 'success') {
-                if (data.type = 'file') {
+                if (data.type == 'file') {
                     if (data.done) {
                         doRefresh();
                     } else {
                         alert("Something went wrong");
                     }
 
-                } else if (data.type = 'dir' ) {
+                } else if (data.type == 'dir' ) {
                     if (data.done) {
                         doRefresh();
                     } else {
-                        alert("Dir must be empty!");
+                        alert(data.msg);
                     }
                 } else {
                     alert("Something went wrong");
