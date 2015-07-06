@@ -65,6 +65,15 @@
             });
         });
 
+
+
+        $(document).keydown(function(e){
+            var row = tbody.find('tr:hover');
+            if (e.which == 113 && row.html()) {
+                editName(tbody.find('tr:hover').find('td:last').find('div').find('button:first'));
+            }
+        });
+
         doRefresh();
     });
 
@@ -178,15 +187,9 @@
     }
 
     function saveEdit(o, event) {
-        var holder;
-        //IE uses this
-        if(window.event) {
-            holder = window.event.keyCode;
-        }
-        //FF uses this
-        else {
-            holder = event.which;
-        }
+
+        var holder = event.which;
+
         if (holder == 13) { //Enter
             var oldName = $(o).attr('previousName');
             var newName = $(o).val();
