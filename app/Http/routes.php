@@ -65,6 +65,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('backend/media/addfolder', array('as'=>'add_folder', 'uses'=>'BackendMediaController@addFolder'));
     Route::post('backend/media/addfile', array('as'=>'add_file', 'uses'=>'BackendMediaController@addFile'));
     Route::post('backend/media/delete', array('as'=>'delete_media', 'uses'=>'BackendMediaController@delete'));
+    Route::post('backend/media/edit', array('as'=>'edit_media', 'uses'=>'BackendMediaController@edit'));
     //Backend Slider
     Route::get('backend/slider', array('as'=>'slider', 'uses'=>'BackendSliderController@index'));
     Route::get('backend/slider/edit/{id}', array('as'=>'edit_slider', 'uses'=>'BackendSliderController@show'));

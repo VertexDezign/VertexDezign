@@ -73,6 +73,12 @@ class BackendMediaController extends Controller {
         return print_r($files, true);
     }
 
+    public function edit() {
+        $oldName = Input::get('oldName');
+        $newName = Input::get('newName');
+
+        return response()->json(rename($oldName, $newName));
+    }
 
     public function delete()
     {

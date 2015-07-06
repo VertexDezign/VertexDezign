@@ -37,6 +37,7 @@
             <input type="text" id="path" value="" readonly style="width: 80%"> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
             <table style="width: 100%;">
                 <thead>
+                    <th style="width: 20px;"></th>
                     <th>Name</th>
                     <th>Change Date</th>
                     <th>Size</th>
@@ -87,18 +88,19 @@
                             $('#path').val(path);
                             doRefresh();
                         });
-                        text = '<img src="../images/backend/folder.png">' + e[0];
+                        text = '<img src="../images/backend/folder.png">';
                     } else {
-                        text = '<img src="../images/backend/file.png">' + e[0];
+                        text = '<img src="../images/backend/file.png">';
                     }
-                    tr.append($('<td>' + text + '</td>'));
+                    tr.append($('<td style="width: 20px;">' + text + '</td>'));
+                    tr.append($('<td>' + e[0] + '</td>'));
                     tr.append($('<td style="text-align: center">' + e[2] + '</td>'));
                     if (e[3] > Math.pow(10, 6)) {
                         tr.append($('<td style="text-align: right;">' + MRound(e[3] / Math.pow(10, 6), 2) + ' Mb' + '</td>'));
                     } else {
                         tr.append($('<td style="text-align: right;">' + MRound(e[3] / 1000, 2) + ' kb' + '</td>'));
                     }
-                    tr.append($('<td><div style="float: right"><button class="btn blue small"><img src="../images/backend/edit.png" width="19"></button><button onclick="deleteMedia(this)" class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div></td>'));
+                    tr.append($('<td><div style="float: right"><button class="btn blue small" onclick="editName(this)"><img src="../images/backend/edit.png" width="19"></button><button onclick="deleteMedia(this)" class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div></td>'));
                     tbody.append(tr);
                 });
             }
@@ -128,12 +130,6 @@
                     }
                 }
             });
-        }
-    }
-
-    function cutLastSlash() {
-        if (endsWith(path, '/')) {
-            path = path.substring(0, path.length);
         }
     }
 
@@ -167,10 +163,55 @@
                     }
                 } else {
                     alert("Something went wrong");
-
                 }
             }
         });
+    }
+
+    function editName(o) {
+        var tr = $(o).parent().parent().parent();
+        var media = tr.attr('name');
+        var td = tr.find('td:eq(1)');
+
+        td.empty();
+        td.append($('<input type="text" onkeyup="saveEdit(this, event)">').val(media).attr('previousName', media));
+    }
+
+    function saveEdit(o, event) {
+        var holder;
+        //IE uses this
+        if(window.event) {
+            holder = window.event.keyCode;
+        }
+        //FF uses this
+        else {
+            holder = event.which;
+        }
+        if (holder == 13) { //Enter
+            var oldName = $(o).attr('previousName');
+            var newName = $(o).val();
+
+            $.post('media/edit', {oldName: path_prefix + path + '/' + oldName, newName: path_prefix + path + '/' + newName}, function(data, textstatus, xhr) {
+                if (textstatus == 'success') {
+                    if (data) {
+                        doRefresh();
+                    }
+                }
+            });
+        } else if(holder == 27) { //ESC
+            var tr = $(o).parent().parent();
+            var media = tr.attr('name');
+            var td = tr.find('td:eq(1)');
+
+            td.empty();
+            td.append(media);
+        }
+    }
+
+    function cutLastSlash() {
+        if (endsWith(path, '/')) {
+            path = path.substring(0, path.length);
+        }
     }
 
     function endsWith(str, suffix) {
