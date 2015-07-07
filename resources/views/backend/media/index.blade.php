@@ -90,6 +90,7 @@
                     tr.css('cursor', 'pointer');
                     tr.addClass('highlight');
                     tr.attr('name', e[0]);
+                    tr.attr('draggable', true);
                     if (e[1]) {
                         tr.dblclick(function(e){
                             cutLastSlash();
@@ -144,7 +145,14 @@
 
     function goUp() {
         cutLastSlash();
-        if (path.contains("/")) {
+        var includesSlash = false;
+        if (typeof(path.includes) == "function") {
+            includesSlash = path.includes('/'); //Chrome
+        } else {
+            includesSlash = path.contains('/'); //Firefox
+        }
+
+        if (includesSlash) {
             path = path.substring(0, path.lastIndexOf("/"));
         } else {
             path = "";
