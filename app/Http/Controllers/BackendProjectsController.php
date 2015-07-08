@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 use App\Project;
+use App\Media;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
@@ -24,17 +25,21 @@ class BackendProjectsController extends Controller {
 
     public function show($id)
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
             'permission' => \Auth::user()->permission->name,
-            'entry' => Project::find($id)
+            'entry' => Project::find($id),
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.projects.show', $viewBag);
     }
 
     public function add()
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
-            'permission' => \Auth::user()->permission->name
+            'permission' => \Auth::user()->permission->name,
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.projects.show', $viewBag);
     }

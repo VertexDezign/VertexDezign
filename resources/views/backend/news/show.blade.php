@@ -26,6 +26,27 @@
                 <textarea name="body">@if(isset($entry)){{$entry['body']}}@endif</textarea>
             </div>
             <div style="clear:both;"></div>
+            <!-- Slide image -->
+            <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Image</label></div>
+            <div class="three-two">
+                <select id="imageselect" name="image" style="width:100%;" onchange="changeImage(this.value);">
+                    <?php
+                    foreach($files as $file){
+                        $ex = $file->getExtension();
+                        if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
+                            echo '<option>'.$file.'</option>';
+                        }
+                    }
+                    ?>
+                </select>
+            </div>
+            <div style="clear:both;"></div>
+            <!-- Slide image -->
+            <div class="three" style="width:100%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
+            <div class="three" style="width:100%;">
+                <img id="imageview" style="width:50%;height:50%;padding-left:25%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
+            </div>
+            <div style="clear:both;"></div>
 
             @if(isset($entry))
                 <input type="hidden" name="id" value="{{$entry->id}}">

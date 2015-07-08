@@ -4,7 +4,7 @@
 <div class="banner has-dots" style="overflow:hidden;height:576px;">
     <ul style="width: 200%;position:relative;overflow:hidden;left:0%;height:400px;">
         @foreach($sliderEntry as $slide)
-            <li style="width: 50%; background:url({{URL('images', $slide->image)}}) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
+            <li style="width: 50%; background:url({{URL('/media', $slide->image)}}) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
                 <div class="container">
                     <div class="row">
                         <div class="two" style="margin-left:25%;">
@@ -72,7 +72,7 @@
             <article>
                 <div class="two" style="text-align:center;padding:1px;height:500px;width:calc(50% - 2px);">
                     <a href="{{ URL::route('show_news', $news->id) }}">
-                        <div class="articlePanel" style="height:100%;background:url(http://ls-bilder.de/uploads/lyHKTmjLkk.png);background-size:cover;background-position:center center;background-repeat:no-repeat;">
+                        <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:cover;background-position:center center;background-repeat:no-repeat;">
                             <div class="content">
                                 <h1>{{$news->title}}</h1>
                                 <hr>
@@ -86,9 +86,13 @@
             </article>
         @endforeach
         <div style="clear:both;"></div>
-        <div style="text-align:center;">
-            <?php echo $newsEntry->render(); ?>
-        </div>
+        @if($newsEntry->render())
+            <div style="text-align:center;">
+                <?php echo $newsEntry->render(); ?>
+            </div>
+        @else
+            <div style="margin-bottom:100px;"></div>
+        @endif
     </div>
 </div>
 <section style="margin-top:100px;"></section>

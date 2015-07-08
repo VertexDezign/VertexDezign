@@ -87,7 +87,7 @@
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <div class="four">
                         <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
+                            <img id="imageview" style="width:200px;padding-left:25%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
                         </div>
                     </div>
                     <div class="four">
@@ -106,7 +106,17 @@
                         </div>
                     </div>
                     <div style="clear:both;margin-bottom:7px;"></div>
-                    <input type="button" class="btn grey" name="Upload" value="Upload an image" onclick="">
+                    <select id="imageselect" name="image" style="width:85%;float:left;" onchange="changeImage(this.value);">
+                        <?php
+                        foreach($files as $file){
+                            $ex = $file->getExtension();
+                            if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
+                                echo '<option>'.$file.'</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                    <input type="button" name="Add" value="Add" class="btn blue" style="width:calc(15% - 10px);float:left;" onclick="changeImage(this.value)">
                 </div>
                 <div style="clear:both;"></div>
             </div>

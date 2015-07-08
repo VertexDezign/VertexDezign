@@ -53,7 +53,7 @@
                     <tr>
                         <td style="text-align:center;"><input type="checkbox" /></td>
                         <td>{{$slider->title}}</td>
-                        <td><img style="height:100px;" src="{{URL('/images/', $slider->image)}}"/></td>
+                        <td><img style="height:100px;" src="{{URL('/media', $slider->image)}}"/></td>
                         <td>{{$slider->link}}</td>
                         <td>{{$slider->updated_at}}</td>
                         <td>{{$slider->created_at}}</td>

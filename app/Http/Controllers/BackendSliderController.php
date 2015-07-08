@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Slider;
+use App\Media;
 use Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -25,17 +26,21 @@ class BackendSliderController extends Controller {
 
     public function show($id)
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
             'permission' => \Auth::user()->permission->name,
-            'entry' => Slider::find($id)
+            'entry' => Slider::find($id),
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.slider.show', $viewBag);
     }
 
     public function add()
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
-            'permission' => \Auth::user()->permission->name
+            'permission' => \Auth::user()->permission->name,
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.slider.show', $viewBag);
     }

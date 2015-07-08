@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 use App\News;
+use App\Media;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
@@ -17,24 +18,28 @@ class BackendNewsController extends Controller {
     {
         $viewBag = array(
             'permission' => \Auth::user()->permission->name,
-            'entry' => News::where('trash', '=', '0')->get()
+            'entry' => News::where('trash', '=', '0')->get(),
         );
         return \View::make('backend.news.index', $viewBag);
     }
 
     public function show($id)
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
             'permission' => \Auth::user()->permission->name,
-            'entry' => News::find($id)
+            'entry' => News::find($id),
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.news.show', $viewBag);
     }
 
     public function add()
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
-            'permission' => \Auth::user()->permission->name
+            'permission' => \Auth::user()->permission->name,
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.news.show', $viewBag);
     }
@@ -45,6 +50,7 @@ class BackendNewsController extends Controller {
             'id'=>Input::get('id'),
             'title'=>Input::get('title'),
             'body'=>Input::get('body'),
+            'imgsrc'=>Input::get('image'),
             'author_id'=>Input::get('author_id')
         );
 
@@ -65,6 +71,7 @@ class BackendNewsController extends Controller {
             News::where('id',$id)->update(array(
                 'title'=>Input::get('title'),
                 'body'=>Input::get('body'),
+                'imgsrc'=>Input::get('image'),
                 'author_id'=>Input::get('author_id')
             ));
             return \Redirect::route('news')->with('success', Input::get('title').' updated succesfully!');
