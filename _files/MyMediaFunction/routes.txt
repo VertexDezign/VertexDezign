@@ -1,0 +1,11 @@
+Route::get('backend/media', array('as'=>'backendMedia', 'uses'=>'BackendMediaController@index'));
+    Route::post('backend/media/delete', "BackendMediaController@delete");
+    Route::get('backend/media/add', "BackendMediaController@add");
+    Route::get('backend/media/show/{id}', "BackendMediaController@show");
+    Route::post('backend/media/deletemulti', array('as'=>'verwijderen_media_multi', 'uses'=>'BackendMediaController@deletemulti'));
+    Route::post('backend/media/upload', function()
+    {
+        $file = Request::file('file');
+        $file->move(base_path() .'/www/media/', $file->getClientOriginalName());
+        return \Redirect::action('BackendMediaController@add');
+    });

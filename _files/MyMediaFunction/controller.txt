@@ -1,0 +1,57 @@
+<?php namespace App\Http\Controllers;
+use Response;
+use App\BackendMedia;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Forms;
+use Auth;
+use Illuminate\Http\Request;
+class BackendMediaController extends Controller {
+    public function __CONSTRUCT(){
+        if(Auth::user()->permission->name != 'admin'){
+            exit;
+        }
+    }
+    public function index()
+    {
+        $path = base_path() .'/www/media/';
+        $files = BackendMedia::getFiles($path);
+        return view('backend/media', compact('files'));
+    }
+    public function deletemulti()
+    {
+        $path = base_path() .'/www/media/';
+        foreach($_POST as $key => $value){
+            $file = $path . $value;
+            if(file_exists($file)){
+                BackendMedia::deleteFile($file);
+            }
+        }
+        return \Redirect::route('backendMedia')->with('succesvol geüpdate!');
+    }
+    public function delete(){
+        $fileUrl = $_POST['file'];
+        if(file_exists($fileUrl)){
+            BackendMedia::deleteFile($fileUrl);
+            return \Redirect::action('BackendMediaController@index');
+        }else{
+            Throw new Exception("Bestand mist");
+        }
+    }
+    public function add(){
+        $path = base_path() .'/www/media/';
+        $files = BackendMedia::getFiles($path);
+        return view('backend/media', compact('files'));
+    }
+    public function show($id)
+    {
+        /* @todo editable patches */
+        $path = base_path() .'/www/media/';
+        if($id=='image'){
+            $files = BackendMedia::getFiles($path);
+        }else{
+            Throw new Exception('browser voor ' .$id. ' niet beschikbaar.');
+        }
+        return view('backend/media/browser', compact('files'));
+    }
+}

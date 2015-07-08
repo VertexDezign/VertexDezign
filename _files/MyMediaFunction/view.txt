@@ -1,0 +1,92 @@
+@extends('layout/backend')
+
+@section('content')
+    <div class="info blue">
+        <div class="pad">
+            <h3>Informatie over media beheer</h3>
+            <p>
+                Met media beheer kunt u bestanden uploaden zodat u deze kunt gebruiken op de website.
+                Als u bijvoorbeeld een image wilt gebruiken in een nieuws artikel dan kunt u deze hier uploaden
+                om de image vervolgens te kunnen gebruiken in uw nieuws artikel.
+            </p>
+            <p>Klik op <strong>[Media uploaden]</strong> om uw eerste bestand te uploaden. Bestanden die u uploadt kunt u ook weer verwijderen als u ze niet meer gebruikt.</p>
+        </div>
+    </div>
+<div class="pad">
+    <h2>Media beheer</h2>
+    <button class="btn blue" style="float:right;position:relative;top:10px;" onclick="openModal('uploadModal');">Media uploaden</button>
+    <form action="{{Url('/backend/media/deletemulti')}}" method="post">
+        <table class="tbl datatable">
+            <thead>
+                <tr>
+                    <th style="text-align:center;"><input type="checkbox" id="multi-select-main" onclick="toggleMultiSelect('#multi-select-main')" /></th>
+                    <th style="text-align:center;"></th>
+                    <th>Bestandsnaam</th>
+                    <th></th>
+                    <th>Bestandsgrootte</th>
+                    <th>Laatst bewerkt</th>
+                    <th>Extensie</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $id = 0;
+                foreach ($files as $file){
+                    if( ! $file->isDot()){
+                        echo '
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="multi-select" name="'.$id.'" value="'.$file->getFilename().'" /></td>
+                            <td style="text-align:center;">
+                                <img src="'.Url('/images/extensions/'.(file_exists(base_path().'/www/images/extensions/'.$file->getExtension().'.png') ? $file->getExtension() : 'file').'.png').'" />
+                            </td>
+                            <td><a href="'.Url('/Media').'/'.$file->getFilename().'" target="_BLANK">'.$file->getFilename().'</td>
+                            <td>'.$file->getType().'</td>
+                            <td>'.$file->getSize().'</td>
+                            <td>'.date('d-m-Y h:i:s', $file->getCTime()).'</td>
+                            <td>'.$file->getExtension().'</td>
+                            <td><button class="btn red" onclick="openModal(\'delete'.$id.'\');return false;" style="font-weight:bold;">X</button></td>
+                        </tr>
+                        <div class="modal red" id="delete'.$id.'">
+                            <form action="'.URL('/backend/media/delete').'" method="post">
+                                <input name="file" value="'.$file->getPath().'/'.$file->getFilename().'" style="display:none;" />
+                                <div class="left">
+                                    <p>Weet u zeker dat u dit bestand wilt verwijderen?</p>
+                                    <span>'.$file->getFilename().'</span>
+                                </div>
+                                <div class="right" style="padding-top:30px;">
+                                    <button>Verwijderen</button>
+                                    <button onclick="closeModal(\'delete'.$id.'\');return false;">Annuleren</button>
+                                </div>
+                            </form>
+                        </div>
+                        ';
+                        $id++;
+                    }
+                }
+                ?>
+                </tbody>
+            <thead>
+                <Tr>
+                    <th colspan="6" style="border-top:1px solid #ccc;border-bottom:0;">Met geselecteerd: <button class=" btn blue small">Verwijderen</button></th>
+                </Tr>
+            </thead>
+        </table>
+    </form>
+</div>
+<div class="modal blue" id="uploadModal">
+    {!! Form::open( array('url' => '/backend/media/upload', 'files' => true)) !!}
+
+        <div class="left">
+            <p>Sleep of klik een bestand via het onderstaande vak</p>
+            <input type="file" name="file" style="width:100%;">
+            <input type="text" name="base" style="display:none;" value="">
+        </div>
+        <div class="right" style="padding-top:30px;">
+            <button>Uploaden</button>
+            <button onclick="closeModal('uploadModal');return false;">Annuleren</button>
+        </div>
+    {!! Form::token() !!}
+    {!! Form::close() !!}
+</div>
+@endsection
