@@ -85,26 +85,13 @@
                 <!-- Project images -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Images</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <img id="imageview" style="width:200px;padding-left:25%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
+                    @if(isset($entry))
+                        <div class="four">
+                            <div class="panel" style="!important;text-align:left;">
+                                <img id="imageview" style="width:200px;padding-left:25%;" src="@if(isset($entry)){{URL('/media/' . $entry['images'])}}@endif" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
-                    </div>
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
-                    </div>
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
-                    </div>
+                    @endif
                     <div style="clear:both;margin-bottom:7px;"></div>
                     <select id="imageselect" name="image" style="width:85%;float:left;" onchange="changeImage(this.value);">
                         <?php

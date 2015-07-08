@@ -22,9 +22,11 @@ Route::get('news', "NewsController@index");
 Route::get('news/{id}', array('as'=>'show_news', 'uses'=>'NewsController@show'));
 //Public Projects
 Route::get('projects', "ProjectsController@index");
+Route::post('projects', array('as'=>'filter_projects', 'uses'=>'ProjectsController@filter'));
 Route::get('projects/{id}', array('as'=>'show_projects', 'uses'=>'ProjectsController@show'));
 //Public Downloads
 Route::get('downloads', "DownloadsController@index");
+Route::post('downloads', array('as'=>'filter_downloads', 'uses'=>'DownloadsController@filter'));
 Route::get('downloads/{id}', array('as'=>'show_downloads', 'uses'=>'DownloadsController@show'));
 //Public Downloads
 Route::get('about', "IndexController@indexAbout");
