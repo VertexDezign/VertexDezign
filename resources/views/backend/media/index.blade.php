@@ -191,7 +191,7 @@
         var td = tr.find('td:eq(1)');
 
         td.empty();
-        td.append($('<input type="text" onkeyup="saveEdit(this, event)">').val(media).attr('previousName', media));
+        td.append($('<input type="text" onkeyup="saveEdit(this, event)" style="width: 98%">').val(media).attr('previousName', media));
     }
 
     function saveEdit(o, event) {

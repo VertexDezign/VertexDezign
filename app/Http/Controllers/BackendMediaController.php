@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-use App\Project;
+use App\Media;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Exception;
@@ -29,23 +29,25 @@ class BackendMediaController extends Controller {
     public function getFolderContent()
     {
         $folder = Input::get('folder');
-        $dirs = scandir($folder);
-        unset($dirs[0]);
-        unset($dirs[1]);
 
         $result = array();
-        foreach ($dirs as $f) {
-            $file = $folder . '/' . $f;
-            $isDir = is_dir($file);
-            if ($isDir) {
-                array_push($result, array($f, $isDir, date("F d Y H:i:s", filemtime($file)), filesize($file)));
+
+        $it = Media::getFiles($folder);
+        foreach ($it as $m) {
+            if($m->isDot()) {
+                continue;
+            }
+            if ($m->isDir()) {
+                array_push($result, array($m->getFilename(), true, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
             }
         }
 
-        foreach ($dirs as $f) {
-            $file = $folder . '/' . $f;
-            if (!is_dir($file)) {
-                array_push($result, array($f, false, date("F d Y H:i:s", filemtime($file)), filesize($file)));
+        foreach ($it as $m) {
+            if($m->isDot()) {
+                continue;
+            }
+            if (!$m->isDir()) {
+                array_push($result, array($m->getFilename(), false, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
             }
         }
 
