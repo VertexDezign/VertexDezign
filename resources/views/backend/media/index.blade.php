@@ -126,12 +126,7 @@
     function addFolder() {
         var folderName = prompt("Please enter the Folder Name", "");
         if (folderName != "" && folderName != null && folderName != undefined) {
-            if (endsWith(path, '/')) {
-                folderName = path_prefix + path + folderName;
-            } else {
-                folderName = path_prefix + path + '/' + folderName;
-            }
-            $.post('media/addfolder', {name: folderName}, function (data, textstatus, xhr) {
+            $.post('media/addfolder', {path: path_prefix + path, name: folderName}, function (data, textstatus, xhr) {
                 if (textstatus == 'success') {
                     if (data) {
                         doRefresh();

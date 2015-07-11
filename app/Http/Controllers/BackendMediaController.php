@@ -29,75 +29,101 @@ class BackendMediaController extends Controller {
     public function getFolderContent()
     {
         $folder = Input::get('folder');
+        if (self::checkPath($folder)) {
+            $result = array();
 
-        $result = array();
+            $it = Media::getFiles($folder);
+            foreach ($it as $m) {
+                if ($m->isDot()) {
+                    continue;
+                }
+                if ($m->isDir()) {
+                    array_push($result, array($m->getFilename(), true, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
+                }
+            }
 
-        $it = Media::getFiles($folder);
-        foreach ($it as $m) {
-            if($m->isDot()) {
-                continue;
+            foreach ($it as $m) {
+                if ($m->isDot()) {
+                    continue;
+                }
+                if (!$m->isDir()) {
+                    array_push($result, array($m->getFilename(), false, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
+                }
             }
-            if ($m->isDir()) {
-                array_push($result, array($m->getFilename(), true, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
-            }
+
+            return response()->json($result);
         }
-
-        foreach ($it as $m) {
-            if($m->isDot()) {
-                continue;
-            }
-            if (!$m->isDir()) {
-                array_push($result, array($m->getFilename(), false, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
-            }
-        }
-
-        return response()->json($result);
+        return response()->json(false);
     }
 
     public function addFolder()
     {
         $folder = Input::get('name');
-        return response()->json(mkdir($folder));
+        $path = Input::get('path');
+        if (self::checkPath($path)) {
+            if (Str::endsWith($path, "/")) {
+                $newFolder = $path . $folder;
+            } else {
+                $newFolder = $path . "/" . $folder;
+            }
+            return response()->json(mkdir($newFolder));
+        }
+        return response()->json(false);
     }
 
     public function addFile()
     {
         $path = Input::get('path');
-        $files = Input::file('files');
-        //$files = $files['files'];
+        if (self::checkPath($path)) {
+            $files = Input::file('files');
+            //$files = $files['files'];
 
-        foreach($files as $f) {
-            if ($f->isValid()) {
-                $f->move($path, $f->getClientOriginalName());
+            foreach ($files as $f) {
+                if ($f->isValid()) {
+                    $f->move($path, $f->getClientOriginalName());
+                }
             }
+            return print_r($files, true);
         }
-
-        return print_r($files, true);
+        return response()->json(false);
     }
 
     public function edit() {
         $oldName = Input::get('oldName');
         $newName = Input::get('newName');
-
-        return response()->json(rename($oldName, $newName));
+        if (self::checkPath($oldName)) {
+            return response()->json(rename($oldName, $newName));
+        }
+        return response()->json(false);
     }
 
     public function delete()
     {
-
         $file = Input::get('file');
-        if (is_dir($file)) {
-            $result = false;
-            $msg = "";
-            try {
-                $result = rmdir($file);
-            } catch (Exception $e) {
-                $msg = $e->getMessage();
+        if (self::checkPath($file)) {
+            if (is_dir($file)) {
+                $result = false;
+                $msg = "";
+                try {
+                    $result = rmdir($file);
+                } catch (Exception $e) {
+                    $msg = $e->getMessage();
+                }
+                return response()->json(array('type' => 'dir', 'done' => $result, 'msg' => $msg));
+            } else {
+                return response()->json(array('type' => 'file', 'done' => unlink($file)));
             }
-            return response()->json(array('type' => 'dir', 'done' => $result, 'msg' => $msg));
         } else {
-            return response()->json(array('type' => 'file', 'done' => unlink($file)));
+            return response()->json(array('error' => "Wrong Path!"));
         }
+    }
+
+    public static function checkPath($path) {
+        if (env('APP_ENV') != 'local') {
+            $realpath = realpath($path);
+            return Str::startsWith($realpath, '/home/www/web376/html/vertexdezign_new/www/media/'); //Specific check for my Server
+        }
+        return true;
     }
 
 }
