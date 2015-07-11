@@ -35,7 +35,7 @@
             </div>
             <div style="clear:both;"></div>
             <input type="text" id="path" value="" readonly style="width: 80%"> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
-            <table style="width: 100%;">
+            <table class="tbl">
                 <thead>
                     <th style="width: 20px;"></th>
                     <th>Name</th>
