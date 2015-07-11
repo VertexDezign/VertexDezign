@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options -MultiViews
+        #Set Options not allowed on vertexdezign.net
+        #Options -MultiViews
     </IfModule>
 
     RewriteEngine On
