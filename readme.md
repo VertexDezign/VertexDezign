@@ -1,6 +1,6 @@
 ## Laravel PHP Framework
 
-VertexDezign: [![Vertex Status](http://jenkins.leber-lfbg.ch/buildStatus/icon?job=VertexDezign&build=2)](http://jenkins.leber-lfbg.ch/job/VertexDezign/2/)
+VertexDezign: [![Vertex Build Status](http://jenkins.leber-lfbg.ch/buildStatus/icon?job=VertexDezign)](http://jenkins.leber-lfbg.ch/job/VertexDezign/)
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
