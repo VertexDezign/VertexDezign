@@ -49,3 +49,4 @@ crashlytics-build.properties
 /vendor
 /node_modules
 .idea
+.env

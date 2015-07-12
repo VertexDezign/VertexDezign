@@ -65,25 +65,28 @@
         {{--<p style="color:#999;">Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.</p>--}}
     {{--</div>--}}
 {{--</div>--}}
-<div style="height:100px;background:#f7f7f7;"></div>
+<div style="height:100px;padding-top:100px;padding-bottom:100px;background:#f7f7f7;">
+    <div class="container content" style="text-align: center;">
+        <h1>News</h1>
+        <hr style="display: block;width: 15%;margin: 1em auto;border: 1px solid #2D8633;">
+    </div>
+</div>
 <div style="background:#f7f7f7;">
     <div class="sect-news">
         @foreach($newsEntry as $news)
-            <article>
-                <div class="two" style="text-align:center;padding:1px;height:500px;width:calc(50% - 2px);">
-                    <a href="{{ URL::route('show_news', $news->id) }}">
-                        <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:cover;background-position:center center;background-repeat:no-repeat;">
-                            <div class="content">
-                                <h1>{{$news->title}}</h1>
-                                <hr>
-                                <p class="author">Posted on {{ date("d m Y",strtotime($news->created_at)) }} by {{$news->getAuthor->username}}</p>
-                                <p>{!! $news->body !!}</p>
-                            </div>
-                            <div class="overlay"></div>
+            <div class="two" style="text-align:center;padding:1px;height:500px;width:calc(50% - 2px);">
+                <a href="{{ URL::route('show_news', $news->id) }}">
+                    <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:cover;background-position:center center;background-repeat:no-repeat;">
+                        <div class="content">
+                            <h1>{{$news->title}}</h1>
+                            <hr>
+                            <p class="author">Posted on {{ date("d m Y",strtotime($news->created_at)) }} by {{$news->getAuthor->username}}</p>
+                            <p>{!! $news->body !!}</p>
                         </div>
-                    </a>
-                </div>
-            </article>
+                        <div class="overlay"></div>
+                    </div>
+                </a>
+            </div>
         @endforeach
         <div style="clear:both;"></div>
         @if($newsEntry->render())
@@ -95,5 +98,53 @@
         @endif
     </div>
 </div>
-<section style="margin-top:100px;"></section>
+<div class="container content" style="margin-top:100px;">
+    <div style="text-align: center;">
+        <h1>Partners</h1>
+        <hr style="display: block;width: 15%;margin: 1em auto;border: 1px solid #2D8633;">
+    </div>
+</div>
+<section style="margin-top:100px;">
+    <div class="four" style="text-align:center;height:200px;">
+        <a href="{{ URL::route('show_news', $news->id) }}">
+            <div class="articlePanel" style="height:100%;width:100%;background:url(http://www.bm-modding.de/wp-content/textbanner/logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                <div class="content">
+                    <h1>OEB Modding</h1>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </a>
+    </div>
+    <div class="four" style="text-align:center;height:200px;">
+        <a href="{{ URL::route('show_news', $news->id) }}">
+            <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                <div class="content">
+                    <h1>OEB Modding</h1>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </a>
+    </div>
+    <div class="four" style="text-align:center;height:200px;">
+        <a href="{{ URL::route('show_news', $news->id) }}">
+            <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                <div class="content">
+                    <h1>OEB Modding</h1>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </a>
+    </div>
+    <div class="four" style="text-align:center;height:200px;">
+        <a href="{{ URL::route('show_news', $news->id) }}">
+            <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                <div class="content">
+                    <h1>OEB Modding</h1>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </a>
+    </div>
+    <div style="clear:both;"></div>
+</section>
 @endsection

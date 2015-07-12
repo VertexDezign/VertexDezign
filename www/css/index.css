@@ -24,7 +24,7 @@ nav ul.controllers {margin:0 auto;}
 nav ul.controllers li {cursor:pointer;list-style-type:none;float:left;line-height:75px;padding-left:10px;padding-right:10px;}
 nav ul.controllers li a {color:#000;text-decoration:none;display:inline-block;}
 nav ul.controllers li:hover a {color:#fff;}
-nav ul.controllers li:hover {height:75px;color:#fff !important;background:#2d8633;line-height:75px;}
+nav ul.controllers li:hover {border-bottom:5px solid #fff;height:75px;color:#fff !important;background:#2d8633;line-height:75px;}
 nav ul.controllers.responsive-mobile {width:100%;padding-left:0;}
 nav ul.controllers.responsive-mobile li {margin-top:15px;width:100%;padding-left:15px;}
 

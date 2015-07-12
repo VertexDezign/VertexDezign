@@ -60,7 +60,7 @@
         </nav>
         <div style="height:5px;background-color:#2d8633;"></div>
           @yield('content')
-        <footer>
+        <footer style="margin-top:100px;">
             <section class="top">
                 <div class="container content">
                     <h3>VertexDezign</h3>
