@@ -10,7 +10,7 @@ body span.form-sign {height:40px;width:50px;background:#2d8633;box-shadow:inset 
 .page-route a {color:#2d8633;text-decoration:none;}
 
 /*NAV MENU*/
-nav {background:#fff;height:75px;}
+nav {background:#fff;height:100px;}
 nav .title {font-family:'Coolvetica', sans-serif; color:#000;text-decoration:None;}
 nav a img {float:left;width:400px;color:#fff;padding-top:20px;}
 nav section {height:50px;background:#2e3539;}
@@ -21,17 +21,17 @@ nav section ul li {color:#fff;list-style-type:none;}
 nav .menu-holder {width:calc(100% - 445px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;}
 nav ul.controllers {}
 nav ul.controllers {margin:0 auto;}
-nav ul.controllers li {cursor:pointer;list-style-type:none;float:left;line-height:75px;padding-left:10px;padding-right:10px;}
+nav ul.controllers li {cursor:pointer;list-style-type:none;float:left;line-height:100px;padding-left:10px;padding-right:10px;transition: border-bottom-width 0.1s ease-in-out;}
 nav ul.controllers li a {color:#000;text-decoration:none;display:inline-block;}
-nav ul.controllers li:hover a {color:#fff;}
-nav ul.controllers li:hover {border-bottom:5px solid #fff;height:75px;color:#fff !important;background:#2d8633;line-height:75px;}
+nav ul.controllers li:hover a {color:#2D8633;}
+nav ul.controllers li:hover {border-bottom:5px solid #fff;height:100px;color:#000; !important;line-height:100px;}
 nav ul.controllers.responsive-mobile {width:100%;padding-left:0;}
 nav ul.controllers.responsive-mobile li {margin-top:15px;width:100%;padding-left:15px;}
 
 nav input[type="search"] {float:right;height:40px;width:200px;margin-top:17.5px;padding:0 10px 0 10px;background:#eee;border:1px solid #ccc;}
 nav h1 {float:left;width:215px;color:#fff;}
-.logo {float: left;text-align: right;height:75px;background-color:#fff;position: relative;color:#000;}
-.logo h2 {font-size:24px;margin:0;padding:20px 20px;}
+.logo {float: left;text-align: right;height:100px;background-color:#fff;position: relative;color:#000;line-height:100px;}
+.logo h2 {font-size:24px;margin:0;}
 /*BANNER*/
 .banner {position:relative;overflow:auto;width:100%;text-align:center;}
 .banner li {list-style: none;}

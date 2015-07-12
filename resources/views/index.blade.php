@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="banner has-dots" style="overflow:hidden;height:576px;">
-    <ul style="width: 200%;position:relative;overflow:hidden;left:0%;height:400px;">
+    <ul style="width: 200%;position:relative;overflow:hidden;left:0%;">
         @foreach($sliderEntry as $slide)
             <li style="width: 50%; background:url({{URL('/media', $slide->image)}}) center center; background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
                 <div class="container">
@@ -24,6 +24,9 @@
     <div class="arrow"></div>
 </div>
 <section style="margin-top:100px;">
+    <div class="container content" style="text-align: center;">
+        <h1>WELCOME TO VERTEXDEZIGN</h1>
+    </div>
     <div class="container content" style="padding-top:35px;">
         <div class="three">
             <div style="text-align: center;">
@@ -65,13 +68,13 @@
         {{--<p style="color:#999;">Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.</p>--}}
     {{--</div>--}}
 {{--</div>--}}
-<div style="height:100px;padding-top:100px;padding-bottom:100px;background:#f7f7f7;">
-    <div class="container content" style="text-align: center;">
-        <h1>News</h1>
-        <hr style="display: block;width: 15%;margin: 1em auto;border: 1px solid #2D8633;">
-    </div>
-</div>
-<div style="background:#f7f7f7;">
+{{--<div style="height:100px;padding-top:100px;padding-bottom:100px;background:#f7f7f7;">--}}
+    {{--<div class="container content" style="text-align: center;">--}}
+        {{--<h1>News</h1>--}}
+        {{--<hr style="display: block;width: 15%;margin: 1em auto;border: 1px solid #2D8633;">--}}
+    {{--</div>--}}
+{{--</div>--}}
+<div style="background:#f7f7f7;padding-top:100px;">
     <div class="sect-news">
         @foreach($newsEntry as $news)
             <div class="two" style="text-align:center;padding:1px;height:500px;width:calc(50% - 2px);">
@@ -98,52 +101,37 @@
         @endif
     </div>
 </div>
-<div class="container content" style="margin-top:100px;">
-    <div style="text-align: center;">
-        <h1>Partners</h1>
-        <hr style="display: block;width: 15%;margin: 1em auto;border: 1px solid #2D8633;">
-    </div>
-</div>
 <section style="margin-top:100px;">
-    <div class="four" style="text-align:center;height:200px;">
-        <a href="{{ URL::route('show_news', $news->id) }}">
-            <div class="articlePanel" style="height:100%;width:100%;background:url(http://www.bm-modding.de/wp-content/textbanner/logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                <div class="content">
-                    <h1>OEB Modding</h1>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        </a>
+    <div class="four" >
+        <div style="text-align: left;padding:10px;">
+            <h2>PARTNERS</h2>
+            <p>We do like to share experience with others. Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
+        </div>
     </div>
-    <div class="four" style="text-align:center;height:200px;">
-        <a href="{{ URL::route('show_news', $news->id) }}">
-            <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                <div class="content">
-                    <h1>OEB Modding</h1>
+    <div>
+        <div class="four" style="text-align:center;height:200px;">
+            <a href="http://www.bm-modding.de/">
+                <div class="articlePanel" style="height:100%;width:100%;background:url(http://www.bm-modding.de/wp-content/textbanner/logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                    <div class="overlay"></div>
                 </div>
-                <div class="overlay"></div>
-            </div>
-        </a>
-    </div>
-    <div class="four" style="text-align:center;height:200px;">
-        <a href="{{ URL::route('show_news', $news->id) }}">
-            <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                <div class="content">
-                    <h1>OEB Modding</h1>
+            </a>
+        </div>
+        <div class="four" style="text-align:center;height:200px;">
+            <a href="http://www.modswanted.com/">
+                <div class="articlePanel" style="height:100%;background:url(http://www.modswanted.com/assets/images/mw_logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                    <div class="overlay"></div>
                 </div>
-                <div class="overlay"></div>
-            </div>
-        </a>
-    </div>
-    <div class="four" style="text-align:center;height:200px;">
-        <a href="{{ URL::route('show_news', $news->id) }}">
-            <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                <div class="content">
-                    <h1>OEB Modding</h1>
+            </a>
+        </div>
+        <div class="four" style="text-align:center;height:200px;">
+            <a href="http://www.bm-modding.de/">
+                <div class="articlePanel" style="height:100%;background:url(http://www.oebmodding.co.uk/wp-content/uploads/OEB_Modding_Logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                    <div class="overlay"></div>
                 </div>
-                <div class="overlay"></div>
-            </div>
-        </a>
+            </a>
+        </div>
+
+        <div style="clear:both;"></div>
     </div>
     <div style="clear:both;"></div>
 </section>
