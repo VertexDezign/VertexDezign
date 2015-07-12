@@ -19,10 +19,10 @@
 <div class="container content" style="padding-bottom:100px;">
     <div style="padding:20px 5px 15px 5px;">
         <form method="post" role="post" action="{{route('filter_projects')}}">
-            <input type="submit" value="All" name="filter" class="btn green" />
-            <input type="submit" value="Mods" name="filter" class="btn green" />
-            <input type="submit" value="Maps" name="filter" class="btn green" />
-            <input type="submit" value="Scripts" name="filter" class="btn green" />
+            <input type="submit" value="All" name="filter" />
+            <input type="submit" value="Mods" name="filter" />
+            <input type="submit" value="Maps" name="filter" />
+            <input type="submit" value="Scripts" name="filter" />
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         </form>
     </div>

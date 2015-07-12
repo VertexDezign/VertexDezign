@@ -18,10 +18,10 @@ class ProjectsController extends Controller {
 
         if($filter == 'All'){
             return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->get());
-        }elseif($filter == 'Mods'){
-            return \View::make('projects.index')->with('entry', Project::where('category', '=', '4')->where('trash', '=', '0')->get());
         }elseif($filter == 'Maps'){
-            return \View::make('projects.index')->with('entry', Project::where('category', '=', '1')->where('category', '=', '2')->where('category', '=', '3')->where('category', '=', '5')->where('category', '=', '7')->where('trash', '=', '0')->get());
+            return \View::make('projects.index')->with('entry', Project::where('category', '=', '4')->where('trash', '=', '0')->get());
+        }elseif($filter == 'Mods'){
+            return \View::make('projects.index')->with('entry', Project::where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->where('trash', '=', '0')->get());
         }elseif($filter == 'Scripts'){
             return \View::make('projects.index')->with('entry', Project::where('category', '=', '6')->where('trash', '=', '0')->get());
         }

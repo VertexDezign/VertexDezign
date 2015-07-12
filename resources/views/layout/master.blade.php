@@ -7,17 +7,6 @@
         <link rel="shortcut icon" href="{{{URL('/images/layout/fb.png')}}}">
         <link href="{{ asset('/css/index.css') }}" rel="stylesheet">        
     </head>
-    <script>
-        $(document).ready(function(){
-            $('.banner').unslider({
-                speed: 1000,
-                delay: 7000,
-                complete: function() {},  //  A function that gets called after every slide animation
-                dots: true,              //  Display dot navigation
-                fluid: true
-            });
-        });
-    </script>
     <body>
         <div class="logo four">
             <h2><a style="text-decoration: none;color: inherit;" href="{{{URL('/')}}}">VERTEXDEZIGN</a></h2>

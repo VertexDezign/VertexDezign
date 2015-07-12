@@ -1,6 +1,17 @@
 @extends('layout/master')
 
 @section('content')
+<script>
+    $(document).ready(function(){
+        $('.banner').unslider({
+            speed: 1000,
+            delay: 7000,
+            complete: function() {},  //  A function that gets called after every slide animation
+            dots: true,              //  Display dot navigation
+            fluid: true
+        });
+    });
+</script>
 <div class="banner has-dots" style="overflow:hidden;height:576px;">
     <ul style="width: 200%;position:relative;overflow:hidden;left:0%;">
         @foreach($sliderEntry as $slide)
