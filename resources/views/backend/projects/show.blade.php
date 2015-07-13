@@ -133,7 +133,7 @@
         </form>
     </div>
     <script>
-        var pathString = "<?php if(isset($entry)){echo $entry['images'];} else{echo ' ';} ?>";
+        var pathString = "<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>";
         function getPath() {
             var item = $("#imageselect").val();
             var itemPath = '{{URL('/media')}}' + '/' + item;

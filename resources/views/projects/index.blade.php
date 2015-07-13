@@ -34,7 +34,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/media/', $header)}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/media', $header)}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4><a id="{{$project->id}}">{{$project->title}}</a></h4>
