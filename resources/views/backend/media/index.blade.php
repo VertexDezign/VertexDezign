@@ -67,6 +67,11 @@
                 <span id="infoModalText"></span>
             </div>
         </div>
+        <div class="modal blue" id="progress">
+            <div class="">
+                <progress value="0" max="100" id="progressbar" style="width: 100%; height: 30px;"></progress>
+            </div>
+        </div>
     </div>
     <input type="file" multiple id="fileInput" style="display: none">
 <script type="text/javascript">
@@ -263,6 +268,7 @@
     }
 
     function addFile() {
+        var progressbar = $('#progressbar');
         $('#fileInput').click().on('change', function(e) {
             var serverpath = path_prefix + path;
 
@@ -278,7 +284,7 @@
 
             xhr.upload.addEventListener("progress", function(e){
                 var percent = (e.loaded / e.total)*100;
-                //TODO add Progressbar
+                progressbar.val(percent);
             }, false);
 
             xhr.open('POST', 'media/addfile', true);
@@ -294,9 +300,11 @@
                     } catch(e) {
                         response = false;
                     }
+                    closeModal('progress');
                     doRefresh();
                 }
             };
+            openModal('progress');
             xhr.send(formData);
 
             resetFormElement($("#fileInput"));
