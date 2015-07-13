@@ -22,7 +22,7 @@ use App\News;
         });
 
         function changeImage(value){
-            $('#imageview').attr('src', '{{Url('/Media')}}/' + value);
+            $('#imageview').attr('src', '{{Url('/media')}}/' + value);
         }
 
         var toggleMenuTimer = false;
