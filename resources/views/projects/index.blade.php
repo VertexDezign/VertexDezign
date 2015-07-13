@@ -30,7 +30,7 @@
         <h1 style="line-height:70px;font-size:23px;font-weight:100;">There's currently nothing to show here...</h1>
     @else
         @foreach ($entry as $project)
-            <?php $images = array_filter(explode(';', $project['images'])); $header = array_values($images)[0] ?>
+            <?php $images = array_filter(explode(';', $project['images'])); $header = array_values($images)[0]; ?>
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
