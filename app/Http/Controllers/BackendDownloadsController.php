@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 use App\Downloads;
+use App\Media;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
@@ -24,17 +25,21 @@ class BackendDownloadsController extends Controller {
 
     public function show($id)
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
             'permission' => \Auth::user()->permission->name,
-            'entry' => Downloads::find($id)
+            'entry' => Downloads::find($id),
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.downloads.show', $viewBag);
     }
 
     public function add()
     {
+        $path = base_path() .'/www/media/';
         $viewBag = array(
-            'permission' => \Auth::user()->permission->name
+            'permission' => \Auth::user()->permission->name,
+            'files' => Media::getFiles($path),
         );
         return \View::make('backend.downloads.show', $viewBag);
     }
@@ -51,7 +56,8 @@ class BackendDownloadsController extends Controller {
             'features'=>\Input::get('features'),
             'credits'=>\Input::get('credits'),
             'log'=>\Input::get('log'),
-//            'images'=>\Input::get('images'),
+            'images'=>\Input::get('pathString'),
+            'download'=>\Input::get('download'),
             'user_id'=>\Input::get('user_id'),
             // --*
             '_token'=>\Input::get('_token')
@@ -78,7 +84,8 @@ class BackendDownloadsController extends Controller {
             'features'=>\Input::get('features'),
             'credits'=>\Input::get('credits'),
             'log'=>\Input::get('log'),
-            // 'images'=>\Input::get('images'),
+            'images'=>\Input::get('pathString'),
+            'download'=>\Input::get('download'),
             'user_id'=>\Input::get('user_id'),
             // --*
             '_token'=>\Input::get('_token')

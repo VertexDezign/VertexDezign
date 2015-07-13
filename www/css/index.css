@@ -58,7 +58,7 @@ header {height:250px;background-size:cover;position:relative;background-position
 header .content {height:100%;width:100%;opacity:1;padding:0 1%;z-index:10;float:none;display:block;margin-left:auto;margin-right:auto;text-align:center;position:absolute;}
 header h2 {margin-bottom:0px;text-align:center;font-size:40px;margin-top:0px;padding-top:140px; color:white;}
 header p {text-align:center;font-size:22px;color:white;}
-header .content button {font-weight:bold;font-size:18px;color:#fff;background:transparent;border:2px solid white;border-radius:5px;padding:15px 75px 15px 75px;margin-top:15px;}
+header .content button {font-weight:bold;font-size:18px;color:#fff;background:#2D8633;border:2px solid white;border-radius:5px;padding:15px 75px 15px 75px;margin-top:15px;}
 header .content button:hover {background:#26762c;cursor:pointer;transition:.3s;}
 header .overlay {height:100%;width:100%;opacity:0.75;-webkit-transition: background-color 1s ease;-moz-transition: background-color 1s ease;-o-transition: background-color 1s ease;transition: background-color 1s ease;}
 header:hover .overlay {background-color:#2E3539;}
@@ -115,7 +115,7 @@ p.error {background:#c9302c;padding:7.5px;color:#fff;}
 
 hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s ease 0s;}
 
-.panel {text-align:center;box-shadow:0 0 4px rgba(0,0,0,0.1);padding:-5px;margin:5px;background:#f7f7f7;color:#444;min-height:150px;}
+.panel {text-align:center;box-shadow:0 0 4px rgba(0,0,0,0.1);margin:5px;background:#f7f7f7;color:#444;min-height:150px;}
 .panel .panel-img {transition: opacity 1s;background:#000;opacity:0.8;}
 .panel:hover .panel-img {opacity:1;}
 .panel h4 {margin: 0px;
