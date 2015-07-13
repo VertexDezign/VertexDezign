@@ -13,7 +13,7 @@
         @elseif (Session::has('success'))
             <p class="success">{{Session::get('success')}}</p>
         @endif
-        <form method="post" role="post" action="@if(isset($entry)){{route('update_project')}}@else{{route('insert_project')}}@endif">
+        <form id="myForm" method="post" role="post" action="@if(isset($entry)){{route('update_project')}}@else{{route('insert_project')}}@endif">
             <div class="two" style="padding-right:5px;">
                 <!-- Project name -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Name</label></div>
@@ -85,13 +85,19 @@
                 <!-- Project images -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Images</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
-                    @if(isset($entry))
-                        <div class="four">
-                            <div class="panel" style="!important;text-align:left;">
-                                <img id="imageview" style="width:200px;padding-left:25%;" src="@if(isset($entry)){{URL('/media/' . $entry['images'])}}@endif" />
-                            </div>
-                        </div>
-                    @endif
+                    <div class="images">
+                        @if(isset($entry))
+                            <?php $images = array_filter(explode(';', $entry['images'])); ?>
+                            @foreach($images as $image)
+                                <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
+                                    <a href="{{URL('/media/' . $image)}}">
+                                        <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" />
+                                    </a>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                    <img id="imageview" style="width:100%;width:100%;" src="" />
                     <div style="clear:both;margin-bottom:7px;"></div>
                     <select id="imageselect" name="image" style="width:85%;float:left;" onchange="changeImage(this.value);">
                         <?php
@@ -103,7 +109,8 @@
                         }
                         ?>
                     </select>
-                    <input type="button" name="Add" value="Add" class="btn blue" style="width:calc(15% - 10px);float:left;" onclick="changeImage(this.value)">
+                    <input type="button" name="Add" value="Add" class="btn blue" style="width:calc(15% - 10px);float:left;" onclick="getPath()">
+                    <input id="pathString" type="hidden" name="pathString" value="" />
                 </div>
                 <div style="clear:both;"></div>
             </div>
@@ -126,6 +133,18 @@
         </form>
     </div>
     <script>
+        var pathString = "<?php if(isset($entry)){echo $entry['images'];} else{echo ' ';} ?>";
+        function getPath() {
+            var item = $("#imageselect").val();
+            var itemPath = '{{URL('/media')}}' + '/' + item;
+            $(".images").prepend(function() {
+                return "<div style='margin:2px;width:calc(33.3333333333% - 4px);float:left;'><a href='" + itemPath + "'><img style='width:100%;width:100%;' src='" + itemPath + "'></a></div>";
+            });
+            pathString += item + ';';
+            console.log(pathString);
+            $( "#pathString" ).val( pathString );
+        }
+
         tinymce.init({
             selector: "textarea.list",
             theme: "modern",

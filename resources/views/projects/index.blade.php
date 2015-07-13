@@ -30,10 +30,11 @@
         <h1 style="line-height:70px;font-size:23px;font-weight:100;">There's currently nothing to show here...</h1>
     @else
         @foreach ($entry as $project)
+            <?php $images = array_filter(explode(';', $project['images'])); $header = array_values($images)[0] ?>
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url(http://vertexdezign.net/images/ddd.jpg);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/media/', $header)}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4><a id="{{$project->id}}">{{$project->title}}</a></h4>
