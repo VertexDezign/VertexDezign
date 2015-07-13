@@ -13,21 +13,21 @@
         @elseif (Session::has('success'))
             <p class="success">{{Session::get('success')}}</p>
         @endif
-        <form method="post" role="post" action="@if(isset($entry)){{route('update_downloads')}}@else{{route('insert_download')}}@endif">
+        <form method="post" role="post" action="@if(isset($entry)){{route('update_download')}}@else{{route('insert_download')}}@endif">
             <div class="two" style="padding-right:5px;">
-                <!-- Project name -->
+                <!-- Downloads name -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Name</label></div>
                 <div class="three-two">
                     <input name="name" placeholder="Name" type="text" value="@if(isset($entry)){{$entry['name']}}@endif" REQUIRED />
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project title -->
+                <!-- Downloads title -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Title</label></div>
                 <div class="three-two">
                     <input name="title" placeholder="Title" type="text" value="@if(isset($entry)){{$entry['title']}}@endif" REQUIRED />
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project category -->
+                <!-- Downloads category -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Category</label></div>
                 <div class="three-two">
                     <select name="category" style="width:100%;">
@@ -41,7 +41,7 @@
                     </select>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project state -->
+                <!-- Downloads state -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">State</label></div>
                 <div class="three-two">
                     <select name="state" style="width:100%;">
@@ -50,13 +50,28 @@
                     </select>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project description -->
+                <!-- Downloads download link -->
+                <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Download link</label></div>
+                <div class="three-two">
+                    <select name="download" style="width:100%;">
+                        <?php
+                        foreach($files as $file){
+                            $ex = $file->getExtension();
+                            if(!$file->isDot() && $ex=='zip' || $ex=='rar' || $ex=='exe'){
+                                echo '<option>'.$file.'</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div style="clear:both;"></div>
+                <!-- Downloads description -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Description</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <textarea name="desc">@if(isset($entry)){{$entry['desc']}}@endif</textarea>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project change log -->
+                <!-- Downloads change log -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Change log</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <textarea name="log">@if(isset($entry)){{$entry['log']}}@endif</textarea>
@@ -64,49 +79,53 @@
                 <div style="clear:both;"></div>
             </div>
             <div class="two" style="padding-right:5px;">
-                <!-- Project information -->
+                <!-- Downloads information -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Information</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <textarea class="list" name="info">@if(isset($entry)){{$entry['info']}}@endif</textarea>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project features -->
+                <!-- Downloads features -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Features</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <textarea class="list" name="features">@if(isset($entry)){{$entry['features']}}@endif</textarea>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project credits -->
+                <!-- Downloads credits -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Credits</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <textarea class="list" name="credits">@if(isset($entry)){{$entry['credits']}}@endif</textarea>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Project images -->
+                <!-- Downloads images -->
                 <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Images</label></div>
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
+                    <div class="images">
+                        @if(isset($entry))
+                            <?php $images = array_filter(explode(';', $entry['images'])); ?>
+                            @foreach($images as $image)
+                                <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
+                                    <a href="{{URL('/media/' . $image)}}">
+                                        <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" />
+                                    </a>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
-                    </div>
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
-                    </div>
-                    <div class="four">
-                        <div class="panel" style="!important;text-align:left;">
-                            <div style="height:100px;background:url(http://vertexdezign.net/images/kaweco.png);background-size:cover;background-position:center center;background-repeat:no-repeat;"></div>
-                        </div>
-                    </div>
+                    <img id="imageview" style="width:100%;width:100%;" src="" />
                     <div style="clear:both;margin-bottom:7px;"></div>
-                    <input type="button" class="btn grey" name="Upload" value="Upload an image" onclick="">
+                    <select id="imageselect" name="image" style="width:85%;float:left;" onchange="changeImage(this.value);">
+                        <?php
+                        foreach($files as $file){
+                            $ex = $file->getExtension();
+                            if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
+                                echo '<option>'.$file.'</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                    <input type="button" name="Add" value="Add" class="btn blue" style="width:calc(15% - 10px);float:left;" onclick="getPath()">
+                    <input id="pathString" type="hidden" name="pathString" value="<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>;" />
                 </div>
                 <div style="clear:both;"></div>
             </div>
@@ -129,6 +148,18 @@
         </form>
     </div>
     <script>
+        var pathString = "<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>";
+
+        function getPath() {
+            var item = $("#imageselect").val();
+            var itemPath = '{{URL('/media')}}' + '/' + item;
+            $(".images").prepend(function() {
+                return "<div style='margin:2px;width:calc(33.3333333333% - 4px);float:left;'><a href='" + itemPath + "'><img style='width:100%;width:100%;' src='" + itemPath + "'></a></div>";
+            });
+            pathString += item + ';';
+            console.log(pathString);
+            $( "#pathString" ).val( pathString );
+        }
         tinymce.init({
             selector: "textarea.list",
             theme: "modern",

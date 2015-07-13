@@ -110,7 +110,7 @@
                         ?>
                     </select>
                     <input type="button" name="Add" value="Add" class="btn blue" style="width:calc(15% - 10px);float:left;" onclick="getPath()">
-                    <input id="pathString" type="hidden" name="pathString" value="" />
+                    <input id="pathString" type="hidden" name="pathString" value="<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>;" />
                 </div>
                 <div style="clear:both;"></div>
             </div>
