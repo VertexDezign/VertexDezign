@@ -29,7 +29,7 @@ class BackendMediaController extends Controller {
     public function getFolderContent()
     {
         $folder = Input::get('folder');
-        if (self::checkPath($folder)) {
+        if (Media::checkPath($folder)) {
             $result = array();
 
             $it = Media::getFiles($folder);
@@ -60,7 +60,7 @@ class BackendMediaController extends Controller {
     {
         $folder = Input::get('name');
         $path = Input::get('path');
-        if (self::checkPath($path)) {
+        if (Media::checkPath($path)) {
             if (Str::endsWith($path, "/")) {
                 $newFolder = $path . $folder;
             } else {
@@ -74,24 +74,24 @@ class BackendMediaController extends Controller {
     public function addFile()
     {
         $path = Input::get('path');
-        if (self::checkPath($path)) {
+        $success = false;
+        if (Media::checkPath($path)) {
             $files = Input::file('files');
-            //$files = $files['files'];
-
+            $success = true;
             foreach ($files as $f) {
-                if ($f->isValid()) {
-                    $f->move($path, $f->getClientOriginalName());
+                if (!Media::uploadFile($f, $path)){
+                    $success = false;
+                    break;
                 }
             }
-            return print_r($files, true);
         }
-        return response()->json(false);
+        return response()->json($success);
     }
 
     public function edit() {
         $oldName = Input::get('oldName');
         $newName = Input::get('newName');
-        if (self::checkPath($oldName)) {
+        if (Media::checkPath($oldName)) {
             return response()->json(rename($oldName, $newName));
         }
         return response()->json(false);
@@ -100,7 +100,7 @@ class BackendMediaController extends Controller {
     public function delete()
     {
         $file = Input::get('file');
-        if (self::checkPath($file)) {
+        if (Media::checkPath($file)) {
             if (is_dir($file)) {
                 $result = false;
                 $msg = "";
@@ -111,19 +111,11 @@ class BackendMediaController extends Controller {
                 }
                 return response()->json(array('type' => 'dir', 'done' => $result, 'msg' => $msg));
             } else {
-                return response()->json(array('type' => 'file', 'done' => unlink($file)));
+                return response()->json(array('type' => 'file', 'done' => Media::deleteFile($file)));
             }
         } else {
             return response()->json(array('error' => "Wrong Path!"));
         }
-    }
-
-    public static function checkPath($path) {
-        if (env('APP_ENV') != 'local') {
-            $realpath = realpath($path);
-            return Str::startsWith($realpath, '/home/www/web376/html/vertexdezign_new/www/media'); //Specific check for my Server
-        }
-        return true;
     }
 
 }

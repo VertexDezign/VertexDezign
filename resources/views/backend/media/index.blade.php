@@ -22,7 +22,6 @@
             <p class="success">{{Session::get('success')}}</p>
         @endif
         <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
-        <!--TODO Add something like windows Editor for file view-->
         <div style="padding:10px;background-color:#fff;">
             <div style="width:50%;float:left;">
                 <h4 style="font-size:14px;float:left;margin:0;padding:20px;font-weight:600;color:#515050;">Manage rows</h4>
@@ -47,7 +46,26 @@
 
                 </tbody>
             </table>
-            <!--TABLE-->
+        </div>
+        <div class="modal red" id="delete">
+            <form id="deleteForm">
+                <input name="file" id="deleteTitle" value="" style="display:none;" />
+                <div class="left">
+                    <p>Are you sure to delete this item?</p>
+                    <span id="deleteSpan"></span>
+                </div>
+                <div class="right" style="padding-top:30px;">
+                    <button type="button" onclick="deleteMedia()">Delete</button>
+                    <button type="button" onclick="closeModal('delete');return false;">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal blue" id="info">
+            <input name="file" value="" style="display:none;" />
+            <div class="left">
+                <p id="infoModalTitle"></p>
+                <span id="infoModalText"></span>
+            </div>
         </div>
     </div>
     <input type="file" multiple id="fileInput" style="display: none">
@@ -55,6 +73,7 @@
     var tbody = $('#tableBody');
     var path_prefix = 'media/';
     var path = '';
+    var infoModal = $( "#info" );
 
     $(document).ready(function() {
         $(function() {
@@ -110,7 +129,7 @@
                     } else {
                         tr.append($('<td style="text-align: right;">' + MRound(e[3] / 1000, 2) + ' kb' + '</td>'));
                     }
-                    tr.append($('<td><div style="float: right"><button class="btn blue small" onclick="editName(this)"><img src="../images/backend/edit.png" width="19"></button><button onclick="deleteMedia(this)" class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div></td>'));
+                    tr.append($('<td><div style="float: right"><button class="btn blue small" onclick="editName(this)"><img src="../images/backend/edit.png" width="19"></button><button onclick="confirmDelete(this)" class="btn blue small"><img src="../images/backend/delete.png" width="19"></button></div></td>'));
                     tbody.append(tr);
                 });
             }
@@ -156,26 +175,45 @@
         doRefresh();
     }
 
-    function deleteMedia(o) {
+    function confirmDelete(o) {
         var media = $(o).parent().parent().parent().attr('name');
+
+        $('#deleteTitle').val(media);
+        $('#deleteSpan').text(media);
+        openModal('delete');
+    }
+
+    function deleteMedia() {
+        var media = $('#deleteTitle').val();
         $.post('media/delete', {file: path_prefix + path + '/' + media}, function(data, textstatus, xhr) {
             if (textstatus == 'success') {
+                closeModal('delete');
                 if (data.type == 'file') {
                     if (data.done) {
                         doRefresh();
+                        $('#infoModalTitle').text(media + ' deleted succesfully!');
+                        infoModal.addClass('blue').removeClass('red');
                     } else {
-                        alert("Something went wrong");
+                        infoModal.addClass('red').removeClass('blue');
+                        $('#infoModalTitle').text('Something went wrong!');
                     }
 
                 } else if (data.type == 'dir' ) {
                     if (data.done) {
                         doRefresh();
+                        infoModal.addClass('blue').removeClass('red');
+                        $('#infoModalTitle').text(media + ' deleted succesfully!');
+
                     } else {
-                        alert(data.msg);
+                        infoModal.addClass('red').removeClass('blue');
+                        $('#infoModalTitle').text(data.msg);
                     }
                 } else {
-                    alert("Something went wrong");
+                    infoModal.addClass('red').removeClass('blue');
+                    $('#infoModalTitle').text('Something went wrong!');
                 }
+                openModal('info');
+                infoModal.delay(2000).animate({bottom: '-125px'},{duration:1000});
             }
         });
     }

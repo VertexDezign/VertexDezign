@@ -1,6 +1,7 @@
 <?php namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DirectoryIterator;
+use Illuminate\Support\Str;
 
 class Media extends Model {
 
@@ -10,10 +11,22 @@ class Media extends Model {
     }
 
     public static function deleteFile($file){
-        unlink($file);
+        return unlink($file);
     }
 
     public static function uploadFile($file, $target){
-        move_uploaded_file($file, $target);
+        if ($file->isValid()) {
+            $file->move($target, $file->getClientOriginalName());
+            return true;
+        }
+        return false;
+    }
+
+    public static function checkPath($path) {
+        if (env('APP_ENV') != 'local') {
+            $realpath = realpath($path);
+            return Str::startsWith($realpath, '/home/www/web376/html/vertexdezign_new/www/media'); //Specific check for my Server
+        }
+        return true;
     }
 }
