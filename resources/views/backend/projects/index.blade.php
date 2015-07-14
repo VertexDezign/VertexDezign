@@ -9,11 +9,22 @@
     </div>
     <div class="pad">
         @if (Session::has('error'))
-            <p class="error">{{Session::get('error')}}</p>
+            <div class="modal red" id="message">
+                <input name="file" value="" style="display:none;" />
+                <div class="left">
+                    <p>{{Session::get('error')}}</p>
+                    <span></span>
+                </div>
+            </div>
         @elseif (Session::has('success'))
-            <p class="success">{{Session::get('success')}}</p>
+            <div class="modal blue" id="message">
+                <input name="file" value="" style="display:none;" />
+                <div class="left">
+                    <p>{{Session::get('success')}}</p>
+                    <span></span>
+                </div>
+            </div>
         @endif
-
         <div style="padding:10px;background-color:#fff;">
             <div style="width:50%;float:left;">
                 <h4 style="font-size:14px;float:left;margin:0;padding:20px;font-weight:600;color:#515050;">Manage rows</h4>

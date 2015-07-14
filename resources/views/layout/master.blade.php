@@ -20,7 +20,6 @@
                     <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                     <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                     <li><a href="{{{URL('/forum')}}}">Forum</a></li>
-                    <li><a href="{{{URL('/login')}}}">Login</a></li>
               @else
                     <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                     <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
@@ -34,7 +33,6 @@
                           <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                           <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                           <li><a href="{{{URL('/forum')}}}">Forum</a></li>
-                          <li><a href="{{{URL('/login')}}}">Login</a></li>
                       @else
                           <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                           <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
@@ -63,19 +61,23 @@
                             <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                             <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                             <li><a href="{{{URL('/forum')}}}">Forum</a></li>
-                            <li><a href="{{{URL('/login')}}}">Login</a></li>
                         @else
                             <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                             <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                             <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                             <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
-                            <li><a href="{{{URL('/logout')}}}">Logout</a></li>
                         @endif
                     </ul>
                 </div>
                 <div class="three">
-                    <h3>Second</h3>
-                    second section
+                    <h3>Backend</h3>
+                    <ul class="controllers">
+                    @if (! \Auth::check())
+                        <li><a href="{{{URL('/login')}}}">Login</a></li>
+                    @else
+                        <li><a href="{{{URL('/logout')}}}">Logout</a></li>
+                    @endif
+                    </ul>
                 </div>
                 <div class="three" style="text-align:right;">
                     <h3>Follow us</h3>

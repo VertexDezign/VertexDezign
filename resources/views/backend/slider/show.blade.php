@@ -9,9 +9,21 @@
     </div>
     <div class="pad">
         @if (Session::has('error'))
-            <p class="error">{{Session::get('error')}}</p>
-        @elseif (Session::has('succes'))
-            <p class="succes">{{Session::get('succes')}}</p>
+            <div class="modal red" id="message">
+                <input name="file" value="" style="display:none;" />
+                <div class="left">
+                    <p>{{Session::get('error')}}</p>
+                    <span></span>
+                </div>
+            </div>
+        @elseif (Session::has('success'))
+            <div class="modal blue" id="message">
+                <input name="file" value="" style="display:none;" />
+                <div class="left">
+                    <p>{{Session::get('success')}}</p>
+                    <span></span>
+                </div>
+            </div>
         @endif
         <form method="post" role="post" action="@if(isset($entry)){{route('update_slider')}}@else{{route('insert_slider')}}@endif">
             <!-- Slide title -->

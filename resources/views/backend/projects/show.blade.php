@@ -9,9 +9,21 @@
     </div>
     <div class="pad">
         @if (Session::has('error'))
-            <p class="error">{{Session::get('error')}}</p>
+            <div class="modal red" id="message">
+                <input name="file" value="" style="display:none;" />
+                <div class="left">
+                    <p>{{Session::get('error')}}</p>
+                    <span></span>
+                </div>
+            </div>
         @elseif (Session::has('success'))
-            <p class="success">{{Session::get('success')}}</p>
+            <div class="modal blue" id="message">
+                <input name="file" value="" style="display:none;" />
+                <div class="left">
+                    <p>{{Session::get('success')}}</p>
+                    <span></span>
+                </div>
+            </div>
         @endif
         <form id="myForm" method="post" role="post" action="@if(isset($entry)){{route('update_project')}}@else{{route('insert_project')}}@endif">
             <div class="two" style="padding-right:5px;">
