@@ -111,7 +111,7 @@ p.error {background:#c9302c;padding:7.5px;color:#fff;}
 .spoiler > .header {background:green;height:50px;color:#fff;-webkit-user-select: none;  -moz-user-select: none;  -ms-user-select: none;  -o-user-select: none;  user-select: none; }
 .spoiler .content {color:#000;margin-bottom:25px;display:none;padding:10px;}
 
-.sect-news {background:#f7f7f7;width:1500px;margin:0 auto;}
+.container-max {background:#f7f7f7;width:1500px;margin:0 auto;}
 
 hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s ease 0s;}
 
@@ -231,6 +231,7 @@ div.green {background:#2D8633;}
 .icon:hover h2 a {color:#2d8633;}
 
 .two {width:50%;float:left;}
+.two-item {width:calc(50% - 2px);float:left;}
 .three {width:33.3333333333%;float:left;}
 .four {width:25%;float:left;}
 
@@ -248,13 +249,14 @@ a.white {color:#fff;}
 a.green {color:#2D8633;background:transparent;text-decoration:none;}
 
 
-.mobile-menu-toggler {width:50px;height:50px;background:#ccc url(../images/backend/menu-alt.png) center center;background-repeat:no-repeat;display:none;float:right;margin-top:12.5px;margin-right:10px;cursor:pointer;}
+.mobile-menu-toggler {width:50px;height:50px;background:#2D8633 url(../images/backend/menu-alt.png) center center;background-repeat:no-repeat;display:none;float:right;margin-top:12.5px;margin-right:10px;cursor:pointer;}
 
 .responsive-mobile {display:none;position:absolute;top:-2000px;}
 @media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
     .responsive-full-width {width:100%;}
     .responsive-padding, .content {padding:10px;}
     .container {width:100%;box-sizing:Border-box;}
+    .container-max {width:100%;}
     .four {width:100%;float:none;}
     footer {width:100%;box-sizing:border-box;}
     nav {height:auto;min-height:75px;}
@@ -267,6 +269,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .mobile-menu-toggler {display:block;}
     nav .menu-holder {width:100%;}
     nav .controllers {display:none;}
+    nav ul.controllers li:hover {border-bottom:5px solid #2D8633;}
     .responsive-mobile {display:block;position:initial;top:initial;}
     nav input[type=search] {display:none;}
     header h2 {font-size:30px;}
@@ -278,6 +281,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
 @media only screen and (max-width: 675px), only screen and (max-device-width: 350px) {
     .responsive-third-full-width {width:100%;}
     .two {width:100%;float:none;}
+    .two-item {width:100%;float:none;}
     .mobile-menu-toggler {display:block;}
     nav .menu-holder {width:100%;}
     .responsive-mobile {display:block;position:initial;top:initial;}

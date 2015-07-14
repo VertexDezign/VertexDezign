@@ -86,9 +86,9 @@
     {{--</div>--}}
 {{--</div>--}}
 <div style="background:#f7f7f7;padding-top:100px;">
-    <div class="sect-news">
+    <div class="container-max">
         @foreach($newsEntry as $news)
-            <div class="two" style="text-align:center;padding:1px;height:500px;width:calc(50% - 2px);">
+            <div class="two-item" style="text-align:center;padding:1px;height:500px;">
                 <a href="{{ URL::route('show_news', $news->id) }}">
                     <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:cover;background-position:center center;background-repeat:no-repeat;">
                         <div class="content">
