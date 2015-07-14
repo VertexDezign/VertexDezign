@@ -64,12 +64,13 @@
                         <?php $images = array_filter(explode(';', $entry['images'])); ?>
                         @foreach($images as $image)
                             <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                <a href="{{URL('/media/' . $image)}}">
-                                    <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" />
+                                <a class="fancybox" style="width:100%;width:100%;" rel="group" href="{{URL('/media/' . $image)}}">
+                                    <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" alt="" />
                                     <div class="overlay"></div>
                                 </a>
                             </div>
                         @endforeach
+
                     @endif
                 </div>
                 <div style="clear:both;"></div>
@@ -86,4 +87,9 @@
             </div>
         @endif
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
 @endsection

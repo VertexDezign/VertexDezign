@@ -1,13 +1,5 @@
 @extends('layout/backend')
 @section('content')
-<style>
-    tr:hover.highlight
-    {
-        background-color: #cccccc;
-    }
-
-</style>
-
     <div class="edit-header" style="background-color:#f1f4f9;padding:2px;border-bottom:1px solid #dee2e8;">
         <p>Backend / <span style="color:#0AA699;">Media</span></p>
     </div>

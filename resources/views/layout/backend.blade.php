@@ -21,8 +21,8 @@ use App\News;
             $( "#message" ).delay(2000).animate({bottom: '-125px'},{duration:1000});
         });
 
-        function changeImage(value){
-            $('#imageview').attr('src', '{{Url('/media')}}/' + value);
+        function changeImage(value) {
+            $('#imageview').attr('src', '{{Url('/media')}}/' + value).fadeIn();
         }
 
         var toggleMenuTimer = false;

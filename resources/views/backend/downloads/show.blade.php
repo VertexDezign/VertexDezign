@@ -136,7 +136,7 @@
                         }
                         ?>
                     </select>
-                    <input type="button" name="Add" value="Add" class="btn blue" style="width:calc(15% - 10px);float:left;" onclick="getPath()">
+                    <input type="button" name="Add" value="Add" class="btn blue" style="height:40px;margin:0px;width:calc(15% - 10px);float:left;" onclick="getPath()">
                     <input id="pathString" type="hidden" name="pathString" value="<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>;" />
                 </div>
                 <div style="clear:both;"></div>
@@ -165,9 +165,7 @@
         function getPath() {
             var item = $("#imageselect").val();
             var itemPath = '{{URL('/media')}}' + '/' + item;
-            $(".images").prepend(function() {
-                return "<div style='margin:2px;width:calc(33.3333333333% - 4px);float:left;'><a href='" + itemPath + "'><img style='width:100%;width:100%;' src='" + itemPath + "'></a></div>";
-            });
+            $("<div id='image' style='margin:2px;width:calc(33.3333333333% - 4px);float:left;'><a href='" + itemPath + "'><img style='width:100%;width:100%;' src='" + itemPath + "'></a></div>").hide().prependTo('.images').fadeIn();
             pathString += item + ';';
             console.log(pathString);
             $( "#pathString" ).val( pathString );

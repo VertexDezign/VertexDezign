@@ -28,14 +28,15 @@ header .dropdown li {list-style-type:none;cursor:pointer;}
 header .dropdown li:hover {background:#EFF2F3;}
 header .dropdown:before {content:'';width:10px;border-left:1px solid #ddd;border-top:1px solid #ddd;height:10px;position:absolute;margin-top:-11px;margin-left:135px;z-index:100;background:#fff;display:block;-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);transform: rotate(45deg);}
 header .dropdown a {text-decoration:none;:none;color:#2A2E36;display:block;width:100%;padding:10px 15px 10px 15px;box-sizing:border-box;}
-button.btn {padding:10px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:29px;min-width:39px;}
-button.btn img {margin-top:-2px;margin-left:-0px;position:relative;top:2px;}
-button.btn.blue {padding:10px;margin:5px;color:#fff;} button.btn.blue:hover {background:#1b1e24;}
-button.btn.red {background:#F35958;color:#fff;} button.btn.red:hover {background:#F14D4D;}
+button.btn {padding:10px;border:0;border-radius:3px;cursor:pointer;transition:.5s;min-height:40px;min-width:40px;}
+button.btn img {margin-top:-4px;margin-left:-0px;position:relative;top:2px;}
+button.btn.blue {padding:10px;margin:5px;color:#fff;} button.btn.blue:hover {background:#078f84;}
+button.btn.red {background:#F35958;color:#fff;} button.btn.red:hover {background:#cf504f;}
 button.btn.border {background:Transparent;border:3px solid #aaa;border-radius:15px;color:#515050;font-weight:bold;}
 button.btn.small {padding:5px;}
 .container {position:fixed;left:200px;right:0;bottom:0;top:0;overflow-y:auto;}
-table.tbl {background:#fff;width:100%;border:1px solid rgb(221, 221, 221);}
+table.tbl {background:#fff;width:100%;border:1px solid rgb(221, 221, 221);border-spacing:0px;}
+table.tbl tbody tr:hover {background:#f1f4f9;}
 table.tbl thead th {text-align:left;padding:7.5px;border-bottom:1px solid rgb(221, 221, 221);}
 table.tbl tbody td {padding:5px;}
 div.pad {padding:25px;}
