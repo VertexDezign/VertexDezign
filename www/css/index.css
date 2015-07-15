@@ -129,6 +129,9 @@ hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s 
 .panel-body ul {}
 .panel-body ul li {list-style-type:square;}
 
+.image img {transition: opacity 1s;background:#000;opacity:0.8;}
+.image:hover img {opacity:1;}
+
 .articlePanel {color:#fff;opacity: 0.95;transition:.3s;position: relative;}
 .articlePanel:hover {cursor:pointer;}
 .articlePanel .overlay {height:100%;width:100%;opacity:0.75;-webkit-transition: background-color 1s ease;-moz-transition: background-color 1s ease;-o-transition: background-color 1s ease;transition: background-color 1s ease;}
