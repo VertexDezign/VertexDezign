@@ -35,36 +35,84 @@
             </div>
         </div>
         <section>
-            <div class="container content" style="padding-top:35px;">
-                <div class="three">
-                    <div style="text-align: center;">
-                        <div class="icon">
-                            <div class="round lightgrey" style="width:150px;height:150px;line-height:200px;"><a href="{{{URL('/about')}}}"><img src="{{URL('/images/layout/people.png')}}"/></a></div>
-                            <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/about')}}}">Wopster</a></h2>
-                        </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/media/lyHKTmjLkk.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Wopster</h4>
                         <p>Model/Ingame/Script</p>
                     </div>
                 </div>
-                <div class="three">
-                    <div style="text-align: center;">
-                        <div class="icon">
-                            <div class="round lightgrey" style="width:150px;height:150px;line-height:200px;"><a href="{{{URL('/about')}}}"><img src="{{URL('/images/layout/people.png')}}"/></a></div>
-                            <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/about')}}}">Xentro</a></h2>
-                        </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Xentro</h4>
                         <p>Model/Texture/Ingame/Script</p>
                     </div>
                 </div>
-                <div class="three">
-                    <div style="text-align: center;">
-                        <div class="icon">
-                            <div class="round lightgrey" style="width:150px;height:150px;line-height:200px;"><a href="{{{URL('/about')}}}"><img src="{{URL('/images/layout/people.png')}}"/></a></div>
-                            <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/about')}}}">Grisu118</a></h2>
-                        </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Grisu118</h4>
                         <p>Ingame/Script</p>
                     </div>
                 </div>
             </div>
-            <div style="clear:both;height:35px;"></div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Niggels939</h4>
+                        <p>Texture/Map</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Eicher-Fan</h4>
+                        <p>Forum moderator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Fox!</h4>
+                        <p>Forum moderator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Srgtsmokealot</h4>
+                        <p>Forum moderator</p>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
         </section>
     </div>
 @endsection
