@@ -33,15 +33,13 @@ nav h1 {float:left;width:215px;color:#fff;}
 .logo {float: left;text-align: right;height:100px;background-color:#fff;position: relative;color:#000;line-height:100px;}
 .logo h2 {font-size:24px;margin:0;}
 /*BANNER*/
-.banner {position:relative;overflow:auto;width:100%;text-align:center;}
+.banner {position:relative;overflow:auto;width:100%;text-align:center;font-size:18px;line-height:24px;text-align:center;color:rgba(255,255,255,.9);text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);}
 .banner li {list-style: none;}
 .banner ul {margin:0;padding:0;}
-.banner ul li {float:left;height:400px;width:100%;display:block;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;}
-.banner ul li .content {text-align:center;margin-top:125px;color:#fff;padding:5px 5px;font-size:16px;margin-bottom:25px;}
-.banner ul li .content h2 {margin:0;font-size:55px;font-weight:300;}
-.banner ul li .content p {margin-top:0px;}
-.banner ul li .button {border: solid 1px rgba(255,255,255,0.3);background-color:rgba(0,0,0,0.2);-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-khtml-border-radius:5px;padding:15px 25px;color:#fff;text-decoration:none;font-size:16px;font-weight:600;}
-.banner ul li .button:hover {background-color:rgba(0,0,0,0.4);}
+.banner ul li {float: left;min-height:300px;padding:135px 0 0 0;}
+.banner ul li h1 {margin:0;font-size:40px;font-weight:300;color:#fff;line-height:52px;}
+.banner .btn {display:inline-block;margin:25px 0 0;padding:15px 25px;clear:both;color:#fff;font-size:12px;font-weight:bold;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,.5);border-radius:5px;}
+.banner .btn:hover {background:rgba(255,255,255,.1);}
 .banner .dots {position:absolute;left:0;right:0;bottom:20px;text-align:left;}
 .banner .dots li {display:inline-block;width:10px;height:10px;margin:0 4px;text-indent:-999em;border:2px solid #fff;border-radius:6px;cursor:pointer;opacity:.4;-webkit-transition:background .5s, opacity .5s;-moz-transition:background .5s, opacity .5s;transition:background .5s, opacity .5s;}
 .banner .dots li.active {background:#fff;opacity:1;}

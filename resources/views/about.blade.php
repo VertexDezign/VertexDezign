@@ -19,7 +19,6 @@
         <div>
             <div>
                 <div class="" style="!important;text-align:left;">
-                    <h4 style="height:15px;margin:5px;padding:10px;background-color:#2D8633;color:#fff;">VertexDezign</h4>
                     <div style="margin:5px;">
                        <p>
                            Welcom to VertexDezign. Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.
