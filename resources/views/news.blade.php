@@ -18,7 +18,7 @@
     <div class='container'>
         <article style="padding:5px;">
             @if(isset($entry->imgsrc))
-                <img src="{{URL('/media/', $entry->imgsrc)}}" />
+                <img style="width:100%;height:100%;" src="{{URL('/media/', $entry->imgsrc)}}" />
             @endif
             {!!$entry->body!!}
         </article>

@@ -2,7 +2,11 @@
 @section('content')
     <script type="text/javascript">
         $(document).ready(function() {
-            $("a.image").fancybox();
+            $("a.image").fancybox({
+                'padding'       : 0,
+                'width'         : 600,
+                'height'        : 250,
+                'autoScale'     : false});
         });
     </script>
     <?php $images = array_filter(explode(';', $entry['images'])); $header = array_values($images)[0] ?>

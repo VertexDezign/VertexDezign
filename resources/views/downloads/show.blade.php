@@ -2,7 +2,12 @@
 @section('content')
     <script type="text/javascript">
         $(document).ready(function() {
-            $("a.image").fancybox();
+            $("a.image").fancybox({
+                'padding'       : 0,
+                'width'         : 600,
+                'height'        : 250,
+                'autoScale'     : false
+            });
         });
     </script>
     <?php $images = array_filter(explode(';', $entry['images'])); $header = array_values($images)[0] ?>
@@ -96,7 +101,17 @@
             <div class="" style="!important;text-align:left;background:#f7f7f7;margin:5px;">
                 <h4 style="height:15px;padding:10px;background-color:#2D8633;color:#fff;">Download</h4>
                 <div style="margin:10px;">
-                    <button class="btn green"><a href="{{URL('/media/' . $entry['download'])}}">Download</a></button>
+                    <div style="float:left;">
+                        <button class="btn green"><a href="">Donate</a></button>
+                        <button class="btn green"><a href="{{URL('/media/' . $entry['download'])}}">Download</a></button>
+                    </div>
+                    <div style="float:right;">
+                        <div class="rating" style="float:left;">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+                        <button class="btn green"><a href="">Rate</a></button>
+                        <div style="clear:both;"></div>
+                    </div>
                 </div>
             </div>
         </div>
