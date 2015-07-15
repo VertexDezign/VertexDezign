@@ -1,5 +1,10 @@
 @extends('layout/master')
 @section('content')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("a.image").fancybox();
+        });
+    </script>
     <?php $images = array_filter(explode(';', $entry['images'])); $header = array_values($images)[0] ?>
     <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
         <div class="container">
@@ -57,14 +62,14 @@
             <div style="clear:both;"></div>
         </div>
         <div>
-            <div class="" style="!important;text-align:left;background:#f7f7f7;margin:5px;">
+            <div style="!important;text-align:left;background:#f7f7f7;margin:5px;">
                 <h4 style="padding:10px;margin:0px;background-color:#2D8633;color:#fff;">Images</h4>
                 <div style="padding:5px;">
                     @if(isset($entry->images))
                         <?php $images = array_filter(explode(';', $entry['images'])); ?>
                         @foreach($images as $image)
                             <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                <a class="fancybox" style="width:100%;width:100%;" rel="group" href="{{URL('/media/' . $image)}}">
+                                <a class="image" rel="group" style="width:100%;width:100%;" href="{{URL('/media/' . $image)}}">
                                     <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" alt="" />
                                     <div class="overlay"></div>
                                 </a>
@@ -87,9 +92,4 @@
             </div>
         @endif
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".fancybox").fancybox();
-        });
-    </script>
 @endsection

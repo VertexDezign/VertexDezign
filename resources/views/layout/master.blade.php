@@ -4,68 +4,52 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="//unslider.com/unslider.min.js"></script>
+        <script type="text/javascript" src="{{asset('/source/jquery.fancybox.pack.js')}}"></script>
         <title>Home - VertexDezign</title>
         <link rel="shortcut icon" href="{{{URL('/images/layout/fb.png')}}}">
-        <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/index.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('/source/jquery.fancybox.css')}}" media="screen" />
 
-        <!-- Add jQuery library -->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-        <!-- Add mousewheel plugin (this is optional) -->
-        <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-
-        <!-- Add fancyBox -->
-        <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-        <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-        <!-- Optionally add helpers - button, thumbnail and/or media -->
-        <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-        <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-        <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-
-        <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-        <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
     </head>
     <body>
-        <div class="logo four">
-            <h2><a style="text-decoration: none;color: inherit;" href="{{{URL('/')}}}">VERTEXDEZIGN</a></h2>
-        </div>
         <nav>
-          <div class="container">
-              <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
-              <div class="menu-holder">
-                <ul class="controllers">
-              @if (! \Auth::check())
-                    <li><a href="{{{URL('/projects')}}}">Projects</a></li>
-                    <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                    <li><a href="{{{URL('/forum')}}}">Forum</a></li>
-              @else
-                    <li><a href="{{{URL('/projects')}}}">Projects</a></li>
-                    <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                    <li><a href="{{{URL('/forum')}}}">Forum</a></li>
-                    <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
-                    <li><a href="{{{URL('/logout')}}}">Logout</a></li>
-              @endif
-                  </ul>
-                  <ul class="controllers responsive-mobile" style="display:none;">
-                      @if (! \Auth::check())
+            <div class="logo four">
+                <h2><a style="text-decoration: none;color: inherit;" href="{{{URL('/')}}}">VERTEXDEZIGN</a></h2>
+            </div>
+            <div class="container">
+                <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
+                <div class="menu-holder">
+                    <ul class="controllers">
+                        @if (! \Auth::check())
+                            <li><a href="{{{URL('/projects')}}}">Projects</a></li>
+                            <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
+                            <li><a href="{{{URL('/forum')}}}">Forum</a></li>
+                        @else
+                            <li><a href="{{{URL('/projects')}}}">Projects</a></li>
+                            <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
+                            <li><a href="{{{URL('/forum')}}}">Forum</a></li>
+                            <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
+                            <li><a href="{{{URL('/logout')}}}">Logout</a></li>
+                        @endif
+                    </ul>
+                    <ul class="controllers responsive-mobile" style="display:none;">
+                        @if (! \Auth::check())
                           <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                           <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                           <li><a href="{{{URL('/forum')}}}">Forum</a></li>
-                      @else
+                        @else
                           <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                           <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
                           <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                           <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
                           <li><a href="{{{URL('/logout')}}}">Logout</a></li>
-                      @endif
-                  </ul>
-                  <div style="clear:both;"></div>
-              </div>
-          </div>
+                        @endif
+                    </ul>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
         </nav>
-        <div style="height:5px;background-color:#2d8633;"></div>
-          @yield('content')
+        @yield('content')
         <footer style="margin-top:100px;">
             <section class="top">
                 <div class="container content">

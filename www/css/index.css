@@ -10,7 +10,7 @@ body span.form-sign {height:40px;width:50px;background:#2d8633;box-shadow:inset 
 .page-route a {color:#2d8633;text-decoration:none;}
 
 /*NAV MENU*/
-nav {background:#fff;height:100px;}
+nav {background:#fff;height:100px;border-bottom:5px solid #2d8633;}
 nav .title {font-family:'Coolvetica', sans-serif; color:#000;text-decoration:None;}
 nav a img {float:left;width:400px;color:#fff;padding-top:20px;}
 nav section {height:50px;background:#2e3539;}
