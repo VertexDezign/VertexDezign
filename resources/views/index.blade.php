@@ -63,7 +63,7 @@
         </div>
         <div style="clear:both;height:35px;"></div>
     </section>
-    <section style="background:#f7f7f7;padding-top:100px;">
+    <div style="background:#f7f7f7;padding-top:100px;">
         <div class="container-max">
             @foreach($newsEntry as $news)
                 <div class="two-item" style="text-align:center;padding:1px;height:500px;">
@@ -89,7 +89,7 @@
                 <div style="margin-bottom:100px;"></div>
             @endif
         </div>
-    </section>
+    </div>
     <section style="margin-top:100px;">
         <div class="four" >
             <div style="text-align: left;padding:10px;">
