@@ -1,4 +1,7 @@
 @extends('layout/master')
+<head>
+    <title>Home - VertexDezign</title>
+</head>
 @section('content')
     <script>
         $(document).ready(function(){

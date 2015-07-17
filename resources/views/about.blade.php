@@ -1,5 +1,7 @@
 @extends('layout/master')
-
+<head>
+    <title>About - VertexDezign</title>
+</head>
 @section('content')
     <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
         <div class="container">

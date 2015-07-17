@@ -1,4 +1,7 @@
 @extends('layout/master')
+<head>
+    <title>{{$entry->title}} - VertexDezign</title>
+</head>
 @section('content')
     <script type="text/javascript">
         $(document).ready(function() {
