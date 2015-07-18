@@ -39,24 +39,33 @@
             </div>
             <div style="clear:both;"></div>
             <!-- Slide image -->
-            <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Image</label></div>
-            <div class="three-two">
-                <select id="imageselect" name="image" style="width:100%;" onchange="changeImage(this.value);">
-                    <?php
-                    foreach($files as $file){
-                        $ex = $file->getExtension();
-                        if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
-                            echo '<option>'.$file.'</option>';
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
-            <div style="clear:both;"></div>
-            <!-- Slide image -->
-            <div class="three" style="width:100%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
+            <div class="three" style="width:85%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
+            <input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
             <div class="three" style="width:100%;">
-                <img id="imageview" style="width:50%;height:50%;padding-left:25%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
+                <div class="modal blue" id="imageModal" style="height: 350px;bottom:-350px;">
+                    <div class="two">
+                        <select id="imageselect" name="image" style="width:100%;margin-top:15px;" onchange="changeImage(this.value);">
+                            <?php
+                            foreach($files as $file){
+                                $selected = '';
+                                $ex = $file->getExtension();
+                                if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
+                                    if($file == $entry->imgsrc){
+                                        $selected = "selected";
+                                    }
+                                    echo '<option '.$selected.'>'.$file.'</option>';
+                                }
+                            }
+                            ?>
+                        </select>
+                        <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
+                    </div>
+                    <div class="two">
+                        <button class="Toevoegen" onclick="closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
+                        <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
+                    </div>
+                </div>
+                <img class="imageview" style="width:25%;height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
             </div>
             <div style="clear:both;"></div>
 
@@ -82,7 +91,7 @@
             theme: "modern",
             resize: false,
             statusbar : false,
-            height: 500,
+            height: 300,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
                 "searchreplace visualblocks visualchars code fullscreen",

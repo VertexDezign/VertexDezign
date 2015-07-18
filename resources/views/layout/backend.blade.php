@@ -13,7 +13,8 @@ use App\News;
             $( "#" + id ).animate({bottom: '0'});
         }
         function closeModal(id){
-            $( "#" + id ).animate({bottom: '-125px'});
+            element = $( "#" + id);
+            element.animate({bottom: '-'+(element.height()+25)+'px'});
         }
 
         $(window).load(function () {
@@ -22,7 +23,7 @@ use App\News;
         });
 
         function changeImage(value) {
-            $('#imageview').attr('src', '{{Url('/media')}}/' + value).fadeIn();
+            $('.imageview').attr('src', '{{Url('/media')}}/' + value).fadeIn();
         }
 
         var toggleMenuTimer = false;

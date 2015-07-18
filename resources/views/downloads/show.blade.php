@@ -114,6 +114,7 @@
                         <button class="btn green"><a href="">Rate</a></button>
                         <div style="clear:both;"></div>
                     </div>
+                    <div style="clear:both;"></div>
                 </div>
             </div>
         </div>

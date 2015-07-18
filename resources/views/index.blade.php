@@ -92,7 +92,7 @@
             @endif
         </div>
     </div>
-    <section style="margin-top:100px;">
+    <section style="margin-top:100px;margin-bottom:100px;">
         <div class="four" >
             <div style="text-align: left;padding:10px;">
                 <h2>PARTNERS</h2>
