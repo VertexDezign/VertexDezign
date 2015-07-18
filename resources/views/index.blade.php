@@ -101,21 +101,21 @@
         </div>
         <div>
             <div class="four" style="text-align:center;height:200px;">
-                <a href="http://www.bm-modding.de/">
+                <a target="_blank" href="http://www.bm-modding.de/">
                     <div class="articlePanel" style="height:100%;width:100%;background:url(http://www.bm-modding.de/wp-content/textbanner/logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                         <div class="overlay"></div>
                     </div>
                 </a>
             </div>
             <div class="four" style="text-align:center;height:200px;">
-                <a href="http://www.modswanted.com/">
+                <a target="_blank" href="http://www.modswanted.com/">
                     <div class="articlePanel" style="height:100%;background:url(http://www.modswanted.com/assets/images/mw_logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                         <div class="overlay"></div>
                     </div>
                 </a>
             </div>
             <div class="four" style="text-align:center;height:200px;">
-                <a href="http://www.bm-modding.de/">
+                <a target="_blank" href="http://www.oebmodding.co.uk/">
                     <div class="articlePanel" style="height:100%;background:url(http://www.oebmodding.co.uk/wp-content/uploads/OEB_Modding_Logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                         <div class="overlay"></div>
                     </div>

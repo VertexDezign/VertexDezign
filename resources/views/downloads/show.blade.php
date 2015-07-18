@@ -1,5 +1,4 @@
 @extends('layout/master')
-<?php  $title = $entry->title; ?>
 @section('title', $entry->title)
 @section('description', 'This is the download page of VertexDezign')
 @section('content')

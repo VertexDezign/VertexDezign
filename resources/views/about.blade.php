@@ -1,7 +1,6 @@
 @extends('layout/master')
-<head>
-    <title>About - VertexDezign</title>
-</head>
+@section('title', 'About')
+@section('description', 'This is the about page of VertexDezign')
 @section('content')
     <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
         <div class="container">
