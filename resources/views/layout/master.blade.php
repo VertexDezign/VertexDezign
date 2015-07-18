@@ -9,6 +9,9 @@
         <link rel="shortcut icon" href="{{{URL('/images/icon.png')}}}">
         <link href="{{ asset('/css/index.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('/source/jquery.fancybox.css')}}" media="screen" />
+        <!-- Title Meta -->
+        <title>@yield('title') - VertexDezign</title>
+        <meta name="description" content="@yield('description')">
     </head>
     <body>
         <nav>

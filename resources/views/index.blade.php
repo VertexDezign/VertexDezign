@@ -1,7 +1,6 @@
 @extends('layout/master')
-<head>
-    <title>Home - VertexDezign</title>
-</head>
+@section('title', 'Home')
+@section('description', 'This is the home page of VertexDezign')
 @section('content')
     <script>
         $(document).ready(function(){

@@ -1,7 +1,6 @@
 @extends('layout/master')
-<head>
-    <title>Downloads - VertexDezign</title>
-</head>
+@section('title', 'Downloads')
+@section('description', 'This is the download page of VertexDezign')
 @section('content')
     <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
         <div class="container">

@@ -1,7 +1,7 @@
 @extends('layout/master')
-<head>
-    <title>{{$entry->title}} - VertexDezign</title>
-</head>
+<?php  $title = $entry->title; ?>
+@section('title', $entry->title)
+@section('description', 'This is the download page of VertexDezign')
 @section('content')
     <script type="text/javascript">
         $(document).ready(function() {
