@@ -61,11 +61,13 @@
                         <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
                     </div>
                     <div class="two">
-                        <button class="Toevoegen" onclick="closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
+                        <button class="Toevoegen" onclick="addImage();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
                         <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
                     </div>
                 </div>
-                <img class="imageview" style="width:25%;height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
+                <a class="image" rel="group" href="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif">
+                    <img id="imageview" style="width:25%;height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['imgsrc'])}}@endif" />
+                </a>
             </div>
             <div style="clear:both;"></div>
 

@@ -7,8 +7,18 @@ use App\News;
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script type="text/javascript" src="{{asset('/source/jquery.fancybox.pack.js')}}"></script>
     <link href="{{ asset('/css/backend.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/source/jquery.fancybox.css')}}" media="screen" />
     <script>
+        $(document).ready(function() {
+            $("a.image").fancybox({
+                'padding'       : 0,
+                'width'         : 600,
+                'height'        : 250,
+                'autoScale'     : false});
+        });
+
         function openModal(id){
             $( "#" + id ).animate({bottom: '0'});
         }
@@ -24,6 +34,10 @@ use App\News;
 
         function changeImage(value) {
             $('.imageview').attr('src', '{{Url('/media')}}/' + value).fadeIn();
+        }
+        function addImage() {
+            var src = $("#imageselect").val();
+            $('#imageview').attr('src', '{{Url('/media')}}/' + src).fadeIn();
         }
 
         var toggleMenuTimer = false;
