@@ -96,6 +96,9 @@ use App\News;
         <li>
             <a href="{{URL('/backend/slider')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Slider</p></a>
         </li>
+        <li>
+            <a href="{{URL('/backend/partner')}}"><img src="{{URL('/images/backend/menu/media.png')}}"/><p>Partner</p></a>
+        </li>
         @endif
     </ul>
 </nav>
