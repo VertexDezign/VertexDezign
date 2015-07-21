@@ -25,17 +25,11 @@
                 </div>
             </div>
         @endif
-        <form method="post" role="post" action="@if(isset($entry)){{route('update_slider')}}@else{{route('insert_slider')}}@endif">
+        <form method="post" role="post" action="@if(isset($entry)){{route('update_partner')}}@else{{route('insert_partner')}}@endif">
             <!-- Slide title -->
             <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Title</label></div>
             <div class="three-two">
                 <input name="title" placeholder="Title" type="text" value="@if(isset($entry)){{$entry['title']}}@endif" REQUIRED />
-            </div>
-            <div style="clear:both;"></div>
-            <!-- Slide body -->
-            <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Description</label></div>
-            <div class="three-two" style="width:100%;margin-bottom:8.5px;">
-                <textarea name="desc">@if(isset($entry)){{$entry['desc']}}@endif</textarea>
             </div>
             <div style="clear:both;"></div>
             <!-- Slide link -->
@@ -93,26 +87,4 @@
             <div style="background-color:#ccc;height:5px;"></div>
         </form>
     </div>
-    <script>
-        tinymce.init({
-            selector: "textarea",
-            theme: "modern",
-            resize: false,
-            statusbar : false,
-            height: 250,
-            plugins: [
-                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-                "searchreplace visualblocks visualchars code fullscreen",
-                "insertdatetime media nonbreaking save table contextmenu directionality",
-                "emoticons template paste textcolor colorpicker textpattern"
-            ],
-            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            toolbar2: "print preview media | forecolor backcolor emoticons",
-            image_advtab: true,
-            templates: [
-                {title: 'Test template 1', content: 'Test 1'},
-                {title: 'Test template 2', content: 'Test 2'}
-            ]
-        });
-    </script>
 @endsection
