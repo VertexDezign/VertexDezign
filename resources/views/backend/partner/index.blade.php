@@ -68,7 +68,7 @@
                             <input name="file" value="{{$partner->title}}" style="display:none;" />
                             <div class="left">
                                 <p>Are you sure to delete this item?</p>
-                                <span>{{$slider->title}}</span>
+                                <span>{{$partner->title}}</span>
                             </div>
                             <div class="right" style="padding-top:30px;">
                                 <button>Delete</button>
