@@ -16,11 +16,11 @@
             <div style="clear:both;"></div>
         </div>
     </div>
+    @if(isset($entry->imgsrc))
+        <header style="background:url({{URL('/media/', $entry->imgsrc)}}) center center;background-size:cover;position:relative;background-repeat:no-repeat;"></header>
+    @endif
     <div class='container'>
-        <article style="padding:5px;">
-            @if(isset($entry->imgsrc))
-                <img style="width:100%;" src="{{URL('/media/', $entry->imgsrc)}}" />
-            @endif
+        <article style="padding:10px;">
             {!!$entry->body!!}
         </article>
     </div>

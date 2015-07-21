@@ -146,7 +146,7 @@
                         </div>
                         <div class="two">
                             <button class="Toevoegen" onclick="getPath();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
-                            <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
+                            <button class="close" style="margin-top:15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
                         </div>
                     </div>
                 </div>
