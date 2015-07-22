@@ -117,7 +117,7 @@
             @foreach($partnerEntry as $partner)
                 <div class="three" style="text-align:center;height:200px;">
                     <a target="_blank" href="{{URL($partner->link)}}">
-                        <div class="articlePanel" style="height:100%;width:100%;background:url({{URL('/media', $partner->image)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                        <div class="articlePanel" style="height:100%;width:100%;background:url({{URL::asset('media/' . $partner->image)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                             <div class="overlay"></div>
                         </div>
                     </a>
