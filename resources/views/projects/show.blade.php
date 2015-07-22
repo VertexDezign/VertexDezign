@@ -8,7 +8,13 @@
                 'padding'       : 0,
                 'width'         : 600,
                 'height'        : 250,
-                'autoScale'     : false});
+                'autoScale'     : false,
+
+                helpers: {
+                    overlay: {
+                        locked: false
+                    }
+                }});
         });
     </script>
     <?php $images = array_filter(explode(';', $entry['images'])); $header = array_values($images)[0] ?>

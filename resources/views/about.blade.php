@@ -23,6 +23,8 @@
                     <div style="margin:5px;">
                        <p>
                            Welcom to VertexDezign. Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.
+
+                           Any questions email to: <a href="mailto:info@vertexdezign.net">info@vertexdezign.net</a>
                        </p>
                     </div>
                 </div>
