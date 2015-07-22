@@ -121,7 +121,7 @@
                     tr.attr('draggable', true);
                     if (e[1]) {
                         tr.dblclick(function(e){
-                            cutLastSlash();
+                            cutLastSlash(path);
                             path += '/' + $(this).attr('name');
                             $('#path').val(path);
                             doRefresh();
@@ -151,23 +151,8 @@
         }
     }
 
-    function addFolder() {
-        var folderName = prompt("Please enter the Folder Name", "");
-        if (folderName != "" && folderName != null && folderName != undefined) {
-            $.post('media/addfolder', {path: path_prefix + path, name: folderName}, function (data, textstatus, xhr) {
-                if (textstatus == 'success') {
-                    if (data) {
-                        doRefresh();
-                    } else {
-                        alert("Something went wrong");
-                    }
-                }
-            });
-        }
-    }
-
     function goUp() {
-        cutLastSlash();
+        cutLastSlash(path);
         var includesSlash = false;
         if (typeof(path.includes) == "function") {
             includesSlash = path.includes('/'); //Chrome
@@ -182,6 +167,21 @@
         }
         $('#path').val(path);
         doRefresh();
+    }
+
+    function addFolder() {
+        var folderName = prompt("Please enter the Folder Name", "");
+        if (folderName != "" && folderName != null && folderName != undefined) {
+            $.post('media/addfolder', {path: path_prefix + path, name: folderName}, function (data, textstatus, xhr) {
+                if (textstatus == 'success') {
+                    if (data) {
+                        doRefresh();
+                    } else {
+                        alert("Something went wrong");
+                    }
+                }
+            });
+        }
     }
 
     function confirmDelete(o) {
@@ -261,15 +261,7 @@
         }
     }
 
-    function cutLastSlash() {
-        if (endsWith(path, '/')) {
-            path = path.substring(0, path.length);
-        }
-    }
 
-    function endsWith(str, suffix) {
-        return str.indexOf(suffix, str.length - suffix.length) !== -1;
-    }
 
     function addFile() {
         var progressbar = $('#progressbar');

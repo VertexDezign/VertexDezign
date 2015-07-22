@@ -69,6 +69,108 @@ use App\News;
             }
             console.log('finished');
         }
+
+        //Media Functions:
+        function cutLastSlash(path) {
+            if (endsWith(path, '/')) {
+                path = path.substring(0, path.length);
+            }
+        }
+
+        function endsWith(str, suffix) {
+            return str.indexOf(suffix, str.length - suffix.length) !== -1;
+        }
+
+        function folderUp() {
+            var path = mediaSelector.path;
+            cutLastSlash(path);
+            var includesSlash = false;
+            if (typeof(path.includes) == "function") {
+                includesSlash = path.includes('/'); //Chrome
+            } else {
+                includesSlash = path.contains('/'); //Firefox
+            }
+
+            if (includesSlash) {
+                path = path.substring(0, path.lastIndexOf("/"));
+            } else {
+                path = mediaSelector.defaultpath;
+            }
+            mediaSelector.path = path;
+            refreshMediaSelector();
+        }
+
+        var mediaSelector = {
+            div : null,
+            input : null,
+            loc : null,
+            arrowUp : null,
+            table : null,
+            tbody: null,
+
+            closeCallback : function() {},
+
+            path : "media",
+            defaultpath : "media"
+        };
+
+        function refreshMediaSelector() {
+            mediaSelector.loc.val(mediaSelector.path);
+            $.get('../media/getfolder', {folder: mediaSelector.path} ,function(data, textstatus, xhr) {
+                if (textstatus == 'success') {
+                    mediaSelector.tbody.empty();
+                    $.each(data, function(i, e) {
+                        var tr = $('<tr>');
+                        var text;
+                        tr.css('user-select', 'none');
+                        tr.css('cursor', 'pointer');
+                        tr.addClass('highlight');
+                        tr.attr('name', e[0]);
+                        if (e[1]) {
+                            tr.dblclick(function(e){
+                                cutLastSlash(mediaSelector.path);
+                                mediaSelector.path += '/' + $(this).attr('name');
+                                mediaSelector.loc.val(mediaSelector.path);
+                                refreshMediaSelector();
+                            });
+                            text = '<img src="../../images/backend/folder.png">';
+                        } else {
+                            tr.dblclick(function(e){
+                                mediaSelector.input.val(mediaSelector.path + '/' + $(this).attr('name'));
+                                mediaSelector.closeCallback();
+                            });
+                            tr.click(function(e){
+                                $('.imageview').attr('src', '../../' + mediaSelector.path + '/' + $(this).attr('name'));
+                            });
+                            text = '<img src="../../images/backend/file.png">';
+                        }
+                        tr.append($('<td style="width: 20px;">' + text + '</td>'));
+                        tr.append($('<td>' + e[0] + '</td>'));
+                        mediaSelector.tbody.append(tr);
+                    });
+                }
+            });
+
+            if(mediaSelector.path == mediaSelector.defaultpath) {
+                $('#dirUp').hide();
+            } else {
+                $('#dirUp').show();
+            }
+        }
+
+        function createMediaSelector(divId, inputId, closeCallback) {
+            mediaSelector.closeCallback = closeCallback;
+            mediaSelector.div = $('#' + divId);
+            mediaSelector.input = $('#' + inputId);
+            var arrowUp = '{{URL("/images/backend/arrowup.png")}}';
+            mediaSelector.loc = $('<input type="text" id="path" value="" readonly style="width: 80%">');
+            mediaSelector.arrowUp = $('<img alt="Directory Up" id="dirUp" onclick="folderUp()" src="' + arrowUp + '">');
+            mediaSelector.table = $('<table class="tbl" style="color: black;"><thead><th style="width: 20px;"></th><th>Name</th></thead></table>');
+            mediaSelector.tbody = $('<tbody></tbody>');
+            mediaSelector.table.append(mediaSelector.tbody);
+            refreshMediaSelector();
+            mediaSelector.div.empty().append(mediaSelector.loc).append(mediaSelector.arrowUp).append(mediaSelector.table);
+        }
     </script>
 </head>
 <body>
