@@ -21,11 +21,9 @@
             <div>
                 <div class="" style="!important;text-align:left;">
                     <div style="margin:5px;">
-                       <p>
-                           Welcom to VertexDezign. Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.
-
-                           Any questions email to: <a href="mailto:info@vertexdezign.net">info@vertexdezign.net</a>
-                       </p>
+                        <p>Welcom to VertexDezign!</p>
+                        <p>Our team is working on 3d models for over 5 years now. You can find our references on GIANTS ModHub and other pages for Farming Simulator.</p>
+                        <p>Any (permission) questions email to: <a href="mailto:info@vertexdezign.net">info@vertexdezign.net</a></p>
                     </div>
                 </div>
             </div>
@@ -37,11 +35,11 @@
                 </div>
             </div>
         </div>
-        <section>
+        <section style="margin-bottom:50px;">
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/media/lyHKTmjLkk.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Wopster</h4>
@@ -52,7 +50,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Xentro</h4>
@@ -63,7 +61,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Grisu118</h4>
@@ -74,7 +72,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Niggels939</h4>
@@ -85,7 +83,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Eicher-Fan</h4>
@@ -96,7 +94,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Fox!</h4>
@@ -107,7 +105,7 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/people.png')}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Srgtsmokealot</h4>

@@ -50,33 +50,43 @@
         </div>
     </div>
     <header style="background:url({{URL('/media/', $header)}}) center center;background-size:cover;position:relative;background-repeat:no-repeat;"></header>
-    <div class='container content'>
+    <div class='container content' style="margin-bottom:50px;">
         <div class="" style="padding-top:10px;text-align:left;">
             {!!$entry->desc!!}
         </div>
         <div>
             <div class="three">
-                <div class="panel-body" style="!important;text-align:left;background:#f7f7f7;padding-bottom:5px;margin:5px;">
+                <div class="panel-body" style="text-align:left;background:#f7f7f7;padding-bottom:5px;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
                     <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Information</h4>
                     {!! $entry->info !!}
                 </div>
             </div>
             <div class="three">
-                <div class="panel-body" style="!important;text-align:left;background:#f7f7f7;padding-bottom:5px;margin:5px;">
+                <div class="panel-body" style="text-align:left;background:#f7f7f7;padding-bottom:5px;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
                     <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Credits</h4>
                     {!! $entry->credits !!}
                 </div>
             </div>
             <div class="three">
-                <div class="panel-body" style="!important;text-align:left;background:#f7f7f7;padding-bottom:5px;margin:5px;">
+                <div class="panel-body" style="text-align:left;background:#f7f7f7;padding-bottom:5px;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
                     <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Features</h4>
                     {!! $entry->features !!}
                 </div>
             </div>
             <div style="clear:both;"></div>
         </div>
+        @if($entry->log != '')
+            <div>
+                <div style="!important;text-align:left;background:#f7f7f7;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
+                    <h4 style="height:15px;padding:10px;background-color:#2D8633;color:#fff;">Change log</h4>
+                    <div style="margin:10px;">
+                        {!! $entry->log !!}
+                    </div>
+                </div>
+            </div>
+        @endif
         <div>
-            <div class="" style="!important;text-align:left;background:#f7f7f7;margin:5px;">
+            <div style="!important;text-align:left;background:#f7f7f7;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
                 <h4 style="padding:10px;margin:0px;background-color:#2D8633;color:#fff;">Images</h4>
                 <div style="padding:5px;">
                     @if(isset($entry->images))
@@ -94,18 +104,8 @@
                 <div style="clear:both;"></div>
             </div>
         </div>
-        @if($entry->log != '')
         <div>
-            <div class="" style="!important;text-align:left;background:#f7f7f7;margin:5px;">
-                <h4 style="height:15px;padding:10px;background-color:#2D8633;color:#fff;">Change log</h4>
-                <div style="margin:10px;">
-                    {!! $entry->log !!}
-                </div>
-            </div>
-        </div>
-        @endif
-        <div>
-            <div class="" style="!important;text-align:left;background:#f7f7f7;margin:5px;">
+            <div style="!important;text-align:left;background:#f7f7f7;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
                 <h4 style="height:15px;padding:10px;background-color:#2D8633;color:#fff;">Download</h4>
                 <div style="margin:10px;">
                     <div style="float:left;">

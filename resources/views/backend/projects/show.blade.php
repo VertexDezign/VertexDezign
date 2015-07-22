@@ -119,8 +119,10 @@
                                     $selected = '';
                                     $ex = $file->getExtension();
                                     if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
-                                        if($file == $entry->image){
-                                            $selected = "selected";
+                                        if(isset($entry)){
+                                            if($file == $entry->image){
+                                                $selected = "selected";
+                                            }
                                         }
                                         echo '<option '.$selected.'>'.$file.'</option>';
                                     }
@@ -164,8 +166,6 @@
             console.log(pathString);
             $( "#pathString" ).val( pathString );
         }
-
-
 
         tinymce.init({
             selector: "textarea.list",

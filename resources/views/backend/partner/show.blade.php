@@ -48,16 +48,17 @@
                         <div id="imageSelector"></div>
                         <script type="text/javascript">createMediaSelector('imageSelector', 'image', function() {
                                closeModal('imageModal') ;
-                            });</script>
-                        <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
+                            });
+                        </script>
                     </div>
                     <div class="two">
+                        <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
                         <button class="Toevoegen" onclick="addMedia();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
                         <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
                     </div>
                 </div>
                 <a class="image" rel="group" href="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif">
-                    <img class="imageview" style="width:25%;height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
+                    <img id="imageview" style="width:25%;height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
                 </a>
             </div>
             <div style="clear:both;"></div>
