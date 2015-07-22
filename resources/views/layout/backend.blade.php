@@ -112,12 +112,13 @@ use App\News;
 
             path : "media",
             defaultpath : "media",
+            basepath : '{{URL("/")}}' + '/',
             selectedMedia : ""
         };
 
         function refreshMediaSelector() {
             mediaSelector.loc.val(mediaSelector.path);
-            $.get('../media/getfolder', {folder: mediaSelector.path} ,function(data, textstatus, xhr) {
+            $.get('{{URL("backend/media/getfolder")}}', {folder: mediaSelector.path} ,function(data, textstatus, xhr) {
                 if (textstatus == 'success') {
                     mediaSelector.tbody.empty();
                     $.each(data, function(i, e) {
@@ -134,7 +135,7 @@ use App\News;
                                 mediaSelector.loc.val(mediaSelector.path);
                                 refreshMediaSelector();
                             });
-                            text = '<img src="../../images/backend/folder.png">';
+                            text = '<img src="' + mediaSelector.basepath + 'images/backend/folder.png">';
                         } else {
                             tr.dblclick(function(e){
                                 var path = mediaSelector.path.substr(6);
@@ -143,9 +144,9 @@ use App\News;
                             });
                             tr.click(function(e){
                                 mediaSelector.selectedMedia = $(this).attr('name');
-                                $('.imageview').attr('src', '../../' + mediaSelector.path + '/' + $(this).attr('name'));
+                                $('.imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + $(this).attr('name'));
                             });
-                            text = '<img src="../../images/backend/file.png">';
+                            text = '<img src="' + mediaSelector.basepath + 'images/backend/file.png">';
                         }
                         tr.append($('<td style="width: 20px;">' + text + '</td>'));
                         tr.append($('<td>' + e[0] + '</td>'));
