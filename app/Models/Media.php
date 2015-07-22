@@ -1,12 +1,15 @@
 <?php namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DirectoryIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use Illuminate\Support\Str;
 
 class Media extends Model {
 
     public static function getFiles($src)
     {
+        //return new RecursiveIteratorIterator(new RecursiveDirectoryIterator($src));
         return new DirectoryIterator($src);
     }
 

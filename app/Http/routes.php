@@ -75,5 +75,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('backend/slider/update', array('as'=>'update_slider', 'uses'=>'BackendSliderController@update'));
     Route::post('backend/slider/delete/{id}', array('as'=>'delete_slider', 'uses'=>'BackendSliderController@delete'));
     Route::post('backend/slider/insert', array('as'=>'insert_slider', 'uses'=>'BackendSliderController@insert'));
+    //Backend Partner
+    Route::get('backend/partner', array('as'=>'partner', 'uses'=>'BackendPartnerController@index'));
+    Route::get('backend/partner/edit/{id}', array('as'=>'edit_partner', 'uses'=>'BackendPartnerController@show'));
+    Route::get('backend/partner/add', array('as'=>'add_partner', 'uses'=>'BackendPartnerController@add'));
+    Route::post('backend/partner/update', array('as'=>'update_partner', 'uses'=>'BackendPartnerController@update'));
+    Route::post('backend/partner/delete/{id}', array('as'=>'delete_partner', 'uses'=>'BackendPartnerController@delete'));
+    Route::post('backend/partner/insert', array('as'=>'insert_partner', 'uses'=>'BackendPartnerController@insert'));
 });
 

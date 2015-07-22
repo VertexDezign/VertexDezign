@@ -26,6 +26,7 @@ class BackendNewsController extends Controller {
     public function show($id)
     {
         $path = base_path() .'/www/media/';
+
         $viewBag = array(
             'permission' => \Auth::user()->permission->name,
             'entry' => News::find($id),

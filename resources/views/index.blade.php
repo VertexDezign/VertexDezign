@@ -29,14 +29,14 @@
     </div>
     <section style="margin-top:100px;">
         <div class="container content" style="text-align: center;">
-            <h1>WELCOME TO VERTEXDEZIGN</h1>
+            <h1 style="color:#404040;font-weight:300;">WELCOME TO VERTEXDEZIGN</h1>
         </div>
         <div class="container content" style="padding-top:35px;">
             <div class="three">
                 <div style="text-align: center;">
                     <div class="icon">
                         <div class="round green" style="width:100px;height:100px;line-height:150px;"><a href="{{{URL('/projects')}}}"><img src="{{URL('/images/layout/project.png')}}"/></a></div>
-                        <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/projects')}}}">Projects</a></h2>
+                        <h2 style="font-size:24px;font-weight:300;color:#404040;"><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/projects')}}}">Projects</a></h2>
                         <hr style="width:25%;border-color:#eee;"/>
                     </div>
                     <p>Check out our latest projects.</p>
@@ -46,7 +46,7 @@
                 <div style="text-align: center;">
                     <div class="icon">
                         <div class="round green" style="width:100px;height:100px;line-height:150px;"><a href="{{{URL('/downloads')}}}"><img src="{{URL('/images/layout/download.png')}}"/></a></div>
-                        <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/downloads')}}}">Downloads</a></h2>
+                        <h2 style="font-size:24px;font-weight:300;color:#404040;"><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/downloads')}}}">Downloads</a></h2>
                         <hr style="width:25%;border-color:#eee;"/>
                     </div>
                     <p>Get our latest mods here.</p>
@@ -56,7 +56,7 @@
                 <div style="text-align: center;">
                     <div class="icon">
                         <div class="round green" style="width:100px;height:100px;line-height:150px;"><a href="{{{URL('/about')}}}"><img src="{{URL('/images/layout/people.png')}}"/></a></div>
-                        <h2><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/about')}}}">About us</a></h2>
+                        <h2 style="font-size:24px;font-weight:300;color:#404040;"><a style="padding-top:5px;display:inline-block;color: inherit;" href="{{{URL('/about')}}}">About us</a></h2>
                         <hr style="width:25%;border-color:#eee;"/>
                     </div>
                     <p>Curious what makes VertexDezign?</p>
@@ -65,7 +65,21 @@
         </div>
         <div style="clear:both;height:35px;"></div>
     </section>
-    <div style="background:#f7f7f7;padding-top:100px;">
+    <section style="background:#f7f7f7;padding-top:50px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row" style="">
+                <div class="two">
+                    <h1 style="color:#404040;font-weight:300;">DONATIONS</h1>
+                    <p style="color:#404040;font-weight:300;">We do like to share our mods with others. But to maintain our website and forum we always could use some support.</p>
+                </div>
+                <div class="two">
+                    <button style="margin:50px 250px;padding:25px 50px;line-height:0px;" class="btn green">Donate</button>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </section>
+    <div style="padding-top:100px;">
         <div class="container-max">
             @foreach($newsEntry as $news)
                 <div class="two-item" style="text-align:center;padding:1px;height:500px;">
@@ -92,29 +106,29 @@
             @endif
         </div>
     </div>
-    <section style="margin-top:100px;margin-bottom:100px;">
-        <div class="four" >
-            <div style="text-align: left;padding:10px;">
-                <h2>PARTNERS</h2>
-                <p>We do like to share experience with others. Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
+    <section style="background:#f7f7f7;padding-top:50px;padding-bottom:50px;">
+        <div class="container">
+            <div style="text-align: center;padding:10px;">
+                <h1 style="color:#404040;font-weight:300;">PARTNERS</h1>
+                <p style="font-weight:300;">We do like to share experience with others. Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
             </div>
         </div>
         <div>
-            <div class="four" style="text-align:center;height:200px;">
+            <div class="three" style="text-align:center;height:200px;">
                 <a target="_blank" href="http://www.bm-modding.de/">
                     <div class="articlePanel" style="height:100%;width:100%;background:url(http://www.bm-modding.de/wp-content/textbanner/logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                         <div class="overlay"></div>
                     </div>
                 </a>
             </div>
-            <div class="four" style="text-align:center;height:200px;">
+            <div class="three" style="text-align:center;height:200px;">
                 <a target="_blank" href="http://www.modswanted.com/">
                     <div class="articlePanel" style="height:100%;background:url(http://www.modswanted.com/assets/images/mw_logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                         <div class="overlay"></div>
                     </div>
                 </a>
             </div>
-            <div class="four" style="text-align:center;height:200px;">
+            <div class="three" style="text-align:center;height:200px;">
                 <a target="_blank" href="http://www.oebmodding.co.uk/">
                     <div class="articlePanel" style="height:100%;background:url(http://www.oebmodding.co.uk/wp-content/uploads/OEB_Modding_Logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
                         <div class="overlay"></div>

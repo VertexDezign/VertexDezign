@@ -95,39 +95,49 @@
                 </div>
                 <div style="clear:both;"></div>
                 <!-- Project images -->
-                <div class="three" style="width:calc(100% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Images</label></div>
+                <div class="three" style="width:calc(85% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Images</label></div>
+                <input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
                 <div class="three-two" style="width:100%;margin-bottom:8.5px;">
                     <div class="images">
                         @if(isset($entry))
                             <?php $images = array_filter(explode(';', $entry['images'])); ?>
                             @foreach($images as $image)
                                 <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                    <a href="{{URL('/media/' . $image)}}">
+                                    <a class="image" rel="group" href="{{URL('/media/' . $image)}}">
                                         <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" />
                                     </a>
                                 </div>
                             @endforeach
                         @endif
                     </div>
-                    <img id="imageview" style="width:100%;width:100%;" src="" />
-                    <div style="clear:both;margin-bottom:7px;"></div>
-                    <select id="imageselect" name="image" style="width:85%;float:left;" onchange="changeImage(this.value);">
-                        <?php
-                        foreach($files as $file){
-                            $ex = $file->getExtension();
-                            if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
-                                echo '<option>'.$file.'</option>';
-                            }
-                        }
-                        ?>
-                    </select>
-                    <input type="button" name="Add" value="Add" class="btn blue" style="height:40px;margin:0px;width:calc(15% - 10px);float:left;" onclick="getPath()">
                     <input id="pathString" type="hidden" name="pathString" value="<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>;" />
+                    <div class="modal blue" id="imageModal" style="height: 350px;bottom:-350px;">
+                        <div class="two">
+                            <select id="imageselect" name="image" style="width:100%;margin-top:15px;" onchange="changeImage(this.value);">
+                                <?php
+                                foreach($files as $file){
+                                    $selected = '';
+                                    $ex = $file->getExtension();
+                                    if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
+                                        if($file == $entry->image){
+                                            $selected = "selected";
+                                        }
+                                        echo '<option '.$selected.'>'.$file.'</option>';
+                                    }
+                                }
+                                ?>
+                            </select>
+                            <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
+                        </div>
+                        <div class="two">
+                            <button class="Toevoegen" onclick="getPath();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
+                            <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
+                        </div>
+                    </div>
                 </div>
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
-
 
             @if(isset($entry))
                 <input type="hidden" name="id" value="{{$entry->id}}">

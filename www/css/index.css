@@ -109,7 +109,7 @@ p.error {background:#c9302c;padding:7.5px;color:#fff;}
 .spoiler > .header {background:green;height:50px;color:#fff;-webkit-user-select: none;  -moz-user-select: none;  -ms-user-select: none;  -o-user-select: none;  user-select: none; }
 .spoiler .content {color:#000;margin-bottom:25px;display:none;padding:10px;}
 
-.container-max {background:#f7f7f7;width:1500px;margin:0 auto;}
+.container-max {width:1500px;margin:0 auto;}
 
 hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s ease 0s;}
 
@@ -230,10 +230,10 @@ input[type=checkbox]:checked + label:before {
 div.green {background:#2D8633;}
 .lightgrey {background:#f1f4f9;}
 .white {background:#fff;}
-.round {text-align:center;display:inline-block;transition: all .3s ease-in-out;border-radius:100px;}
+.round {text-align:center;display:inline-block;transition: all .3s ease-in-out;border-radius:100px;border:2px solid #fff;}
 .icon {width:100%;margin:0 auto;}
 .icon h2 a {text-decoration:none;transition:.3s;}
-.icon:hover .round {transform: scale(1.1);}
+.icon:hover .round {transform: scale(1.1);border:2px solid #404040;}
 .icon:hover h2 a {color:#2d8633;}
 
 .two {width:50%;float:left;}
