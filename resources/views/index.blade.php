@@ -114,28 +114,15 @@
             </div>
         </div>
         <div>
-            <div class="three" style="text-align:center;height:200px;">
-                <a target="_blank" href="http://www.bm-modding.de/">
-                    <div class="articlePanel" style="height:100%;width:100%;background:url(http://www.bm-modding.de/wp-content/textbanner/logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                        <div class="overlay"></div>
-                    </div>
-                </a>
-            </div>
-            <div class="three" style="text-align:center;height:200px;">
-                <a target="_blank" href="http://www.modswanted.com/">
-                    <div class="articlePanel" style="height:100%;background:url(http://www.modswanted.com/assets/images/mw_logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                        <div class="overlay"></div>
-                    </div>
-                </a>
-            </div>
-            <div class="three" style="text-align:center;height:200px;">
-                <a target="_blank" href="http://www.oebmodding.co.uk/">
-                    <div class="articlePanel" style="height:100%;background:url(http://www.oebmodding.co.uk/wp-content/uploads/OEB_Modding_Logo.png) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
-                        <div class="overlay"></div>
-                    </div>
-                </a>
-            </div>
-
+            @foreach($partnerEntry as $partner)
+                <div class="three" style="text-align:center;height:200px;">
+                    <a target="_blank" href="{{URL($partner->link)}}">
+                        <div class="articlePanel" style="height:100%;width:100%;background:url({{URL::asset($partner->image)}}) center center;background-size:auto;background-position:center center;background-repeat:no-repeat;">
+                            <div class="overlay"></div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
             <div style="clear:both;"></div>
         </div>
         <div style="clear:both;"></div>
