@@ -126,10 +126,8 @@
                             $('#path').val(path);
                             doRefresh();
                         });
-                        text = '<img src="../images/backend/folder.png">';
-                    } else {
-                        text = '<img src="../images/backend/file.png">';
                     }
+                    text = '<img src="' + e[4] + '">';
                     tr.append($('<td style="width: 20px;">' + text + '</td>'));
                     tr.append($('<td>' + e[0] + '</td>'));
                     tr.append($('<td style="text-align: center">' + e[2] + '</td>'));

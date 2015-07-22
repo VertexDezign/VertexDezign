@@ -135,7 +135,6 @@ use App\News;
                                 mediaSelector.loc.val(mediaSelector.path);
                                 refreshMediaSelector();
                             });
-                            text = '<img src="' + mediaSelector.basepath + 'images/backend/folder.png">';
                         } else {
                             tr.dblclick(function(e){
                                 var path = mediaSelector.path.substr(6);
@@ -146,8 +145,8 @@ use App\News;
                                 mediaSelector.selectedMedia = $(this).attr('name');
                                 $('.imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + $(this).attr('name'));
                             });
-                            text = '<img src="' + mediaSelector.basepath + 'images/backend/file.png">';
                         }
+                        text = '<img src="' + e[4] + '">';
                         tr.append($('<td style="width: 20px;">' + text + '</td>'));
                         tr.append($('<td>' + e[0] + '</td>'));
                         mediaSelector.tbody.append(tr);

@@ -3,6 +3,7 @@ use App\Media;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Exception;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Input;
 use Illuminate\Validation\Validator;
@@ -38,7 +39,7 @@ class BackendMediaController extends Controller {
                     continue;
                 }
                 if ($m->isDir()) {
-                    array_push($result, array($m->getFilename(), true, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
+                    array_push($result, array($m->getFilename(), true, date("F d Y H:i:s", $m->getMTime()), $m->getSize(), URL('images/backend/extensions/folder.png')));
                 }
             }
 
@@ -47,7 +48,11 @@ class BackendMediaController extends Controller {
                     continue;
                 }
                 if (!$m->isDir()) {
-                    array_push($result, array($m->getFilename(), false, date("F d Y H:i:s", $m->getMTime()), $m->getSize()));
+                    $icon = 'images/backend/extensions/' . $m->getExtension() . '.png';
+                    if (!file_exists($icon)) {
+                        $icon = 'images/backend/extensions/_blank.png';
+                    }
+                    array_push($result, array($m->getFilename(), false, date("F d Y H:i:s", $m->getMTime()), $m->getSize(), URL($icon)));
                 }
             }
 
