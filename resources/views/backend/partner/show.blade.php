@@ -52,7 +52,7 @@
                         <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
                     </div>
                     <div class="two">
-                        <button class="Toevoegen" onclick="addImage();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
+                        <button class="Toevoegen" onclick="addMedia();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
                         <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
                     </div>
                 </div>

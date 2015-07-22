@@ -111,7 +111,8 @@ use App\News;
             closeCallback : function() {},
 
             path : "media",
-            defaultpath : "media"
+            defaultpath : "media",
+            selectedMedia : ""
         };
 
         function refreshMediaSelector() {
@@ -136,10 +137,12 @@ use App\News;
                             text = '<img src="../../images/backend/folder.png">';
                         } else {
                             tr.dblclick(function(e){
-                                mediaSelector.input.val(mediaSelector.path + '/' + $(this).attr('name'));
+                                var path = mediaSelector.path.substr(6);
+                                mediaSelector.input.val(path + '/' + $(this).attr('name'));
                                 mediaSelector.closeCallback();
                             });
                             tr.click(function(e){
+                                mediaSelector.selectedMedia = $(this).attr('name');
                                 $('.imageview').attr('src', '../../' + mediaSelector.path + '/' + $(this).attr('name'));
                             });
                             text = '<img src="../../images/backend/file.png">';
@@ -170,6 +173,11 @@ use App\News;
             mediaSelector.table.append(mediaSelector.tbody);
             refreshMediaSelector();
             mediaSelector.div.empty().append(mediaSelector.loc).append(mediaSelector.arrowUp).append(mediaSelector.table);
+        }
+
+        function addMedia() {
+            var path = mediaSelector.path.substr(6);
+            mediaSelector.input.val(path + '/' +  mediaSelector.selectedMedia);
         }
     </script>
 </head>

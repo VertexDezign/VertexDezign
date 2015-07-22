@@ -53,8 +53,8 @@
                     <tr>
                         <td style="text-align:center;"><input type="checkbox" /></td>
                         <td>{{$partner->title}}</td>
-                        <td><img style="height:100px;" src="{{URL::asset($partner->image)}}"/></td>
-                        <td>{{$partner->link}}</td>
+                        <td><img style="height:100px;" src="{{URL::asset('media/' . $partner->image)}}"/></td>
+                        <td><a href="{{$partner->link}}" target="_blank">{{$partner->link}}</a></td>
                         <td>{{$partner->updated_at}}</td>
                         <td>{{$partner->created_at}}</td>
                         <td>
