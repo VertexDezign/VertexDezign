@@ -102,10 +102,13 @@
                         @if(isset($entry))
                             <?php $images = array_filter(explode(';', $entry['images'])); ?>
                             @foreach($images as $image)
-                                <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                    <a class="image" rel="group" href="{{URL('/media/' . $image)}}">
-                                        <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" />
-                                    </a>
+                                <div class="imageThump" style="position: relative;margin:2px;width:calc(33.3333333333% - 4px);float:left;">
+                                    <div>
+                                        <a class="image" rel="group" href="{{URL('/media/' . $image)}}">
+                                            <img style="width:100%;height:150px;" src="{{URL('/media/' . $image)}}" />
+                                        </a>
+                                        <a id="{{$image}}" class="btn red" style="top:-143px;position:relative;" onclick="deleteImage(this.id);return false;">X</a>
+                                    </div>
                                 </div>
                             @endforeach
                         @endif
@@ -165,6 +168,17 @@
             pathString += item + ';';
             console.log(pathString);
             $( "#pathString" ).val( pathString );
+        }
+
+        function deleteImage(value){
+            var str = pathString;
+            var res = str.replace(value+';', "");
+            pathString = res;
+            $( "#pathString" ).val( pathString );
+            var removeThump = $(".images div.imageThump:last-child");
+            removeThump.fadeOut(300, function() {
+                removeThump.remove();
+            });
         }
 
         tinymce.init({

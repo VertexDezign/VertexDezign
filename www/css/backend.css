@@ -47,7 +47,7 @@ div.pad h2 {color:#515050;font-size:22px;font-weight:normal;width:50%;float:left
 
 .edit-header h1 {color:#515050;font-size:22px;}
 .edit-header p {padding-left:10px;color:#515050;}
-
+.btn {padding:10px;border:0;border-radius:3px;color:#fff;cursor:pointer;transition:.5s;min-height:40px;min-width:40px;}
 .red {background:#F35958;}.modal.red button,  .modal.red input{color:#F35958;}
 .red:hover{background:#d3504f;}
 
