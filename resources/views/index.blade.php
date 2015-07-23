@@ -89,7 +89,6 @@
                                 <h1>{{$news->title}}</h1>
                                 <hr>
                                 <p class="author">Posted on {{ date("d m Y",strtotime($news->created_at)) }} by {{$news->getAuthor->username}}</p>
-                                <p>{!! $news->body !!}</p>
                             </div>
                             <div class="overlay"></div>
                         </div>
