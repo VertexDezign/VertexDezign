@@ -73,7 +73,7 @@
                     <p style="color:#404040;font-weight:300;">We do like to share our mods with others. But to maintain our website and forum we always could use some support.</p>
                 </div>
                 <div class="two">
-                    <button style="padding:25px 50px;line-height:0px;" class="btn green">Donate</button>
+                    <button style="padding:25px 50px;line-height:0px;" class="btn green"><a href="">Donate</a></button>
                 </div>
                 <div style="clear:both;"></div>
             </div>
