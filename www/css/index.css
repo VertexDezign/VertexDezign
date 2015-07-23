@@ -98,6 +98,8 @@ article a:hover span.box {opacity:1;}
 article img {width:512px;color:#fff;margin-bottom:10px;display: block;}
 
 button.green {background:#2D8633;color:#fff;height:40px;padding-left:17.5px;padding-right:17.5px;border:0;}
+button.green:hover {background:#26762c;}
+button a {color:#fff;text-decoration:None;}
 button.white {color:#2D8633;background:transparent;border:0;height:50px;width:100%;text-align:left;cursor:pointer;}
 .container {width:1000px;margin:0 auto;}
 p.error {background:#c9302c;padding:7.5px;color:#fff;}
@@ -237,6 +239,7 @@ div.green {background:#2D8633;}
 .icon:hover h2 a {color:#2d8633;}
 
 .two {width:50%;float:left;}
+.two button {margin: 50px 250px;}
 .two-item {width:calc(50% - 2px);float:left;}
 .three {width:33.3333333333%;float:left;}
 .four {width:25%;float:left;}
@@ -274,6 +277,8 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .three {width:100%;float:none;}
     .mobile-menu-toggler {display:block;}
     .logo {text-align:left;padding-left:5px;}
+    .two{padding:50px;width:calc(50% - 100px);}
+    .two button {margin:25px 125px;}
     nav .menu-holder {width:100%;}
     nav .controllers {display:none;}
     nav ul.controllers li:hover {border-bottom:5px solid #2D8633;}

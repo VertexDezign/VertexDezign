@@ -20,7 +20,7 @@
         <header style="background:url({{URL('/media/', $entry->imgsrc)}}) center center;background-size:cover;position:relative;background-repeat:no-repeat;"></header>
     @endif
     <div class='container'>
-        <article style="padding:10px;">
+        <article style="padding:25px;">
             {!!$entry->body!!}
         </article>
     </div>

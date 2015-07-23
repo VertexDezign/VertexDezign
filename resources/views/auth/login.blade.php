@@ -2,7 +2,7 @@
 @section('title', 'Login')
 @section('description', 'This is the login page of VertexDezign')
 @section('content')
-    <header style="height:calc(100% - 75px)">
+    <header style="height:calc(100% - 75px);">
         <div class="container content">
             <section class="loginform" style="margin-bottom:10%;">
                 <form method="post">
@@ -11,11 +11,11 @@
                         @if (Session::has('error'))
                             <p class="error">{{Session::get('error')}}</p>
                         @endif
-                        <span class="form-sign"><img src="{{ url('/images/layout/login/user.png') }}" style="position:Relative;top:12px;" /></span>
+                        <span class="form-sign"><img src="{{ URL('/images/layout/login/user.png') }}" style="position:Relative;top:12px;" /></span>
                         <input name="username" type="text" placeholder="username" style="padding-left:60px;" REQUIRED style="margin-top:10px;" />
 
 
-                        <span class="form-sign"><img src="{{ url('/images/layout/login/key.png') }}" style="position:Relative;top:12px;" /></span>
+                        <span class="form-sign"><img src="{{ URL('/images/layout/login/key.png') }}" style="position:Relative;top:12px;" /></span>
                         <input name="password" type="password" placeholder="password" style="padding-left:60px;" REQUIRED />
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="pass-icon"></div>
