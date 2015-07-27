@@ -58,7 +58,7 @@
                 <div class="three-two">
                     <select name="state" style="width:100%;">
                         <option value="1" @if(isset($entry))@if($entry['state'] == 1)selected @endif @endif>Public</option>
-                        <option value="2" @if(isset($entry))@if($entry['state'] == 2)selected @endif @endif>Private</option>
+                        <option value="0" @if(isset($entry))@if($entry['state'] == 0)selected @endif @endif>Private</option>
                     </select>
                 </div>
                 <div style="clear:both;"></div>

@@ -78,7 +78,7 @@
         @if($entry->log != '')
             <div>
                 <div style="!important;text-align:left;background:#f7f7f7;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
-                    <h4 style="height:15px;padding:10px;background-color:#2D8633;color:#fff;">Change log</h4>
+                    <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Change log</h4>
                     <div style="margin:10px;">
                         {!! $entry->log !!}
                     </div>
@@ -87,7 +87,7 @@
         @endif
         <div>
             <div style="!important;text-align:left;background:#f7f7f7;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
-                <h4 style="padding:10px;margin:0px;background-color:#2D8633;color:#fff;">Images</h4>
+                <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Images</h4>
                 <div style="padding:5px;">
                     @if(isset($entry->images))
                         <?php $images = array_filter(explode(';', $entry['images'])); ?>
@@ -106,7 +106,7 @@
         </div>
         <div>
             <div style="!important;text-align:left;background:#f7f7f7;margin:5px;border-bottom:2px solid #ccc;box-shadow:0 0 8px rgba(0, 0, 0, 0.1);">
-                <h4 style="height:15px;padding:10px;background-color:#2D8633;color:#fff;">Download</h4>
+                <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Download</h4>
                 <div style="margin:10px;">
                     <div style="float:left;">
                         <button class="btn green"><a href="">Donate</a></button>
