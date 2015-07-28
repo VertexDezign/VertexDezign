@@ -43,8 +43,8 @@
                     <thead>
                         <th style="width: 20px;"></th>
                         <th>Name</th>
-                        <th>Change Date</th>
-                        <th>Size</th>
+                        <th style="text-align: center;">Change Date</th>
+                        <th style="text-align: right;">Size</th>
                         <th></th>
                     </thead>
                     <tbody id="tableBody">
