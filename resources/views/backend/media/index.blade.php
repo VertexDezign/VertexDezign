@@ -37,19 +37,21 @@
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
-            <input type="text" id="path" value="" readonly style="width: 80%"> <img alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
-            <table class="tbl">
-                <thead>
-                    <th style="width: 20px;"></th>
-                    <th>Name</th>
-                    <th>Change Date</th>
-                    <th>Size</th>
-                    <th></th>
-                </thead>
-                <tbody id="tableBody">
+            <form>
+                <input type="text" id="path" value="" readonly style="width: 80%; color: #0AA699;"> <img style="margin:-2.5px -25px;" alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
+                <table class="tbl">
+                    <thead>
+                        <th style="width: 20px;"></th>
+                        <th>Name</th>
+                        <th>Change Date</th>
+                        <th>Size</th>
+                        <th></th>
+                    </thead>
+                    <tbody id="tableBody">
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </form>
         </div>
         <div class="modal red" id="delete">
             <form id="deleteForm">
