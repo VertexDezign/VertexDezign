@@ -55,7 +55,7 @@
                         });
                     } else {
                         tr.dblclick(function(e){
-                            addMedia(this);
+                            addMedia();
                             mediaSelector.closeCallback();
                         });
                         tr.click(function(e){
@@ -68,6 +68,7 @@
                     tr.append($('<td>' + e[0] + '</td>'));
                     mediaSelector.tbody.append(tr);
                 });
+                calcTable();
             }
         });
 
@@ -92,10 +93,27 @@
         mediaSelector.div.empty().append(mediaSelector.loc).append(mediaSelector.arrowUp).append(mediaSelector.table);
     }
 
-    function addMedia(t) {
+    function addMedia() {
         var path = mediaSelector.path.substr(6);
         mediaSelector.input.val(path + '/' +  mediaSelector.selectedMedia);
-        $('#imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + $(t).attr('name'));
+        $('#imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + mediaSelector.selectedMedia);
+    }
+
+    function calcTable() {
+        // Change the selector if needed
+        var $table = mediaSelector.table,
+            $bodyCells = $table.find('tbody tr:first').children(),
+            colWidth;
+
+        // Get the tbody columns width array
+        colWidth = $bodyCells.map(function() {
+            return $(this).width();
+        }).get();
+
+        // Set the width of thead columns
+        $table.find('thead tr').children().each(function(i, v) {
+            $(v).width(colWidth[i]);
+        });
     }
 </script>
 
@@ -108,11 +126,11 @@
         </script>
     </div>
     <div class="two">
-        <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
+        <img class="imageview" style="max-width: 60%;max-height: 250px;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
         <button class="Toevoegen" onclick="addMedia();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
         <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
     </div>
 </div>
 <a class="image" rel="group" href="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif">
-    <img id="imageview" style="width:25%;height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
+    <img id="imageview" style="max-width:25%;max-height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
 </a>
