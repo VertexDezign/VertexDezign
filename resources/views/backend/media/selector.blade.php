@@ -116,21 +116,25 @@
         });
     }
 </script>
-
-<div class="modal blue" id="imageModal" style="height: 350px;bottom:-350px;">
-    <div class="two">
-        <div id="imageSelector"></div>
-        <script type="text/javascript">createMediaSelector('imageSelector', 'image', function() {
-                closeModal('imageModal') ;
-            });
-        </script>
+<div class="three" style="width:85%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
+<input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
+<input type="hidden" id="image" name="{{ $fileInputName }}">
+<div class="three" style="width:100%;">
+    <div class="modal blue" id="imageModal" style="height: 350px;bottom:-350px;">
+        <div class="two">
+            <div id="imageSelector"></div>
+            <script type="text/javascript">createMediaSelector('imageSelector', 'image', function() {
+                    closeModal('imageModal') ;
+                });
+            </script>
+        </div>
+        <div class="two">
+            <img class="imageview" style="max-width: 60%;max-height: 250px;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
+            <button class="Toevoegen" onclick="addMedia();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
+            <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
+        </div>
     </div>
-    <div class="two">
-        <img class="imageview" style="max-width: 60%;max-height: 250px;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
-        <button class="Toevoegen" onclick="addMedia();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
-        <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
-    </div>
+    <a class="image" rel="group" href="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif">
+        <img id="imageview" style="max-width:25%;max-height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
+    </a>
 </div>
-<a class="image" rel="group" href="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif">
-    <img id="imageview" style="max-width:25%;max-height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
-</a>
