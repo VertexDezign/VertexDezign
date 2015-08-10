@@ -37,7 +37,7 @@
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
-                <input type="text" id="path" value="" readonly style="width: 80%; color: #0AA699;"> <img style="margin:-2.5px -25px;" alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
+                <input type="text" id="path" value="" readonly style="width: 80%; color: #0AA699;box-sizing: border-box;height: 40px;margin-bottom: 8.5px;padding-left: 15px;border: 1px solid #CCC;"> <img style="margin:-2.5px -25px;" alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
                 <table class="tbl">
                     <thead>
                         <th style="width: 20px;"></th>
