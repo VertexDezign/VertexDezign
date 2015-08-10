@@ -54,10 +54,6 @@
                             refreshMediaSelector();
                         });
                     } else {
-                        tr.dblclick(function(e){
-                            addMedia();
-                            mediaSelector.closeCallback();
-                        });
                         tr.click(function(e){
                             mediaSelector.selectedMedia = $(this).attr('name');
                             $('.imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + $(this).attr('name'));
@@ -67,9 +63,9 @@
                     tr.append($('<td style="width: 20px;">' + text + '</td>'));
                     tr.append($('<td>' + e[0] + '</td>'));
                     if (e[1]){
-                        tr.append($('<td></td>'));
+                        tr.append($('<td><button type="button" name="' + e[0] + '" onclick="selectClick(this)">Select</button></td>'));
                     } else {
-                        tr.append($('<td><img src="{{URL("/images/backend/addContent.png")}}"></td>'));
+                        tr.append($('<td></td>'));
                     }
 
                     mediaSelector.tbody.append(tr);
@@ -83,6 +79,16 @@
         } else {
             $('#dirUp').show();
         }
+    }
+
+    function selectClick(o) {
+        cutLastSlash(mediaSelector.path);
+        mediaSelector.path += '/' + $(o).attr('name');
+        addMediaFolder();
+        closeModal('imageModal');
+        mediaSelector.loc.val(mediaSelector.path);
+        refreshMediaSelector();
+
     }
 
     function createMediaSelector(divId, inputId, closeCallback) {
@@ -99,10 +105,10 @@
         mediaSelector.div.empty().append(mediaSelector.loc).append(mediaSelector.arrowUp).append(mediaSelector.table);
     }
 
-    function addMedia() {
+    function addMediaFolder() {
         var path = mediaSelector.path.substr(6);
-        mediaSelector.input.val(path + '/' +  mediaSelector.selectedMedia);
-        $('#imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + mediaSelector.selectedMedia);
+        mediaSelector.input.val(path + '/');
+        //$('#imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + mediaSelector.selectedMedia);
     }
 
     function calcTable() {
@@ -121,6 +127,10 @@
             $(v).width(colWidth[i]);
         });
     }
+
+    $(document).ready(function(){
+        $('#dirUp').hide();
+    });
 </script>
 <div class="three" style="width:85%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
 <input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
@@ -136,7 +146,7 @@
         </div>
         <div class="two">
             <img class="imageview" style="max-width: 60%;max-height: 250px;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
-            <button class="Toevoegen" onclick="addMedia();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
+            <button class="Toevoegen" onclick="addMediaFolder();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
             <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
         </div>
     </div>

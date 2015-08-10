@@ -110,7 +110,7 @@
                 </div>
                 <div style="clear:both;"></div>
                 <!-- Downloads images -->
-                @include('backend.media.multiselector', ['fileInputName' => 'image'])
+                @include('backend.media.multiselector', ['fileInputName' => 'images'])
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>

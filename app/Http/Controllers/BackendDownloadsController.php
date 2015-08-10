@@ -56,7 +56,7 @@ class BackendDownloadsController extends Controller {
             'features'=>\Input::get('features'),
             'credits'=>\Input::get('credits'),
             'log'=>\Input::get('log'),
-            'images'=>\Input::get('pathString'),
+            'images'=>\Input::get('images'),
             'download'=>\Input::get('download'),
             'user_id'=>\Input::get('user_id'),
             // --*
@@ -84,7 +84,7 @@ class BackendDownloadsController extends Controller {
             'features'=>\Input::get('features'),
             'credits'=>\Input::get('credits'),
             'log'=>\Input::get('log'),
-            'images'=>\Input::get('pathString'),
+            'images'=>\Input::get('images'),
             'download'=>\Input::get('download'),
             'user_id'=>\Input::get('user_id'),
             // --*
