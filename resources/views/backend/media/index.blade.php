@@ -37,7 +37,6 @@
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
-            <form>
                 <input type="text" id="path" value="" readonly style="width: 80%; color: #0AA699;"> <img style="margin:-2.5px -25px;" alt="Directory Up" id="dirUp" onclick="goUp()" src="{{URL('/images/backend/arrowup.png')}}">
                 <table class="tbl">
                     <thead>
@@ -51,7 +50,6 @@
 
                     </tbody>
                 </table>
-            </form>
         </div>
         <div class="modal red" id="delete">
             <form id="deleteForm">
@@ -120,7 +118,7 @@
                     tr.css('cursor', 'pointer');
                     tr.addClass('highlight');
                     tr.attr('name', e[0]);
-                    tr.attr('draggable', true);
+                    //tr.attr('draggable', true);
                     if (e[1]) {
                         tr.dblclick(function(e){
                             cutLastSlash(path);
