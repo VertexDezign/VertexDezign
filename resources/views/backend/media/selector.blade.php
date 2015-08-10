@@ -115,6 +115,10 @@
             $(v).width(colWidth[i]);
         });
     }
+
+    $(document).ready(function(){
+        $('#dirUp').hide();
+    });
 </script>
 <div class="three" style="width:85%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
 <input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
