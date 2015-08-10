@@ -31,11 +31,15 @@
             <h1 style="line-height:70px;font-size:23px;font-weight:100;">There's currently nothing to show here...</h1>
         @else
             @foreach ($entry as $download)
-                <?php $images = array_filter(explode(';', $download['images'])); $header = array_values($images)[0]; ?>
+                <?php $images = \App\Media::getFiles("media/" . $download['images']); $header = $images->getPath() . "/" . $images->getFilename();
+                while (!\App\Media::checkIfImage($images->getPath() . "/" . $images->getFilename())) {
+                    $images->next();
+                    $header = $images->getPath() . "/" . $images->getFilename();
+                } ?>
                 <div class="three">
                     <div class="panel">
                         <div class="panel-img">
-                            <div style="height:200px;background:url({{URL('/media', $header)}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
+                            <div style="height:200px;background:url({{URL::asset('/' . $header)}}) center center;background-size:cover;background-repeat:no-repeat;"></div>
                         </div>
                         <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                             <h4><a id="{{$download->id}}">{{$download->title}}</a></h4>

@@ -4,6 +4,7 @@ use DirectoryIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Illuminate\Support\Str;
+use Symfony\Component\Finder\SplFileInfo;
 
 class Media extends Model {
 
@@ -31,5 +32,14 @@ class Media extends Model {
             return Str::startsWith($realpath, '/home/www/web376/html/vertexdezign_new/www/media'); //Specific check for my Server
         }
         return true;
+    }
+
+    public static function checkIfImage($path) {
+        $file = new \SplFileInfo($path);
+        $ex = $file->getExtension();
+        if ($ex === "png" || $ex === "gif" || $ex === 'bmp' || $ex === "jpeg" || $ex === "jpg") {
+            return true;
+        }
+        return false;
     }
 }
