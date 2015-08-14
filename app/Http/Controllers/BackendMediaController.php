@@ -123,4 +123,19 @@ class BackendMediaController extends Controller {
         }
     }
 
+    public function getImages() {
+        $path = Input::get('path');
+        if (Media::checkPath('media/' . $path)) {
+            $it = Media::getFiles('media/' . $path);
+            $result = array();
+            foreach ($it as $file) {
+                if (Media::checkIfImage($file->getPath() . '/' . $file->getFilename())) {
+                    array_push($result, $file->getPath() . '/' . $file->getFilename());
+                }
+            }
+            return response()->json($result);
+        }
+        return response()->json(false);
+    }
+
 }

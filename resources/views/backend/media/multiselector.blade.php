@@ -108,6 +108,26 @@
     function addMediaFolder() {
         var path = mediaSelector.path.substr(6);
         mediaSelector.input.val(path + '/');
+        var url = "{{URL('backend/media/getImages')}}";
+        $.get(url, {path : path}, function(data, textstatus, xhr){
+            if (textstatus == 'success') {
+                var div = $('#imagesDiv').empty();
+                var baseUrl = "{{URL('/')}}" + '/';
+                $.each(data, function(i, e) {
+                    var inner = $('<div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">');
+                    var a = $('<a class="image" rel="group">');
+                    a.attr('href',baseUrl + e);
+                    var img = $('<img style="width:100%;width:100%;">');
+                    img.attr('src', baseUrl + e);
+                    a.append(img).append($('<div class="overlay">'));
+                    inner.append(a);
+                    div.append(inner);
+
+                });
+            } else {
+                alert("Failure");
+            }
+        });
         //$('#imageview').attr('src', mediaSelector.basepath + mediaSelector.path + '/' + mediaSelector.selectedMedia);
     }
 
@@ -130,6 +150,14 @@
 
     $(document).ready(function(){
         $('#dirUp').hide();
+
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('#_token').val()
+                }
+            });
+        });
     });
 </script>
 <div class="three" style="width:85%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
@@ -150,7 +178,19 @@
             <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
         </div>
     </div>
-    <a class="image" rel="group" href="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif">
-        <img id="imageview" style="max-width:25%;max-height:25%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@else {{URL('images/empty.png')}}@endif" />
-    </a>
+    <div id="imagesDiv">
+        @if(isset($entry) && $entry['images'])
+            <?php $images = \App\Media::getFiles("media/" . $entry['images']); ?>
+            @foreach($images as $image)
+                @if(\App\Media::checkIfImage($image->getPath() . '/' . $image->getFilename()))
+                <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
+                    <a class="image" rel="group" href="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}">
+                        <img style="width:100%;width:100%;" src="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}" />
+                        <div class="overlay"></div>
+                    </a>
+                </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
