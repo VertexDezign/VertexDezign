@@ -23,7 +23,8 @@ html {
     background: #FFF none repeat scroll 0% 0%;
     height: 100px;
     border-bottom: 5px solid #2D8633;
-    font-family: verdana;
+    font-family: verdana!important;
+    font-size:16px;
 }
 
 .nav a img{
@@ -69,6 +70,7 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     transition: border-bottom-width 0.1s ease-in-out 0s;
+    -webkit-transition: border-bottom-width 0.1s ease-in-out 0s;-moz-transition: border-bottom-width 0.1s ease-in-out 0s;-o-transition: border-bottom-width 0.1s ease-in-out 0s;
 }
 
 .controllers li a {
