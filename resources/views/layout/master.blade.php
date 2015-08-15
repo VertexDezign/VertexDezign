@@ -15,10 +15,10 @@
     </head>
     <body>
         <nav>
-            <div class="logo four">
-                <a style="text-decoration: none;color:inherit;" href="{{{URL('/')}}}"><img src="{{URL('/images/logo.png')}}"/></a>
-            </div>
             <div class="container">
+                <div class="logo four">
+                    <a style="text-decoration: none;color:inherit;" href="{{{URL('/')}}}"><img src="{{URL('/images/logo.png')}}"/></a>
+                </div>
                 <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
                 <div class="menu-holder">
                     <ul class="controllers">
