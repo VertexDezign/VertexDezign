@@ -16,7 +16,7 @@ nav a img {float:right;display:inline;width:350px;color:#fff;padding-top:25px;}
 nav section {height:50px;background:#2e3539;}
 nav section input {float:right;height:35px;margin-top:7.5px;border:0;padding-left:10px;padding-right:10px;}
 nav section .searchsubmit {float:right;background:#2D8633;border:0;height:35px;margin-top:7.5px;width:40px;color:#fff;}
-nav section ul {margin:0;}
+nav section ul {margin:0;padding:0;}
 nav section ul li {color:#fff;list-style-type:none;}
 nav .menu-holder {width:calc(100% - 445px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;}
 nav ul.controllers {}

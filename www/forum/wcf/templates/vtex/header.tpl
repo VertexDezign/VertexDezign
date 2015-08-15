@@ -59,7 +59,8 @@ html {
 }
 
 .controllers {
-    margin: 0px auto;
+    margin:0;
+    padding:0;
 }
 
 .controllers li {
@@ -101,7 +102,7 @@ html {
     <div class="logoVT four">
         <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
     </div>
-  <div class="containerVT" style="padding: initial">      
+  <div class="containerVT" style="padding: initial">
       <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
       <div class="menu-holder">
           <ul class="controllers">
