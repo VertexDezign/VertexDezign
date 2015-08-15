@@ -59,7 +59,7 @@ html {
 }
 
 .controllers {
-    margin:0;
+    margin:0 auto;
     padding:0;
 }
 
