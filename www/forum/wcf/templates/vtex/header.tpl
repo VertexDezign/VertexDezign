@@ -71,7 +71,6 @@ html {
     cursor: pointer;
     list-style-type: none;
     float: left;
-    position: relative;
     line-height: 100px;
     padding-left: 10px;
     padding-right: 10px;
@@ -91,7 +90,7 @@ html {
 
 .controllers li:hover {
     border-bottom:5px solid #fff;
-    position: absolute;
+    overflow:visible;
     height:100px;color:#000; !important;
     line-height:100px;
 }
