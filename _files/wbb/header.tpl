@@ -3,28 +3,114 @@
 html {
     overflow-y: scroll;
 }
-</style>
 
-<link href="http://vertexdezign.net/css/index.css" rel="stylesheet">
+.logoVT {
+    float: left;
+    text-align: right;
+    height:100px;
+    background-color:#fff;
+    position: relative;
+    color:#000;
+    line-height:100px;
+}
+
+.four {
+    width:25%;
+    float:left;
+}
+
+.nav {
+    background: #FFF none repeat scroll 0% 0%;
+    height: 100px;
+    border-bottom: 5px solid #2D8633;
+    font-family: verdana;
+}
+
+.nav a img{
+    float: right;
+    display: inline;
+    width: 350px;
+    color: #FFF;
+    padding-top: 25px;
+}
+
+.containerVT {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.mobile-menu-toggler {
+    width: 50px;
+    height: 50px;
+    background: #2D8633 url("http://new.vertexdezign.net/images/backend/menu-alt.png") no-repeat scroll center center;
+    display: none;
+    float: right;
+    margin-top: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.menu-holder {
+    width: calc(100% - 445px);
+    float: left;
+    padding-left: calc(100% - 950px);
+    box-sizing: border-box;
+}
+
+.controllers {
+    margin: 0px auto;
+}
+
+.controllers li {
+    cursor: pointer;
+    list-style-type: none;
+    float: left;
+    line-height: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: border-bottom-width 0.1s ease-in-out 0s;
+}
+
+.controllers li a {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.controllers li:hover a {
+    color:#2D8633; !important;
+}
+
+.controllers li:hover {
+    border-bottom:5px solid #fff;
+    height:100px;color:#000; !important;
+    line-height:100px;
+}
+
+.responsive-mobile {
+    width: 100%;
+    padding-left: 0px;
+}
+</style>
 
 <a id="top" style="height:0;"></a>
 
-<nav>
-  <div class="logo four">
-      <a style="text-decoration: none;color:inherit;" href="http://vertexdezign.net"><img src="http://vertexdezign.net/images/logo.png"/></a>
+<nav class="nav" style="overflow: hidden">
+  <div class="logoVT four navImg">
+      <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
   </div>
-  <div class="container">
+  <div class="containerVT" style="padding: initial">
       <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
       <div class="menu-holder">
           <ul class="controllers">
-                  <li><a href="{{{URL('/projects')}}}">Projects</a></li>
-                  <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                  <li><a href="{{{URL('/forum')}}}">Forum</a></li>
+                  <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
+                  <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
+                  <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
           </ul>
           <ul class="controllers responsive-mobile" style="display:none;">
-                <li><a href="{{{URL('/projects')}}}">Projects</a></li>
-                <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
+                <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
+                <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
+                <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
           </ul>
           <div style="clear:both;"></div>
       </div>
