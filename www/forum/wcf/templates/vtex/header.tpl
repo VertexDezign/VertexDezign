@@ -98,10 +98,10 @@ html {
 <a id="top" style="height:0;"></a>
 
 <nav class="nav" style="overflow: hidden">
-  <div class="containerVT" style="padding: initial">
-      <div class="logoVT four">
-          <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
-      </div>
+    <div class="logoVT four">
+        <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
+    </div>
+  <div class="containerVT" style="padding: initial">      
       <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
       <div class="menu-holder">
           <ul class="controllers">
