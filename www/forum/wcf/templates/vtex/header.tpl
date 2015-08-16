@@ -95,6 +95,30 @@ html {
     width: 100%;
     padding-left: 0px;
 }
+
+@media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
+    .responsive-full-width {width:100%;}
+    .container {width:100%;box-sizing:Border-box;}
+    .four {width:50%;}
+    nav {height:auto;min-height:75px;}
+}
+@media only screen and (max-width: 875px), only screen and (max-device-width: 450px) {
+    .responsive-second-full-width {width:100%;}
+    .mobile-menu-toggler {display:block;}
+    .logo {text-align:left;padding-left:5px;}
+    nav .menu-holder {width:100%;}
+    nav .controllers {display:none;}
+    nav ul.controllers li:hover {border-bottom:5px solid #2D8633;}
+    .responsive-mobile {display:block;position:initial;top:initial;}
+}
+
+@media only screen and (max-width: 675px), only screen and (max-device-width: 350px) {
+    .responsive-third-full-width {width:100%;}
+    .mobile-menu-toggler {display:block;}
+    nav .menu-holder {width:100%;}
+    .responsive-mobile {display:block;position:initial;top:initial;}
+    nav .controllers {display:none;}
+}
 </style>
 
 <a id="top" style="height:0;"></a>
