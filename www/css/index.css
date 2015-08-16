@@ -12,7 +12,7 @@ body span.form-sign {height:40px;width:50px;background:#2d8633;box-shadow:inset 
 /*NAV MENU*/
 nav {background:#fff;height:100px;border-bottom:5px solid #2d8633;}
 nav .title {font-family:'Coolvetica', sans-serif; color:#000;text-decoration:None;}
-nav a img {float:right;display:inline;width:350px;color:#fff;padding-top:25px;}
+nav a img {float:left;display:inline;width:350px;color:#fff;padding-top:25px;padding-left:50px;}
 nav section {height:50px;background:#2e3539;}
 nav section input {float:right;height:35px;margin-top:7.5px;border:0;padding-left:10px;padding-right:10px;}
 nav section .searchsubmit {float:right;background:#2D8633;border:0;height:35px;margin-top:7.5px;width:40px;color:#fff;}
