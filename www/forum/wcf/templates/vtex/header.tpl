@@ -66,7 +66,7 @@ html {
         width:100%;box-sizing:Border-box;
     }
     .logoVT {
-        width:50%;width:100%;height:auto;
+        width:50%;width:75%;height:auto;
     }
     .float-left {
         width:50%;float:left;
@@ -80,7 +80,7 @@ html {
         display:block;
     }
     .logoVT {
-        text-align:left;padding-left:5px;width:100%;height:auto;
+        text-align:left;padding-left:5px;width:75%;height:auto;
     }
 
     nav .menu-holder {
@@ -101,6 +101,11 @@ html {
     .mobile-menu-toggler {
         display:block;
     }
+
+    nav a img{
+        padding-left:0px;
+    }
+
     nav .menu-holder {
         width:100%;
     }
