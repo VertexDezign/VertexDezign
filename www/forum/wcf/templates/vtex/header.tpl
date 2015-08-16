@@ -12,7 +12,7 @@ html {
     float:left;display:inline;width:350px;color:#FFF;padding-top:25px;padding-left:50px;
 }
 .containerVT {
-    width:1000px;margin:0px auto;
+    width:1000px;margin:0px auto;background:#fff;
 }
 .mobile-menu-toggler {
     width:50px;height:50px;background:#2D8633 url("http://new.vertexdezign.net/images/backend/menu-alt.png") no-repeat scroll center center;display:none;float:right;margin-top:25px;margin-right:10px;cursor:pointer;
