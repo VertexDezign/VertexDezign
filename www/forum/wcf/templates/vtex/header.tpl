@@ -91,10 +91,14 @@ html {
     line-height:100px;
 }
 
-.responsive-mobile {
-    width: 100%;
-    padding-left: 0px;
+.controllers.responsive-mobile {
+    width:100%;padding-left:0;
 }
+
+.controllers.responsive-mobile li {
+    margin-top:15px;width:100%;padding-left:15px;
+}
+
 
 @media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
     .containerVT {
