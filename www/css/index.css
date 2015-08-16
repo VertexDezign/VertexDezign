@@ -21,7 +21,7 @@ nav section ul li {color:#fff;list-style-type:none;}
 nav .menu-holder {width:calc(100% - 445px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;}
 nav ul.controllers {}
 nav ul.controllers {margin:0 auto;padding:0;}
-nav ul.controllers li {cursor:pointer;list-style-type:none;float:left;line-height:100px;padding-left:10px;padding-right:10px;transition: border-bottom-width 0.1s ease-in-out;}
+nav ul.controllers li {cursor:pointer;list-style-type:none;float:left;line-height:100px;padding-left:10px;padding-right:10px;transition: border-bottom-width 0.1s ease-in-out 0s;-webkit-transition: border-bottom-width 0.1s ease-in-out 0s;-moz-transition: border-bottom-width 0.1s ease-in-out 0s;-o-transition: border-bottom-width 0.1s ease-in-out 0s;}
 nav ul.controllers li a {color:#000;text-decoration:none;display:inline-block;}
 nav ul.controllers li:hover a {color:#2D8633;}
 nav ul.controllers li:hover {border-bottom:5px solid #fff;height:100px;color:#000; !important;line-height:100px;}

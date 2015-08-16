@@ -4,9 +4,6 @@ html {
     overflow-y: scroll;
     box-sizing: border-box;
 }
-*, *:before, *:after {
-    box-sizing: inherit;
-}
 
 .logoVT {
     float: left;
