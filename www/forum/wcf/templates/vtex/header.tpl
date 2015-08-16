@@ -8,7 +8,7 @@ html {
 .nav {
     background:#FFF none repeat scroll 0% 0%;height:100px;border-bottom:5px solid #2D8633;font-family:verdana;!important;font-size:16px;
 }
-.nav a img{
+.nav a img {
     float:left;display:inline;width:350px;color:#FFF;padding-top:25px;padding-left:50px;
 }
 .containerVT {
@@ -41,7 +41,6 @@ html {
 .controllers.responsive-mobile li {
     margin-top:15px;width:100%;padding-left:15px;
 }
-
 @media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
     .mobile-menu-toggler {
         display:none;
@@ -77,7 +76,7 @@ html {
     .mobile-menu-toggler {
         display:block;
     }
-    .nav a img{
+    .nav a img {
          padding-left:0px;
      }
     nav .menu-holder {
@@ -91,7 +90,7 @@ html {
     }
 }
 @media only screen and (max-width: 475px), only screen and (max-device-width: 350px) {
-    .nav a img{
+    .nav a img {
         padding-left:0px;width:230px;padding-top:30px;
     }
 }
@@ -103,7 +102,7 @@ html {
     <div class="logoVT">
         <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
     </div>
-  <div class="containerVT" style="padding: initial">
+  <div class="containerVT" style="padding:initial">
       <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
       <div class="menu-holder">
           <ul class="controllers">
