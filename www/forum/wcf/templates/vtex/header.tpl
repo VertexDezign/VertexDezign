@@ -61,7 +61,7 @@ html {
         text-align:left;padding-left:5px;width:75%;
     }
     nav .menu-holder {
-        width:100%;
+        width:100%;background-color:#fff;border-top:5px solid #2D8633;
     }
     nav .controllers {
         display:none;
@@ -81,7 +81,7 @@ html {
          padding-left:0px;
      }
     nav .menu-holder {
-        width:100%;
+        width:100%;background-color:#fff;border-top:5px solid #2D8633;
     }
     .responsive-mobile {
         display:block;position:initial;top:initial;
