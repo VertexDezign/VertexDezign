@@ -47,7 +47,7 @@ html {
         display:none;
     }
     .containerVT {
-        width:100%;box-sizing:Border-box;
+        width:100%;box-sizing:border-box;
     }
     .logoVT {
         width:50%;
@@ -70,7 +70,7 @@ html {
         display:none;
     }
     nav ul.controllers li:hover {
-        border-bottom:5px solid #2D8633;
+        border-bottom:5px solid #2D8633;box-sizing:border-box;
     }
     .responsive-mobile {
         display:block;position:initial;top:initial;

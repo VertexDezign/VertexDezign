@@ -282,7 +282,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .two button {margin:25px 125px;}
     nav .menu-holder {width:100%;}
     nav .controllers {display:none;}
-    nav ul.controllers li:hover {border-bottom:5px solid #2D8633;}
+    nav ul.controllers li:hover {border-bottom:5px solid #2D8633;box-sizing:border-box;}
     .responsive-mobile {display:block;position:initial;top:initial;}
     nav input[type=search] {display:none;}
     header h2 {font-size:30px;}
