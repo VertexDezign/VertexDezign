@@ -52,9 +52,6 @@ html {
     .logoVT {
         width:50%;
     }
-    nav {
-        min-height:100px;
-    }
 }
 @media only screen and (max-width: 875px), only screen and (max-device-width: 450px) {
     .mobile-menu-toggler {

@@ -269,7 +269,6 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .four {width:50%;}
     .logo {width:50%;}
     footer {width:100%;box-sizing:border-box;}
-    nav {min-height:100px;}
     nav h1 {padding-left:10px;}
     nav input[type=search] {margin-right:10px;}
 }
