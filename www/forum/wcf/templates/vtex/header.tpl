@@ -96,14 +96,12 @@ html {
     padding-left: 0px;
 }
 
-@media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
-    .responsive-full-width {width:100%;}
+@media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {    
     .container {width:100%;box-sizing:Border-box;}
     .four {width:50%;}
     nav {height:auto;min-height:75px;}
 }
 @media only screen and (max-width: 875px), only screen and (max-device-width: 450px) {
-    .responsive-second-full-width {width:100%;}
     .mobile-menu-toggler {display:block;}
     .logo {text-align:left;padding-left:5px;}
     nav .menu-holder {width:100%;}
@@ -113,7 +111,6 @@ html {
 }
 
 @media only screen and (max-width: 675px), only screen and (max-device-width: 350px) {
-    .responsive-third-full-width {width:100%;}
     .mobile-menu-toggler {display:block;}
     nav .menu-holder {width:100%;}
     .responsive-mobile {display:block;position:initial;top:initial;}
