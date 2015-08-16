@@ -53,7 +53,7 @@ html {
         width:50%;
     }
     nav {
-        height:auto;
+        min-height:100px;
     }
 }
 @media only screen and (max-width: 875px), only screen and (max-device-width: 450px) {
