@@ -29,7 +29,7 @@ html {
 }
 
 .menu-holder {
-    width:calc(100% - 445px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;
+    width:calc(100% - 490px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;
 }
 
 .controllers {
