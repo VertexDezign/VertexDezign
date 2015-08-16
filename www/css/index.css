@@ -306,6 +306,10 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .responsive-mobile-align-center {text-align:center !important;}
 }
 
+@media only screen and (max-width: 475px), only screen and (max-device-width: 350px) {
+    nav a img{padding-left:0px;width:230px;padding-top:30px;}
+}
+
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     /* IE10+ CSS styles go here */
     nav h1 {float:left;width:215px;color:#fff;line-height:20px;}

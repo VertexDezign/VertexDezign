@@ -15,7 +15,7 @@
     </head>
     <body>
         <nav>
-            <div class="logo four">
+            <div class="logo">
                 <a style="text-decoration: none;color:inherit;" href="{{{URL('/')}}}"><img src="{{URL('/images/logo.png')}}"/></a>
             </div>
             <div class="container">
