@@ -43,6 +43,9 @@ html {
 }
 
 @media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
+    .mobile-menu-toggler {
+        display:none;
+    }
     .containerVT {
         width:100%;box-sizing:Border-box;
     }
