@@ -22,7 +22,7 @@ html {
 
 .nav {
     background: #FFF none repeat scroll 0% 0%;
-    height: 105px;
+    height: 100px;
     border-bottom: 5px solid #2D8633;
     font-family: verdana; !important;
     font-size:16px;
@@ -87,7 +87,7 @@ html {
 
 .controllers li:hover {
     border-bottom:5px solid #fff;
-    height:105px;color:#000; !important;
+    height:100px;color:#000; !important;
     line-height:100px;
 }
 
