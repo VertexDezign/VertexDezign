@@ -116,7 +116,7 @@ html {
                   <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
                   <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
           </ul>
-          <ul class="controllers responsive-mobile">
+          <ul class="controllers responsive-mobile" style="display:none;">
                 <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
                 <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
                 <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
