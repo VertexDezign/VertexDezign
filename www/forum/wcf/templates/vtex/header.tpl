@@ -18,7 +18,7 @@ html {
     width:50px;height:50px;background:#2D8633 url("http://new.vertexdezign.net/images/backend/menu-alt.png") no-repeat scroll center center;display:none;float:right;margin-top:25px;margin-right:10px;cursor:pointer;
 }
 .menu-holder {
-    width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;
+    width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;display:none;
 }
 .controllers {
     margin:0 auto;padding:0;
@@ -59,6 +59,9 @@ html {
     .mobile-menu-toggler {
         display:block;
     }
+    nav .menu-holder {
+        display:block;
+    }
     .logoVT {
         text-align:left;padding-left:5px;width:75%;
     }
@@ -77,6 +80,9 @@ html {
 }
 @media only screen and (max-width: 675px), only screen and (max-device-width: 350px) {
     .mobile-menu-toggler {
+        display:block;
+    }
+    nav .menu-holder {
         display:block;
     }
     .nav a img {
