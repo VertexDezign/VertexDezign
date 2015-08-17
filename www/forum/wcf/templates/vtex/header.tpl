@@ -36,7 +36,7 @@ html {
     border-bottom:5px solid #fff;height:100px;color:#000;!important;line-height:100px;
 }
 .controllers.responsive-mobile {
-    width:100%;padding-left:0;
+    width:100%;padding-left:0;display:none;
 }
 .controllers.responsive-mobile li {
     margin-top:15px;width:100%;padding-left:15px;
@@ -83,14 +83,11 @@ html {
         display:block;
     }
     nav .menu-holder {
-        display:block;
+        width:100%;background-color:#fff;border-top:5px solid #2D8633;
     }
     .nav a img {
          padding-left:0px;
      }
-    nav .menu-holder {
-        width:100%;background-color:#fff;border-top:5px solid #2D8633;
-    }
     .responsive-mobile {
         display:block;position:initial;top:initial;
     }
@@ -119,7 +116,7 @@ html {
                   <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
                   <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
           </ul>
-          <ul class="controllers responsive-mobile" style="display:none;">
+          <ul class="controllers responsive-mobile">
                 <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
                 <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
                 <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
