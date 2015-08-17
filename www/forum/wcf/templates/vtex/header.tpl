@@ -18,7 +18,7 @@ html {
     width:50px;height:50px;background:#2D8633 url("http://new.vertexdezign.net/images/backend/menu-alt.png") no-repeat scroll center center;display:none;float:right;margin-top:25px;margin-right:10px;cursor:pointer;
 }
 .menu-holder {
-    width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;display:none;
+    width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;
 }
 .controllers {
     margin:0 auto;padding:0;
@@ -45,7 +45,7 @@ html {
     .mobile-menu-toggler {
         display:none;
     }
-    nav .menu-holder {
+    .responsive-mobile {
         display:none;
     }
     .containerVT {

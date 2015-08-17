@@ -18,7 +18,7 @@ nav section input {float:right;height:35px;margin-top:7.5px;border:0;padding-lef
 nav section .searchsubmit {float:right;background:#2D8633;border:0;height:35px;margin-top:7.5px;width:40px;color:#fff;}
 nav section ul {margin:0;padding:0;}
 nav section ul li {color:#fff;list-style-type:none;}
-nav .menu-holder {width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;display:none;}
+nav .menu-holder {width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;}
 nav ul.controllers {}
 nav ul.controllers {margin:0 auto;padding:0;}
 nav ul.controllers li {cursor:pointer;list-style-type:none;float:left;line-height:100px;padding-left:10px;padding-right:10px;transition: border-bottom-width 0.1s ease-in-out 0s;-webkit-transition: border-bottom-width 0.1s ease-in-out 0s;-moz-transition: border-bottom-width 0.1s ease-in-out 0s;-o-transition: border-bottom-width 0.1s ease-in-out 0s;}
@@ -264,6 +264,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
 @media only screen and (max-width: 1000px), only screen and (max-device-width: 500px) {
     .responsive-full-width {width:100%;}
     .responsive-padding, .content {padding:10px;}
+    .responsive-mobile {display:none;}
     .container {width:100%;box-sizing:Border-box;}
     .container-max {width:100%;}
     nav .menu-holder {display:none;}
@@ -280,7 +281,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .logo {text-align:left;padding-left:5px;width:75%;}
     .two{padding:50px;width:calc(50% - 100px);}
     .two button {margin:25px 125px;}
-    nav .menu-holder {width:100%;display:block;}
+    nav .menu-holder {width:100%;}
     nav .controllers {display:none;}
     nav ul.controllers li:hover {border-bottom:5px solid #2D8633;box-sizing:border-box;}
     .responsive-mobile {display:block;position:initial;top:initial;}
@@ -296,7 +297,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
     .two {width:100%;float:none;}
     .two-item {width:100%;float:none;}
     .mobile-menu-toggler {display:block;}
-    nav .menu-holder {width:100%;display:block;}
+    nav .menu-holder {width:100%;}
     nav a img{padding-left:0px;}
     .responsive-mobile {display:block;position:initial;top:initial;}
     nav .controllers {display:none;}
