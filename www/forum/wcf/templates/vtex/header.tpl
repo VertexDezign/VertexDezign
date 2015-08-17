@@ -45,6 +45,9 @@ html {
     .mobile-menu-toggler {
         display:none;
     }
+    nav .menu-holder {
+        display:none;
+    }
     .containerVT {
         width:100%;box-sizing:border-box;
     }
