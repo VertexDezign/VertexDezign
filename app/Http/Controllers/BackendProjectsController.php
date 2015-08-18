@@ -56,7 +56,7 @@ class BackendProjectsController extends Controller {
             'features'=>\Input::get('features'),
             'credits'=>\Input::get('credits'),
             'log'=>\Input::get('log'),
-            'images'=>\Input::get('pathString'),
+            'images'=>\Input::get('images'),
             'user_id'=>\Input::get('user_id'),
             // --*
             '_token'=>\Input::get('_token')
@@ -83,7 +83,7 @@ class BackendProjectsController extends Controller {
             'features'=>\Input::get('features'),
             'credits'=>\Input::get('credits'),
             'log'=>\Input::get('log'),
-            'images'=>\Input::get('pathString'),
+            'images'=>\Input::get('images'),
             'user_id'=>\Input::get('user_id'),
             // --*
             '_token'=>\Input::get('_token')

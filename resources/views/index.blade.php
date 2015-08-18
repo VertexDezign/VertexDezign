@@ -84,7 +84,7 @@
             @foreach($newsEntry as $news)
                 <div class="two-item" style="text-align:center;padding:1px;height:500px;">
                     <a href="{{ URL::route('show_news', $news->id) }}">
-                        <div class="articlePanel" style="height:100%;background:url({{URL('/media', $news->imgsrc)}}) center center;background-size:cover;background-position:center center;background-repeat:no-repeat;">
+                        <div class="articlePanel" style="height:100%;background:url({{URL::asset('/media/' . $news->image)}}) center center;background-size:cover;background-position:center center;background-repeat:no-repeat;">
                             <div class="content">
                                 <h1>{{$news->title}}</h1>
                                 <hr>

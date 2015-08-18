@@ -95,51 +95,7 @@
                 </div>
                 <div style="clear:both;"></div>
                 <!-- Project images -->
-                <div class="three" style="width:calc(85% - 15px);"><label class="basic-label" style="margin-bottom:8.5px;">Images</label></div>
-                <input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
-                <div class="three-two" style="width:100%;margin-bottom:8.5px;">
-                    <div class="images">
-                        @if(isset($entry))
-                            <?php $images = array_filter(explode(';', $entry['images'])); ?>
-                            @foreach($images as $image)
-                                <div class="imageThump" style="position: relative;margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                    <div>
-                                        <a class="image" rel="group" href="{{URL('/media/' . $image)}}">
-                                            <img style="width:100%;height:150px;" src="{{URL('/media/' . $image)}}" />
-                                        </a>
-                                        <a id="{{$image}}" class="btn red" style="top:-143px;position:relative;" onclick="deleteImage(this.id);return false;">X</a>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-                    <input id="pathString" type="hidden" name="pathString" value="<?php if(isset($entry)){echo $entry['images'];} else{echo '';} ?>;" />
-                    <div class="modal blue" id="imageModal" style="height: 350px;bottom:-350px;">
-                        <div class="two">
-                            <select id="imageselect" name="image" style="width:100%;margin-top:15px;" onchange="changeImage(this.value);">
-                                <?php
-                                foreach($files as $file){
-                                    $selected = '';
-                                    $ex = $file->getExtension();
-                                    if(!$file->isDot() && $ex=='png' || $ex=='jpg' || $ex=='gif'){
-                                        if(isset($entry)){
-                                            if($file == $entry->image){
-                                                $selected = "selected";
-                                            }
-                                        }
-                                        echo '<option '.$selected.'>'.$file.'</option>';
-                                    }
-                                }
-                                ?>
-                            </select>
-                            <img class="imageview" style="width:50%;height:50%;padding-left:0%;" src="@if(isset($entry)){{URL('/media/' . $entry['image'])}}@endif" />
-                        </div>
-                        <div class="two">
-                            <button class="Toevoegen" onclick="getPath();closeModal('imageModal');return false;" style="margin-top:15px;">Add</button>
-                            <button class="close" style="margin-top: 15px;" onclick="closeModal('imageModal');return false;">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+                @include('backend.media.multiselector', ['fileInputName' => 'images'])
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>

@@ -78,19 +78,16 @@
                 <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Images</h4>
                 <div style="padding:5px;">
                     @if(isset($entry->images))
-                        <?php $images = array_filter(explode(';', $entry['images'])); ?>
-                        @foreach(array_chunk($images, 3) as $row)
-                            <div>
-                            @foreach($row as $image)
+                        <?php $images = \App\Media::getFiles("media/" . $entry['images']); ?>
+                        @foreach($images as $image)
+                            @if(\App\Media::checkIfImage($image->getPath() . '/' . $image->getFilename()))
                                 <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                    <a class="image" rel="group" style="width:100%;width:100%;" href="{{URL('/media/' . $image)}}">
-                                        <img style="width:100%;width:100%;" src="{{URL('/media/' . $image)}}" alt="" />
+                                    <a class="image" rel="group" href="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}">
+                                        <img style="width:100%;width:100%;" src="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}" />
                                         <div class="overlay"></div>
                                     </a>
                                 </div>
-                            @endforeach
-                            </div>
-                            <div style="clear:both;"></div>
+                            @endif
                         @endforeach
                     @endif
                 </div>

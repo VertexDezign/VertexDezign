@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration {
             $table->increments('id')->unsigned();
             $table->string('title', 255)->nullable();
             $table->text('body')->nullable();
-            $table->string('imgsrc', 255)->nullable();
+            $table->string('image', 255)->nullable();
 
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');
