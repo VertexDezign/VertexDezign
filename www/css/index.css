@@ -111,7 +111,7 @@ p.error {background:#c9302c;padding:7.5px;color:#fff;}
 .spoiler > .header {background:green;height:50px;color:#fff;-webkit-user-select: none;  -moz-user-select: none;  -ms-user-select: none;  -o-user-select: none;  user-select: none; }
 .spoiler .content {color:#000;margin-bottom:25px;display:none;padding:10px;}
 
-.container-max {width:1500px;margin:0 auto;}
+.container-max {width:1250px;margin:0 auto;}
 
 hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s ease 0s;}
 

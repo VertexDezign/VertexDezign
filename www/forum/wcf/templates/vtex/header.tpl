@@ -36,7 +36,7 @@ html {
     border-bottom:5px solid #fff;height:100px;color:#000;!important;line-height:100px;
 }
 .controllers.responsive-mobile {
-    width:100%;padding-left:0;display:none;
+    width:100%;padding-left:0;
 }
 .controllers.responsive-mobile li {
     margin-top:15px;width:100%;padding-left:15px;
