@@ -17,7 +17,11 @@
                 }});
         });
     </script>
-    <?php $images = array_filter(explode(';', $entry['images'])); $header = array_values($images)[0] ?>
+    <?php $images = \App\Media::getFiles("media/" . $entry['images']); $header = $images->getPath() . "/" . $images->getFilename();
+    while (!\App\Media::checkIfImage($images->getPath() . "/" . $images->getFilename())) {
+        $images->next();
+        $header = $images->getPath() . "/" . $images->getFilename();
+    } ?>
     <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
         <div class="container">
             <div class="two">
