@@ -51,7 +51,7 @@
             <div style="clear:both;"></div>
         </div>
     </div>
-    <header style="background:url({{URL('/media/', $header)}}) center center;background-size:cover;position:relative;background-repeat:no-repeat;"></header>
+    <header style="background:url({{URL::asset('/'. $header)}}) center center;background-size:cover;position:relative;background-repeat:no-repeat;"></header>
     <div class='container content' style="margin-bottom:50px;">
         <div class="" style="padding-top:10px;text-align:left;">
             {!!$entry->desc!!}
