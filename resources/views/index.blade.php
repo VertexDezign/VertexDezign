@@ -73,7 +73,11 @@
                     <p style="color:#404040;font-weight:300;">We do like to share our mods with others. But to maintain our website and forum we always could use some support.</p>
                 </div>
                 <div class="two">
-                    <button style="padding:25px 50px;line-height:0px;" class="btn green"><a href="">Donate</a></button>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="8PP88DY4UMFME">
+                        <button type="submit" style="padding:25px 50px;line-height:0px;" class="btn green" title="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">Donate</button>
+                    </form>
                 </div>
                 <div style="clear:both;"></div>
             </div>
