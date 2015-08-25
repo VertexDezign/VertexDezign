@@ -162,7 +162,7 @@
 </script>
 <div class="three" style="width:85%;"><label class="basic-label" style="margin-bottom:8.5px;">Image preview</label></div>
 <input type="button" name="Add" value="Set image" class="btn red" style="float:right;width:15%;margin:0px;padding:12.5px;" onclick="openModal('imageModal')">
-<input type="hidden" id="image" name="{{ $fileInputName }}">
+<input type="hidden" id="image" name="{{ $fileInputName }}" value="@if(isset($entry) && isset($entry['images'])){{$entry['images']}}@endif">
 <div class="three" style="width:100%;">
     <div class="modal blue" id="imageModal" style="height: 350px;bottom:-350px;">
         <div class="two">
