@@ -6,7 +6,7 @@
         <script src="//unslider.com/unslider.min.js"></script>
         <script type="text/javascript" src="{{asset('/source/jquery.fancybox.pack.js')}}"></script>
 
-        <link rel="shortcut icon" href="{{{URL('/images/icon.png')}}}">
+        <link rel="shortcut icon" href="{{{URL('/favicon.ico')}}}">
         <link href="{{ asset('/css/index.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('/source/jquery.fancybox.css')}}" media="screen" />
         <!-- Title Meta -->
