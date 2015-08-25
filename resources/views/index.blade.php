@@ -70,7 +70,7 @@
             <div class="row" style="">
                 <div class="two">
                     <h1 style="color:#404040;font-weight:300;">DONATIONS</h1>
-                    <p style="color:#404040;font-weight:300;">We do like to share our mods with others. But to maintain our website and forum we always could use some support.</p>
+                    <p style="color:#404040;font-weight:300;">We do like to share our mods with the community. But to maintain our website and forum we always could use some support.</p>
                 </div>
                 <div class="two">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -113,7 +113,7 @@
         <div class="container">
             <div style="text-align: center;padding:10px;">
                 <h1 style="color:#404040;font-weight:300;">PARTNERS</h1>
-                <p style="font-weight:300;">We do like to share experience with others. Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
+                <p style="font-weight:300;">We do like to share experience with others, knowledge and give a helping hand where needed.</p>
             </div>
         </div>
         <div>

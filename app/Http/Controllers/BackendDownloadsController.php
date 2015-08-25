@@ -58,6 +58,7 @@ class BackendDownloadsController extends Controller {
             'log'=>\Input::get('log'),
             'images'=>\Input::get('images'),
             'download'=>\Input::get('download'),
+            'downloadExtern'=>\Input::get('downloadExtern'),
             'user_id'=>\Input::get('user_id'),
             // --*
             '_token'=>\Input::get('_token')
@@ -86,6 +87,7 @@ class BackendDownloadsController extends Controller {
             'log'=>\Input::get('log'),
             'images'=>\Input::get('images'),
             'download'=>\Input::get('download'),
+            'downloadExtern'=>\Input::get('downloadExtern'),
             'user_id'=>\Input::get('user_id'),
             // --*
             '_token'=>\Input::get('_token')

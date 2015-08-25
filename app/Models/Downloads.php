@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 class Downloads extends Model {
 
     protected $table = 'downloads';
-    protected $fillable = ['name', 'title', 'state', 'category', 'desc', 'info', 'features', 'credits', 'log', 'images', 'download', 'user_id'];
+    protected $fillable = ['name', 'title', 'state', 'category', 'desc', 'info', 'features', 'credits', 'log', 'images', 'download', 'downloadExtern', 'user_id'];
 
     public function getAuthor()
     {

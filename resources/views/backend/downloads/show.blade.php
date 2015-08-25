@@ -62,8 +62,8 @@
                     </select>
                 </div>
                 <div style="clear:both;"></div>
-                <!-- Downloads download link -->
-                <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Download link</label></div>
+                <!-- Downloads download link local -->
+                <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Local download link</label></div>
                 <div class="three-two">
                     <select name="download" style="width:100%;">
                         <?php
@@ -75,6 +75,12 @@
                         }
                         ?>
                     </select>
+                </div>
+                <div style="clear:both;"></div>
+                <!-- Downloads download link extern -->
+                <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Extern download link</label></div>
+                <div class="three-two">
+                    <input name="externDownload" placeholder="Extern download link" type="text" value="@if(isset($entry)){{$entry['name']}}@endif" REQUIRED />
                 </div>
                 <div style="clear:both;"></div>
                 <!-- Downloads description -->

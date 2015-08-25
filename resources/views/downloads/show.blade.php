@@ -117,6 +117,9 @@
                     <div style="float:left;">
                         <button class="btn green"><a href="">Donate</a></button>
                         <button class="btn green"><a href="{{URL('/media/' . $entry['download'])}}">Download</a></button>
+                        @if(isset($entry->downloadExtern))
+                            <button class="btn green"><a href="{{URL($entry['downloadExtern'])}}">Extern download</a></button>
+                        @endif
                     </div>
                     <div style="float:right;">
                         <div class="rating" style="float:left;">
