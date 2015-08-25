@@ -11,7 +11,7 @@ class DownloadsController extends Controller {
     {
         if(\Auth::check()){
             if( \Auth::user()->permission->name == 'admin') {
-                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->get());
+                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->orderBy('created_at', 'desc')->get());
             }
         }else{
             return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->orderBy('created_at', 'desc')->get());
