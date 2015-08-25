@@ -30,7 +30,7 @@ class CreateNewsTable extends Migration {
                 'id' => '1',
                 'title' => 'DTS Released',
                 'body' => 'Get it now!',
-                'imgsrc' => '',
+                'image' => '',
                 'author_id' => '1',
             )
         );
