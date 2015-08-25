@@ -14,7 +14,7 @@ class DownloadsController extends Controller {
                 return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->get());
             }
         }else{
-            return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->get());
+            return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->orderBy('created_at', 'desc')->get());
         }
     }
 
@@ -25,24 +25,24 @@ class DownloadsController extends Controller {
         if(\Auth::check()){
             if( \Auth::user()->permission->name == 'admin') {
                 if($filter == 'All'){
-                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->get());
+                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->orderBy('created_at', 'desc')->get());
                 }elseif($filter == 'Maps'){
-                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('category', '=', '4')->get());
+                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('category', '=', '4')->orderBy('created_at', 'desc')->get());
                 }elseif($filter == 'Mods'){
-                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->get());
+                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->orderBy('created_at', 'desc')->get());
                 }elseif($filter == 'Scripts'){
-                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('category', '=', '6')->get());
+                    return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('category', '=', '6')->orderBy('created_at', 'desc')->get());
                 }
             }
         }else{
             if($filter == 'All'){
-                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->get());
+                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->orderBy('created_at', 'desc')->get());
             }elseif($filter == 'Maps'){
-                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '4')->get());
+                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '4')->orderBy('created_at', 'desc')->get());
             }elseif($filter == 'Mods'){
-                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->get());
+                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->orderBy('created_at', 'desc')->get());
             }elseif($filter == 'Scripts'){
-                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '6')->get());
+                return \View::make('downloads.index')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '6')->orderBy('created_at', 'desc')->get());
             }
         }
     }

@@ -293,7 +293,7 @@ a.green {color:#2D8633;background:transparent;text-decoration:none;}
 
 @media only screen and (max-width: 675px), only screen and (max-device-width: 350px) {
     .responsive-third-full-width {width:100%;}
-    .two {width:100%;float:none;}
+    .two {width:100%;float:none;padding:5px;}
     .two-item {width:100%;float:none;}
     .mobile-menu-toggler {display:block;}
     nav .menu-holder {width:100%;}
