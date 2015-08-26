@@ -117,17 +117,19 @@
                 <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Download</h4>
                 <div style="margin:10px;">
                     <div style="float:left;">
-                        <button class="btn green"><a href="">Donate</a></button>
-                        <button class="btn green"><a href="{{URL('/media/' . $entry['download'])}}">Download</a></button>
+                        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8PP88DY4UMFME"><button class="btn green">Donate</button></a>
+                        @if (isset($entry['download']))
+                            <a href="{{URL('/media/' . $entry['download'])}}"><button class="btn green">Download</button></a>
+                        @endif
                         @if(isset($entry->downloadExtern))
-                            <button class="btn green"><a href="{{URL($entry['downloadExtern'])}}">Extern download</a></button>
+                            <a href="{{URL($entry['downloadExtern'])}}"><button class="btn green">Extern download</button></a>
                         @endif
                     </div>
                     <div style="float:right;">
                         <div class="rating" style="float:left;">
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
-                        <button class="btn green"><a href="">Rate</a></button>
+                        <a href=""><button class="btn green">Rate</button></a>
                         <div style="clear:both;"></div>
                     </div>
                     <div style="clear:both;"></div>
