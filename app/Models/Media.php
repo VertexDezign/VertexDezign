@@ -29,7 +29,7 @@ class Media extends Model {
     public static function checkPath($path) {
         if (env('APP_ENV') != 'local') {
             $realpath = realpath($path);
-            return Str::startsWith($realpath, '/home/www/web376/html/vertexdezign_new/www/media'); //Specific check for my Server
+            return Str::startsWith($realpath, '/home/www/web376/html/vertexdezign/www/media'); //Specific check for my Server
         }
         return true;
     }

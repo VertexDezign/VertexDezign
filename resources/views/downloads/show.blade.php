@@ -121,7 +121,7 @@
                                 }
                             }
                         }
-                        if ($c < 3) {
+                        if ($c < 3 && $c > 2) {
                             echo '</div>';
                             echo '<div style="clear:both;"></div>';
                         }
