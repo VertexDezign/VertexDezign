@@ -66,6 +66,7 @@
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Local download link</label></div>
                 <div class="three-two">
                     <select name="download" style="width:100%;">
+                        <option></option>
                         <?php
                         foreach($files as $file){
                             $ex = $file->getExtension();
@@ -85,7 +86,7 @@
                 <!-- Downloads download link extern -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Extern download link</label></div>
                 <div class="three-two">
-                    <input name="externDownload" placeholder="Extern download link" type="text" value="@if(isset($entry)){{$entry['downloadExtern']}}@endif" />
+                    <input name="downloadExtern" placeholder="Extern download link" type="text" value="@if(isset($entry)){{$entry['downloadExtern']}}@endif" />
                 </div>
                 <div style="clear:both;"></div>
                 <!-- Downloads description -->

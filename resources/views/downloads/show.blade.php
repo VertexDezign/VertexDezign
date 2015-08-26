@@ -118,10 +118,10 @@
                 <div style="margin:10px;">
                     <div style="float:left;">
                         <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8PP88DY4UMFME"><button class="btn green">Donate</button></a>
-                        @if (isset($entry['download']))
+                        @if (isset($entry['download']) && $entry['download'] != "")
                             <a href="{{URL('/media/' . $entry['download'])}}"><button class="btn green">Download</button></a>
                         @endif
-                        @if(isset($entry->downloadExtern))
+                        @if(isset($entry['downloadExtern']))
                             <a href="{{URL($entry['downloadExtern'])}}"><button class="btn green">Extern download</button></a>
                         @endif
                     </div>
