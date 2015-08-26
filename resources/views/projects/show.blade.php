@@ -84,17 +84,36 @@
                 <h4 style="padding:10px;background-color:#2D8633;color:#fff;">Images</h4>
                 <div style="padding:5px;">
                     @if(isset($entry->images))
-                        <?php $images = \App\Media::getFiles("media/" . $entry['images']); ?>
-                        @foreach($images as $image)
-                            @if(\App\Media::checkIfImage($image->getPath() . '/' . $image->getFilename()))
-                                <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
-                                    <a class="image" rel="group" href="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}">
-                                        <img style="width:100%;width:100%;" src="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}" />
-                                        <div class="overlay"></div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
+                    <?php $images = \App\Media::getFiles("media/" . $entry['images']);
+                    $c = 0;
+                    foreach($images as $image) {
+                        if (\App\Media::checkIfImage($image->getPath() . '/' . $image->getFilename())) {
+                            if ($c == 0) {
+                                echo '<div>';
+                            }
+                            ?>
+                            <div style="margin:2px;width:calc(33.3333333333% - 4px);float:left;">
+                                <a class="image" style="width:100%;width:100%;" rel="group"
+                                   href="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}">
+                                    <img style="width:100%;width:100%;"
+                                         src="{{URL::asset('/' . $image->getPath() . '/' . $image->getFilename())}}"/>
+
+                                    <div class="overlay"></div>
+                                </a>
+                            </div>
+                            <?php
+                            if (++$c >= 3) {
+                                echo '</div>';
+                                echo '<div style="clear:both;"></div>';
+                                $c = 0;
+                            }
+                        }
+                    }
+                    if ($c < 3) {
+                        echo '</div>';
+                        echo '<div style="clear:both;"></div>';
+                    }
+                    ?>
                     @endif
                 </div>
                 <div style="clear:both;"></div>
