@@ -18,9 +18,11 @@
         });
     </script>
     <?php $images = \App\Media::getFiles("media/" . $entry['images']); $header = $images->getPath() . "/" . $images->getFilename();
-    while (!\App\Media::checkIfImage($images->getPath() . "/" . $images->getFilename())) {
-        $images->next();
-        $header = $images->getPath() . "/" . $images->getFilename();
+    foreach ($images as $img) {
+        if (\App\Media::checkIfImage($img->getPath() . "/" . $img->getFilename())) {
+            $header = $img->getPath() . "/" . $img->getFilename();
+            break;
+        }
     } ?>
     <div style="color: #444;border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
         <div class="container">

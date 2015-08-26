@@ -32,10 +32,13 @@
     @else
         @foreach ($entry as $project)
             <?php $images = \App\Media::getFiles("media/" . $project['images']); $header = $images->getPath() . "/" . $images->getFilename();
-            while (!\App\Media::checkIfImage($images->getPath() . "/" . $images->getFilename())) {
-                $images->next();
-                $header = $images->getPath() . "/" . $images->getFilename();
-            } ?>
+            foreach ($images as $img) {
+                if (\App\Media::checkIfImage($img->getPath() . "/" . $img->getFilename())) {
+                    $header = $img->getPath() . "/" . $img->getFilename();
+                    break;
+                }
+            }
+            ?>
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
