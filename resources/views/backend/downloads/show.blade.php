@@ -71,7 +71,11 @@
                             $ex = $file->getExtension();
                             if(!$file->isDot() && $ex=='zip' || $ex=='rar' || $ex=='exe'){
 
-                                echo '<option>'.$file.'</option>';
+                                echo '<option';
+                                if (isset($entry) && $entry['download'] == $file) {
+                                    echo ' selected ';
+                                }
+                                echo '>'.$file.'</option>';
                             }
                         }
                         ?>
