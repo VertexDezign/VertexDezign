@@ -70,6 +70,7 @@
                         foreach($files as $file){
                             $ex = $file->getExtension();
                             if(!$file->isDot() && $ex=='zip' || $ex=='rar' || $ex=='exe'){
+
                                 echo '<option>'.$file.'</option>';
                             }
                         }
@@ -80,7 +81,7 @@
                 <!-- Downloads download link extern -->
                 <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Extern download link</label></div>
                 <div class="three-two">
-                    <input name="externDownload" placeholder="Extern download link" type="text" value="@if(isset($entry)){{$entry['name']}}@endif" REQUIRED />
+                    <input name="externDownload" placeholder="Extern download link" type="text" value="@if(isset($entry)){{$entry['downloadExtern']}}@endif" />
                 </div>
                 <div style="clear:both;"></div>
                 <!-- Downloads description -->
