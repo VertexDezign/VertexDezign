@@ -121,7 +121,7 @@
                         @if (isset($entry['download']) && $entry['download'] != "")
                             <a href="{{URL('/media/' . $entry['download'])}}"><button class="btn green">Download</button></a>
                         @endif
-                        @if(isset($entry['downloadExtern']))
+                        @if(isset($entry['downloadExtern']) && $entry['downloadExtern'] != "")
                             <a href="{{URL($entry['downloadExtern'])}}"><button class="btn green">Extern download</button></a>
                         @endif
                     </div>
