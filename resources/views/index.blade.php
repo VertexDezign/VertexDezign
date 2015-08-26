@@ -16,7 +16,7 @@
     <div class="banner has-dots" style="overflow:hidden;">
         <ul>
             @foreach($sliderEntry as $slide)
-                <li style="background:url({{URL('/media', $slide->image)}}); background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
+                <li style="background:url({{URL::asset('/media/' . $slide->image)}}); background-size:cover;position:relative;background-position:center center;background-repeat:no-repeat;">
                     <h1>{{$slide->title}}</h1>
                     <p>{!!$slide->desc!!}</p>
                     <a href="{{URL::asset($slide->link)}}" class="btn">Check out!</a>
