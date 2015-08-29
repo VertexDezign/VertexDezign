@@ -100,6 +100,12 @@ html {
         padding-left:0px;width:230px;padding-top:30px;
     }
 }
+
+/*CSS for Ads */
+.adslot_1 { width: 320px; height: 100px; }
+@media (max-width: 400px) { .adslot_1 { display: none; important! } }
+@media (min-width:500px) { .adslot_1 { width: 468px; height: 100px; } }
+@media (min-width:800px) { .adslot_1 { width: 728px; height: 100px; } }
 </style>
 
 <a id="top" style="height:0;"></a>
