@@ -172,38 +172,44 @@ html {
 
 
 <div id="main" class="{if $__wcf->getStyleHandler()->getStyle()->getVariable('useFluidLayout')}layoutFluid{else}layoutFixed{/if}{if $sidebarOrientation|isset && $sidebar|isset} sidebarOrientation{@$sidebarOrientation|ucfirst}{if $sidebarOrientation == 'right' && $sidebarCollapsed} sidebarCollapsed{/if}{/if}">
-	<div>
-		<div>
-			{capture assign='__sidebar'}
-				{if $sidebar|isset}
-					<aside class="sidebar"{if $sidebarOrientation|isset && $sidebarOrientation == 'right'} data-is-open="{if $sidebarCollapsed}false{else}true{/if}" data-sidebar-name="{$sidebarName}"{/if}>
-						<div>
-							{event name='sidebarBoxesTop'}
+    <div>
+        <div>
+            {capture assign='__sidebar'}
+                {if $sidebar|isset}
+                    <aside class="sidebar"{if $sidebarOrientation|isset && $sidebarOrientation == 'right'} data-is-open="{if $sidebarCollapsed}false{else}true{/if}" data-sidebar-name="{$sidebarName}"{/if}>
+                        <div>
+                            {if MODULE_WCF_AD && $__disableAds|empty}{@$__wcf->getAdHandler()->getAds('com.woltlab.wcf.sidebar.top')}{/if}
 
-							{@$sidebar}
+                            {event name='sidebarBoxesTop'}
 
-							{event name='sidebarBoxesBottom'}
-						</div>
-					</aside>
+                            {@$sidebar}
 
-					{if $sidebarOrientation|isset && $sidebarOrientation == 'right'}
-						<script data-relocate="true">
-							//<![CDATA[
-							$(function() {
-								new WCF.Collapsible.Sidebar();
-							});
-							//]]>
-						</script>
-					{/if}
-				{/if}
-			{/capture}
+                            {event name='sidebarBoxesBottom'}
 
-			{if !$sidebarOrientation|isset || $sidebarOrientation == 'left'}
-				{@$__sidebar}
-			{/if}
+                            {if MODULE_WCF_AD && $__disableAds|empty}{@$__wcf->getAdHandler()->getAds('com.woltlab.wcf.sidebar.bottom')}{/if}
+                        </div>
+                    </aside>
 
-			<section id="content" class="content">
+                {if $sidebarOrientation|isset && $sidebarOrientation == 'right'}
+                    <script data-relocate="true">
+                        //<![CDATA[
+                        $(function() {
+                            new WCF.Collapsible.Sidebar();
+                        });
+                        //]]>
+                    </script>
+                {/if}
+                {/if}
+            {/capture}
 
-				{event name='contents'}
+            {if !$sidebarOrientation|isset || $sidebarOrientation == 'left'}
+                {@$__sidebar}
+            {/if}
 
-				{if $skipBreadcrumbs|empty}{include file='breadcrumbs'}{/if}
+            <section id="content" class="content">
+                {if MODULE_WCF_AD && $__disableAds|empty}{@$__wcf->getAdHandler()->getAds('com.woltlab.wcf.header.content')}{/if}
+
+                {event name='contents'}
+
+                {if $skipBreadcrumbs|empty}{include file='breadcrumbs'}{/if}
+
