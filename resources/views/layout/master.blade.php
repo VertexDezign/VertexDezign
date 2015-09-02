@@ -15,7 +15,7 @@
 
         <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
         <script type="text/javascript">
-            window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"http://vertexdezign.net/forum/index.php/CookiePolicy/","theme":"light-bottom"};
+            window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"http://vertexdezign.net/forum/index.php/CookiePolicy/","domain":"vertexdezign.net","theme":"light-bottom"};
         </script>
 
         <script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script>
@@ -123,6 +123,8 @@
                     <a href="https://www.facebook.com/pages/Vertexdezign/592374234121373"><img src="{{{URL('/images/layout/fb.png')}}}" style="float:right;margin-right:-10px;" /></a>
                     <div style="clear:Both;margin-bottom:25px;"></div>
                     <small>Copyright &copy; {{{date('Y')}}} VertexDezign</small>
+                    <div style="clear:Both;"></div>
+                    <small><a style="color: #777; text-decoration: none;" href="{{URL("/forum/index.php/LegalNotice/")}}">Impressum</a></small>
                 </div>
                 <div style="clear:both;"></div>
             </div>

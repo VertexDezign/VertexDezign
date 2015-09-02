@@ -83,6 +83,13 @@
     var path_prefix = 'media/';
     var path = '';
     var infoModal = $( "#info" );
+    var xhr = new XMLHttpRequest();
+
+    var progressbar = $('#progressbar');
+    xhr.upload.addEventListener("progress", function(e){
+        var percent = (e.loaded / e.total)*100;
+        progressbar.val(percent);
+    }, false);
 
     $(document).ready(function() {
         $(function() {
@@ -262,24 +269,19 @@
 
 
     function addFile() {
-        var progressbar = $('#progressbar');
+
         $('#fileInput').click().on('change', function(e) {
             var serverpath = path_prefix + path;
 
             var formData = new FormData();
-            var xhr = new XMLHttpRequest();
             var token = $('#_token').val();
             var files = $("#fileInput")[0].files;
+
 
             formData.append('path', path_prefix + path);
             $.each(files, function(i, f) {
                 formData.append('files[]', f);
             });
-
-            xhr.upload.addEventListener("progress", function(e){
-                var percent = (e.loaded / e.total)*100;
-                progressbar.val(percent);
-            }, false);
 
             xhr.open('POST', 'media/addfile', true);
             xhr.setRequestHeader("X-CSRF-Token", token);
@@ -287,21 +289,22 @@
             xhr.onreadystatechange = function() {
 
                 if (xhr.readyState==4){
-
-                    var response = xhr.responseText;
-                    try {
-                        response = $.parseJSON(response);
-                    } catch(e) {
-                        response = false;
+                    if (xhr.status==200) {
+                        var response = xhr.responseText;
+                        try {
+                            response = $.parseJSON(response);
+                        } catch (e) {
+                            response = false;
+                        }
+                        doRefresh();
                     }
                     closeModal('progress');
-                    doRefresh();
                 }
             };
             openModal('progress');
             xhr.send(formData);
-
             resetFormElement($("#fileInput"));
+
         });
 
     }
