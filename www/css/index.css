@@ -132,9 +132,11 @@ hr {display: block;margin: 1em auto;border: 1px solid #000;transition: width 1s 
 .image img {transition: opacity 1s;background:#000;opacity:0.8;}
 .image:hover img {opacity:1;}
 
-.rating {unicode-bidi:bidi-override;direction:rtl;}
-.rating > span {display: inline-block;position:relative;width:1.1em;font-size:35px;line-height:35px;}
-.rating > span:hover:before, .rating > span:hover ~ span:before {content:"\2605";position:absolute;}
+.rating {unicode-bidi:bidi-override;/*direction:rtl;*/}
+.rating > span {content:"\2606";display: inline-block;position:relative;width:1.1em;font-size:35px;line-height:35px;}
+/*.rating > span:hover:before, .rating > span:hover ~ span:before {content:"\2605";position:absolute;}*/
+.ratingsOver:before {content:"\2605";position:absolute;color: #ffd026;}
+.ratingsVote:before {content:"\2605";position:absolute;}
 
 
 .articlePanel {color:#fff;opacity: 0.95;transition:.3s;position: relative;}

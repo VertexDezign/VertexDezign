@@ -145,8 +145,8 @@
                         @endif
                     </div>
                     <div style="float:right;">
-                        <div class="rating" style="float:left;">
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        <div id="ratingDiv" class="rating" style="float:left;">
+                            <span class="star_1 ratingsStars">☆</span><span class="star_2 ratingsStars">☆</span><span class="star_3 ratingsStars">☆</span><span class="star_4 ratingsStars">☆</span><span class="star_5 ratingsStars">☆</span>
                         </div>
                         <a href=""><button class="btn green">Rate</button></a>
                         <div style="clear:both;"></div>
@@ -156,4 +156,50 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $('.ratingsStars').hover(
+            // Handles the mouseover
+            function() {
+                $(this).prevAll().andSelf().addClass('ratingsOver');
+                $(this).nextAll().removeClass('ratingsVote');
+            },
+            // Handles the mouseout
+            function() {
+                $(this).prevAll().andSelf().removeClass('ratingsOver');
+                setVotes($(this).parent());
+            }
+        ).click(function() {
+                var star = this;
+                var widget = $(this).parent();
+
+                var clickedData = {
+                    clickedOn : $(star).attr('class'),
+                    widgetId : 2 //TODO Download ID
+
+                };
+                $.post(
+                    "", //TODO Route
+                    clickedData,
+                    function(data) {
+                        setVotes(widget, data);
+                    },
+                    'json'
+                );
+            });
+
+        function setVotes(widget, data) {
+            var avg = 3;//TODO PHP
+            if (data && data.avg) {
+                avg = data.avg;
+            }
+
+            $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratingsVote');
+            $(widget).find('.star_' + avg).nextAll().removeClass('ratingsVote');
+        }
+
+        $(document).ready(function() {
+            setVotes($('#ratingDiv'));
+        });
+
+    </script>
 @endsection
