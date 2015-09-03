@@ -70,7 +70,9 @@
                  data-ad-slot="1710578290"
                  data-ad-format="auto"></ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                $(document).ready(function() {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                });
             </script>
         </div>
         @yield('content')
@@ -83,7 +85,9 @@
                  data-ad-slot="1710578290"
                  data-ad-format="auto"></ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                $(document).ready(function() {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                });
             </script>
         </div>
         <footer>
