@@ -18,6 +18,8 @@ class CreateRatingTable extends Migration {
 			$table->unsignedInteger('downloadId');
 			$table->integer('WbbUId');
 
+			$table->foreign('downloadId')->references('id')->on('downloads');
+
 			$table->timestamps();
 		});
 	}
