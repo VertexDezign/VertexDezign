@@ -148,7 +148,8 @@
                         <div id="ratingDiv" class="rating" style="float:left;">
                             <span class="star_1 ratingsStars">☆</span><span class="star_2 ratingsStars">☆</span><span class="star_3 ratingsStars">☆</span><span class="star_4 ratingsStars">☆</span><span class="star_5 ratingsStars">☆</span>
                         </div>
-                        <a href=""><button class="btn green">Rate</button></a>
+                        <a href=""><button id="rateButton" class="btn green">Rate</button></a>
+                        <p id="testInfo"></p>
                         <div style="clear:both;"></div>
                     </div>
                     <div style="clear:both;"></div>
@@ -157,36 +158,6 @@
         </div>
     </div>
     <script type="text/javascript">
-        $('.ratingsStars').hover(
-            // Handles the mouseover
-            function() {
-                $(this).prevAll().andSelf().addClass('ratingsOver');
-                $(this).nextAll().removeClass('ratingsVote');
-            },
-            // Handles the mouseout
-            function() {
-                $(this).prevAll().andSelf().removeClass('ratingsOver');
-                setVotes($(this).parent());
-            }
-        ).click(function() {
-                var star = this;
-                var widget = $(this).parent();
-
-                var clickedData = {
-                    clickedOn : $(star).attr('class'),
-                    widgetId : 2 //TODO Download ID
-
-                };
-                $.post(
-                    "", //TODO Route
-                    clickedData,
-                    function(data) {
-                        setVotes(widget, data);
-                    },
-                    'json'
-                );
-            });
-
         function setVotes(widget, data) {
             var avg = 3;//TODO PHP
             if (data && data.avg) {
@@ -199,6 +170,45 @@
 
         $(document).ready(function() {
             setVotes($('#ratingDiv'));
+
+            $.get('{{URL("/forum/SessionAPI.php")}}', null, function(data){
+                if (data) {
+                    if (data.uId && data.uId <= 0) {
+                        $('#rateButton').hide();
+                        $('.ratingsStars').attr('title', 'You have to be loggedin the forum!');
+                    } else {
+                        $('.ratingsStars').hover(
+                            // Handles the mouseover
+                            function() {
+                                $(this).prevAll().andSelf().addClass('ratingsOver');
+                                $(this).nextAll().removeClass('ratingsVote');
+                            },
+                            // Handles the mouseout
+                            function() {
+                                $(this).prevAll().andSelf().removeClass('ratingsOver');
+                                setVotes($(this).parent());
+                            }
+                        ).click(function() {
+                                var star = this;
+                                var widget = $(this).parent();
+
+                                var clickedData = {
+                                    clickedOn : $(star).attr('class'),
+                                    widgetId : 2 //TODO Download ID
+
+                                };
+                                $.post(
+                                    "", //TODO Route
+                                    clickedData,
+                                    function(data) {
+                                        setVotes(widget, data);
+                                    },
+                                    'json'
+                                );
+                            });
+                    }
+                }
+            });
         });
 
     </script>
