@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Downloads;
+use App\Rating;
 use Illuminate\Http\Request;
 
 class DownloadsController extends Controller {
@@ -56,5 +57,17 @@ class DownloadsController extends Controller {
         }else{
             return \View::make('downloads.show')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->find($id));
         }
+    }
+
+    public function rate($id) {
+        $wbbUId = \Input::get('wbbUId');
+        $i = explode('_',explode(' ',\Input::get('clickedOn'))[0])[1];
+        $c = Rating::where('downloadId', $id)->where('WbbUId', $wbbUId)->count();
+        if ($c > 0) {
+            Rating::where('downloadId', $id)->where('WbbUId', $wbbUId)->update(array('value'=>$i));
+        } else {
+            Rating::create(array('value'=>$i, 'downloadId'=>$id, 'WbbUId'=>$wbbUId));
+        }
+        return response(array('avg'=>intval(round(Rating::getAvg($id)))));
     }
 }

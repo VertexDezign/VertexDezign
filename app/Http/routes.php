@@ -28,6 +28,7 @@ Route::get('projects/{id}', array('as'=>'show_projects', 'uses'=>'ProjectsContro
 Route::get('downloads', "DownloadsController@index");
 Route::post('downloads', array('as'=>'filter_downloads', 'uses'=>'DownloadsController@filter'));
 Route::get('downloads/{id}', array('as'=>'show_downloads', 'uses'=>'DownloadsController@show'));
+Route::post('downloads/{id}/rate', array('as'=>'rate_downloads', 'uses'=>'DownloadsController@rate'));
 //Public Downloads
 Route::get('about', "IndexController@indexAbout");
 

@@ -148,7 +148,6 @@
                         <div id="ratingDiv" class="rating" style="float:left;">
                             <span class="star_1 ratingsStars">☆</span><span class="star_2 ratingsStars">☆</span><span class="star_3 ratingsStars">☆</span><span class="star_4 ratingsStars">☆</span><span class="star_5 ratingsStars">☆</span>
                         </div>
-                        <a href=""><button id="rateButton" class="btn green">Rate</button></a>
                         <p id="testInfo"></p>
                         <div style="clear:both;"></div>
                     </div>
@@ -158,12 +157,12 @@
         </div>
     </div>
     <script type="text/javascript">
+            var avg = {{App\Rating::getAvg($entry->id)}};
         function setVotes(widget, data) {
-            var avg = 3;//TODO PHP
+
             if (data && data.avg) {
                 avg = data.avg;
             }
-
             $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratingsVote');
             $(widget).find('.star_' + avg).nextAll().removeClass('ratingsVote');
         }
@@ -191,21 +190,22 @@
                         ).click(function() {
                                 var star = this;
                                 var widget = $(this).parent();
-
                                 var clickedData = {
                                     clickedOn : $(star).attr('class'),
-                                    widgetId : 2 //TODO Download ID
+                                    widgetId : {{$entry->id}},
+                                    wbbUId : 1, //TODO data.uId
+                                    _token : "{{csrf_token()}}"
 
                                 };
                                 $.post(
-                                    "", //TODO Route
+                                    "{{URL::route('rate_downloads', array('id'=>$entry->id))}}",
                                     clickedData,
                                     function(data) {
                                         setVotes(widget, data);
                                     },
                                     'json'
                                 );
-                            });
+                            }).css('cursor', 'pointer');
                     }
                 }
             });
