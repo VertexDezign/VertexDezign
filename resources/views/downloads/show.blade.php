@@ -193,7 +193,7 @@
                                 var clickedData = {
                                     clickedOn : $(star).attr('class'),
                                     widgetId : {{$entry->id}},
-                                    wbbUId : 1, //TODO data.uId
+                                    wbbUId : data.uId,
                                     _token : "{{csrf_token()}}"
 
                                 };
