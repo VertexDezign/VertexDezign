@@ -44,6 +44,7 @@ class BackendNewsController extends Controller {
     {
         $entry = array(
             'id'=>Input::get('id'),
+            'name'=>strtolower(Input::get('name')),
             'title'=>Input::get('title'),
             'body'=>Input::get('body'),
             'image'=>Input::get('image'),
@@ -65,6 +66,7 @@ class BackendNewsController extends Controller {
 
         if (isset($id)){
             News::where('id',$id)->update(array(
+                'name'=>strtolower(Input::get('name')),
                 'title'=>Input::get('title'),
                 'body'=>Input::get('body'),
                 'image'=>Input::get('image'),

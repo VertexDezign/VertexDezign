@@ -27,6 +27,12 @@ class CreatePermissionsTable extends Migration {
         DB::table('permissions')->insert(
             array(
                 'id' => '2',
+                'name' => 'editor'
+            )
+        );
+        DB::table('permissions')->insert(
+            array(
+                'id' => '3',
                 'name' => 'user'
             )
         );

@@ -1,4 +1,4 @@
-body {margin: 0 auto;font-family:verdana;position:absolute;top:0;left:0;right:0;bottom:0;}
+body {margin: 0 auto;font-family:verdana;position:absolute;top:0;left:0;right:0;bottom:0;height: 100%;}
 body section.loginform {text-align: center;  width: 275px; margin: 0 auto;  }
 body section.loginform a {color:#0000ff;font-size:12px;text-decoration:none; display:inline-block; margin-top: 15px;}
 body section.loginform p {text-decoration:none;font-size:12px;text-decoration:none; margin: 0px; margin-top: 15px;}
@@ -44,7 +44,7 @@ nav h1 {float:left;width:215px;color:#fff;}
 .banner .dots li {display:inline-block;width:10px;height:10px;margin:0 4px;text-indent:-999em;border:2px solid #fff;border-radius:6px;cursor:pointer;opacity:.4;-webkit-transition:background .5s, opacity .5s;-moz-transition:background .5s, opacity .5s;transition:background .5s, opacity .5s;}
 .banner .dots li.active {background:#fff;opacity:1;}
 
-footer {background:#2E3539;color:#919496;padding-bottom:25px;}
+footer {width:100%;background:#2E3539;color:#919496;padding-bottom:25px;position:absolute;}
 footer .top {padding:5px;background:#2a2a2a;border-bottom:1px solid #444;}
 footer .top h3 {color:#919496;}
 footer .three > h3 {font-weight:normal;color:#666;}
@@ -63,7 +63,7 @@ header:hover .overlay {background-color:#2E3539;}
 
 button.green {background:#2D8633;color:#fff;height:40px;padding-left:17.5px;padding-right:17.5px;border:0;}
 button.white {color:#2D8633;background:transparent;border:0;height:50px;width:100%;text-align:left;cursor:pointer;}
-.container {width:1000px;margin:0 auto;}
+.container {width:1000px;margin:0 auto;position:relative;}
 .bgbutton {z-index:20 !important;position:relative;top:-60px;font-size:18px;margin-top:-50px;font-weight:bold;height:50px;line-height:50px;padding:0 30px 0 30px;background:#2D8633;color:#fff;display:inline-block;}
 .slider {background:#eee;padding:45px 20px 45px 20px;border-bottom:1px solid #ddd;}
 .slider section.slider {height:350px;padding:15px;width:65%;float:left;background:#2D8633;color:#fff;}
@@ -259,6 +259,8 @@ div.green {background:#2D8633;}
 a.white {color:#fff;}
 a.green {color:#2D8633;background:transparent;text-decoration:none;}
 
+.error-image{margin:37.5px;}
+.error-message{padding:25px;margin-top:200px;text-align:center;}
 
 .mobile-menu-toggler {width:50px;height:50px;background:#2D8633 url(../images/backend/menu-alt.png) center center;background-repeat:no-repeat;display:none;float:right;margin-top:25px;margin-right:10px;cursor:pointer;}
 

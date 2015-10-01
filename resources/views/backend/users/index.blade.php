@@ -1,10 +1,10 @@
 @extends('layout/backend')
 @section('content')
     <div class="edit-header" style="background-color:#f1f4f9;padding:2px;border-bottom:1px solid #dee2e8;">
-        <p>Backend / <span style="color:#0AA699;">Downloads</span></p>
+        <p>Backend / <span style="color:#0AA699;">Users</span></p>
     </div>
     <div class="edit-header" style="background-color:#e9edf2;border-bottom:1px solid #dee2e8;">
-        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/menu/black/downloads.png')}}"></div><h1 style="float:left;margin-left:10px;">Download management</h1>
+        <div style="float:left;margin-left:25px;margin-top:15px;"><img src="{{URL('/images/backend/menu/black/news.png')}}"></div><h1 style="float:left;margin-left:10px;">User management</h1>
         <div style="clear:both;"></div>
     </div>
     <div class="pad">
@@ -30,8 +30,8 @@
                 <h4 style="font-size:14px;float:left;margin:0;padding:20px;font-weight:600;color:#515050;">Manage rows</h4>
             </div>
             <div style="width:50%;float:right;">
-                <button onclick="window.location.href='{{ route('add_download') }}'" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
-                <button onclick="window.location.href='{{ route('downloads') }}'" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
+                <button onclick="window.location.href='{{ route('add_news') }}'" class="btn blue small" style="float:right;position:relative;margin-left:0px;" ><img src="{{URL('/images/backend/add.png')}}"></button>
+                <button onclick="window.location.href='{{ route('news') }}'" class="btn blue small" style="float:right;position:relative;" ><img src="{{URL('/images/backend/refresh.png')}}"></button>
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
@@ -40,39 +40,39 @@
                 <thead>
                 <tr>
                     <th style="text-align:center;"><input type="checkbox" /></th>
-                    <th>Name</th>
-                    <th>Visibility</th>
-                    <th>Author</th>
+                    <th>Username</th>
+                    <th>Firstname</th>
+                    <th>Surname</th>
                     <th>Last updated at</th>
-                    <th>Posted on</th>
+                    <th>Created at</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($entry as $project)
+                @foreach ($entry as $user)
                     <tr>
                         <td style="text-align:center;"><input type="checkbox" /></td>
-                        <td>{{$project->title}}</td>
-                        <td>{{$project->state}}</td>
-                        <?php echo '<td>' . Auth::user()->find($project->user_id)->username . '</td>' ?>
-                        <td>{{$project->updated_at}}</td>
-                        <td>{{$project->created_at}}</td>
+                        <td>{{$user->username}}</td>
+                        <td>{{$user->firstname}}</td>
+                        <td>{{$user->surname}}</td>
+                        <td>{{$user->updated_at}}</td>
+                        <td>{{$user->created_at}}</td>
                         <td>
-                            <a href="{{ URL::route('edit_download', $project->id) }}"><button class="btn blue"><img src="{{URL('/images/backend/edit.png')}}" class="edit-icon"/></button></a>
-                            <button class="btn red" style="font-weight:bold;" onclick="openModal('delete{{$project->id}}')">X</button>
+                            <a href="{{ URL::route('edit_news', $user->id) }}"><button class="btn blue"><img src="{{URL('/images/backend/edit.png')}}" class="edit-icon"/></button></a>
+                            <button class="btn red" style="font-weight:bold;" onclick="openModal('delete{{$user->id}}')">X</button>
                         </td>
                     </tr>
 
-                    <div class="modal red" id="delete{{$project->id}}">
-                        <form action="{!! URL::route('delete_download', $project->id) !!}" method="post">
-                            <input name="file" value="{{$project->title}}" style="display:none;" />
+                    <div class="modal red" id="delete{{$user->id}}">
+                        <form action="{!! URL::route('delete_news', $user->id) !!}" method="post">
+                            <input name="file" value="{{$user->firstname}}" style="display:none;" />
                             <div class="left">
                                 <p>Are you sure to delete this item?</p>
-                                <span>{{$project->title}}</span>
+                                <span>{{$user->firstname}}</span>
                             </div>
                             <div class="right" style="padding-top:30px;">
                                 <button>Delete</button>
-                                <button onclick="closeModal('delete{{$project->id}}');return false;">Cancel</button>
+                                <button onclick="closeModal('delete{{$user->id}}');return false;">Cancel</button>
                             </div>
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         </form>

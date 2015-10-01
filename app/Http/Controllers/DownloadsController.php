@@ -48,14 +48,14 @@ class DownloadsController extends Controller {
         }
     }
 
-    public function show($id)
+    public function show($name)
     {
         if(\Auth::check()){
             if( \Auth::user()->permission->name == 'admin') {
-                return \View::make('downloads.show')->with('entry', Downloads::where('trash', '=', '0')->find($id));
+                return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->first());
             }
         }else{
-            return \View::make('downloads.show')->with('entry', Downloads::where('trash', '=', '0')->where('state', '=', '1')->find($id));
+            return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
         }
     }
 

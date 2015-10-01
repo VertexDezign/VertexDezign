@@ -28,7 +28,7 @@
         <form id="myForm" method="post" role="post" action="@if(isset($entry)){{route('update_project')}}@else{{route('insert_project')}}@endif">
             <div class="two" style="padding-right:5px;">
                 <!-- Project name -->
-                <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Name</label></div>
+                <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">URL name</label></div>
                 <div class="three-two">
                     <input name="name" placeholder="Name" type="text" value="@if(isset($entry)){{$entry['name']}}@endif" REQUIRED />
                 </div>

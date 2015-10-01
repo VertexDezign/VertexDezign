@@ -47,14 +47,22 @@ class ProjectsController extends Controller {
         }
     }
 
-    public function show($id)
+    public function show($name, $id = null)
     {
         if(\Auth::check()){
             if( \Auth::user()->permission->name == 'admin') {
-                return \View::make('projects.show')->with('entry', Project::where('trash', '=', '0')->find($id));
+                if (isset($id)){
+                    return \View::make('projects.show')->with('entry', Project::where('id', '=', $id)->where('trash', '=', '0')->first());
+                } else {
+                    return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->first());
+                }
             }
         }else{
-            return \View::make('projects.show')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->find($id));
+            if (isset($id)){
+                return \View::make('projects.show')->with('entry', Project::where('id', '=', $id)->where('trash', '=', '0')->where('state', '=', '1')->first());
+            } else {
+                return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+            }
         }
     }
 }

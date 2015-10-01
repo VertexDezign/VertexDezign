@@ -12,8 +12,8 @@ class NewsController extends Controller {
         return \View::make('index')->with('entry', News::where('trash', '=', '0')->get());
     }
 
-    public function show($id)
+    public function show($name)
     {
-        return \View::make('news')->with('entry', News::findOrFail($id));
+        return \View::make('news')->with('entry', News::where('name', '=', $name)->first());
     }
 }
