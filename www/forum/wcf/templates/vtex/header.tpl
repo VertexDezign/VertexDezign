@@ -112,20 +112,20 @@ html {
 
 <nav class="nav">
     <div class="logoVT">
-        <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
+        <a style="text-decoration: none;color:inherit;" href="/"><img src="/images/logo.png"/></a>
     </div>
   <div class="containerVT" style="padding:initial">
       <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
       <div class="menu-holder">
           <ul class="controllers">
-                  <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
-                  <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
-                  <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/downloads">Downloads</a></li>
+                  <li><a href="/forum">Forum</a></li>
           </ul>
           <ul class="controllers responsive-mobile" style="display:none;">
-                <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
-                <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
-                <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/downloads">Downloads</a></li>
+                <li><a href="/forum">Forum</a></li>
           </ul>
           <div style="clear:both;"></div>
       </div>
