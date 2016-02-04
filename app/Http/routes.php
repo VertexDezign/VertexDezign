@@ -24,11 +24,7 @@ Route::get('news/{name}', array('as' => 'show_news', 'uses' => 'NewsController@s
 Route::get('projects', "ProjectsController@index");
 Route::post('projects', array('as' => 'filter_projects', 'uses' => 'ProjectsController@filter'));
 
-//Route::get('projects/{id}', array('as'=>'show_projects', 'uses' => 'ProjectsController@show'));
-Route::get('projects/{id?}{name}', function($id) {
-    return Redirect::action('ProjectsController@show');
-});
-Route::get('projects/{name}{id?}', array('as'=>'show_projects', 'uses' => 'ProjectsController@show'));
+Route::get('projects/{name}', array('as'=>'show_projects', 'uses' => 'ProjectsController@show'));
 
 
 //Public Downloads

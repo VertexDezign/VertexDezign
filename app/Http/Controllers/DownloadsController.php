@@ -50,12 +50,18 @@ class DownloadsController extends Controller {
 
     public function show($name)
     {
-        if(\Auth::check()){
-            if( \Auth::user()->permission->name == 'admin') {
+        if(\Auth::check() && \Auth::user()->permission->name == 'admin'){
+            if (is_numeric($name)) {
+                return \View::make('downloads.show')->with('entry', Downloads::where('id', '=', $name)->where('trash', '=', '0')->first());
+            } else {
                 return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->first());
             }
         }else{
-            return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+            if (is_numeric($name)) {
+                return \View::make('downloads.show')->with('entry', Downloads::where('id', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+            } else {
+                return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+            }
         }
     }
 

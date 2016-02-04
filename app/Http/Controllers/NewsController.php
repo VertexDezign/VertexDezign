@@ -14,6 +14,10 @@ class NewsController extends Controller {
 
     public function show($name)
     {
-        return \View::make('news')->with('entry', News::where('name', '=', $name)->first());
+        if (is_numeric($name)) {
+            return \View::make('news')->with('entry', News::where('id', '=', $name)->first());
+        } else {
+            return \View::make('news')->with('entry', News::where('name', '=', $name)->first());
+        }
     }
 }

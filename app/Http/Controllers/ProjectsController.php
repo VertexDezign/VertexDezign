@@ -5,15 +5,16 @@ use App\Http\Controllers\Controller;
 use App\Project;
 use Illuminate\Http\Request;
 
-class ProjectsController extends Controller {
+class ProjectsController extends Controller
+{
 
     public function index()
     {
-        if(\Auth::check()){
-            if( \Auth::user()->permission->name == 'admin') {
+        if (\Auth::check()) {
+            if (\Auth::user()->permission->name == 'admin') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->orderBy('created_at', 'desc')->get());
             }
-        }else{
+        } else {
             return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->orderBy('created_at', 'desc')->get());
         }
     }
@@ -22,44 +23,42 @@ class ProjectsController extends Controller {
     {
         $filter = \Input::get('filter');
 
-        if(\Auth::check()){
-            if( \Auth::user()->permission->name == 'admin') {
-                if($filter == 'All'){
+        if (\Auth::check()) {
+            if (\Auth::user()->permission->name == 'admin') {
+                if ($filter == 'All') {
                     return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->orderBy('created_at', 'desc')->get());
-                }elseif($filter == 'Maps'){
+                } elseif ($filter == 'Maps') {
                     return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('category', '=', '4')->orderBy('created_at', 'desc')->get());
-                }elseif($filter == 'Mods'){
+                } elseif ($filter == 'Mods') {
                     return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->orderBy('created_at', 'desc')->get());
-                }elseif($filter == 'Scripts'){
+                } elseif ($filter == 'Scripts') {
                     return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('category', '=', '6')->orderBy('created_at', 'desc')->get());
                 }
             }
-        }else{
-            if($filter == 'All'){
+        } else {
+            if ($filter == 'All') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->orderBy('created_at', 'desc')->get());
-            }elseif($filter == 'Maps'){
+            } elseif ($filter == 'Maps') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '4')->orderBy('created_at', 'desc')->get());
-            }elseif($filter == 'Mods'){
+            } elseif ($filter == 'Mods') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->orderBy('created_at', 'desc')->get());
-            }elseif($filter == 'Scripts'){
+            } elseif ($filter == 'Scripts') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '6')->orderBy('created_at', 'desc')->get());
             }
         }
     }
 
-    public function show($name, $id = null)
+    public function show($name)
     {
-        if(\Auth::check()){
-            if( \Auth::user()->permission->name == 'admin') {
-                if (isset($id)){
-                    return \View::make('projects.show')->with('entry', Project::where('id', '=', $id)->where('trash', '=', '0')->first());
-                } else {
-                    return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->first());
-                }
+        if (\Auth::check() && \Auth::user()->permission->name == 'admin') {
+            if (is_numeric($name)) {
+                return \View::make('projects.show')->with('entry', Project::where('id', '=', $name)->where('trash', '=', '0')->first());
+            } else {
+                return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->first());
             }
-        }else{
-            if (isset($id)){
-                return \View::make('projects.show')->with('entry', Project::where('id', '=', $id)->where('trash', '=', '0')->where('state', '=', '1')->first());
+        } else {
+            if (is_numeric($name)) {
+                return \View::make('projects.show')->with('entry', Project::where('id', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
             } else {
                 return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
             }
