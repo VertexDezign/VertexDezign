@@ -52,15 +52,31 @@ class ProjectsController extends Controller
     {
         if (\Auth::check() && \Auth::user()->permission->name == 'admin') {
             if (is_numeric($name)) {
-                return \View::make('projects.show')->with('entry', Project::where('id', '=', $name)->where('trash', '=', '0')->first());
+                $p = Project::where('id', '=', $name)->where('trash', '=', '0')->first();
+                if (is_null($p)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('projects.show')->with('entry', $p);
             } else {
-                return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->first());
+                $p = Project::where('name', '=', $name)->where('trash', '=', '0')->first();
+                if (is_null($p)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('projects.show')->with('entry', $p);
             }
         } else {
             if (is_numeric($name)) {
-                return \View::make('projects.show')->with('entry', Project::where('id', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+                $p = Project::where('id', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first();
+                if (is_null($p)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('projects.show')->with('entry', $p);
             } else {
-                return \View::make('projects.show')->with('entry', Project::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+                $p = Project::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first();
+                if (is_null($p)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('projects.show')->with('entry', $p);
             }
         }
     }

@@ -15,9 +15,17 @@ class NewsController extends Controller {
     public function show($name)
     {
         if (is_numeric($name)) {
-            return \View::make('news')->with('entry', News::where('id', '=', $name)->first());
+            $n = News::where('id', '=', $name)->first();
+            if (is_null($n)) {
+                return \Redirect::to('404');
+            }
+            return \View::make('news')->with('entry', $n);
         } else {
-            return \View::make('news')->with('entry', News::where('name', '=', $name)->first());
+            $n = News::where('name', '=', $name)->first();
+            if (is_null($n)) {
+                return \Redirect::to('404');
+            }
+            return \View::make('news')->with('entry', $n);
         }
     }
 }

@@ -52,15 +52,31 @@ class DownloadsController extends Controller {
     {
         if(\Auth::check() && \Auth::user()->permission->name == 'admin'){
             if (is_numeric($name)) {
-                return \View::make('downloads.show')->with('entry', Downloads::where('id', '=', $name)->where('trash', '=', '0')->first());
+                $dl = Downloads::where('id', '=', $name)->where('trash', '=', '0')->first();
+                if (is_null($dl)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('downloads.show')->with('entry', $dl);
             } else {
-                return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->first());
+                $dl = Downloads::where('name', '=', $name)->where('trash', '=', '0')->first();
+                if (is_null($dl)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('downloads.show')->with('entry', $dl);
             }
         }else{
             if (is_numeric($name)) {
-                return \View::make('downloads.show')->with('entry', Downloads::where('id', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+                $dl = Downloads::where('id', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first();
+                if (is_null($dl)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('downloads.show')->with('entry', $dl);
             } else {
-                return \View::make('downloads.show')->with('entry', Downloads::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first());
+                $dl = Downloads::where('name', '=', $name)->where('trash', '=', '0')->where('state', '=', '1')->first();
+                if (is_null($dl)) {
+                    return \Redirect::to('404');
+                }
+                return \View::make('downloads.show')->with('entry', $dl);
             }
         }
     }
