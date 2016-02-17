@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="//unslider.com/unslider.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="{{asset('/source/unslider.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('/source/jquery.fancybox.pack.js')}}"></script>
 
         <link rel="shortcut icon" href="{{{URL('/favicon.ico')}}}">
