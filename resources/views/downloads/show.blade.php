@@ -163,6 +163,7 @@
             if (data && data.avg) {
                 avg = data.avg;
             }
+            avg = Math.round(avg);
             $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratingsVote');
             $(widget).find('.star_' + avg).nextAll().removeClass('ratingsVote');
         }
