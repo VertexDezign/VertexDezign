@@ -5,7 +5,7 @@ use App\News;
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
     <script type="text/javascript" src="{{asset('/source/jquery.fancybox.pack.js')}}"></script>
     <link href="{{ asset('/css/backend.css') }}" rel="stylesheet">
