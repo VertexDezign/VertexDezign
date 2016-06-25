@@ -12,8 +12,20 @@ class NewsController extends Controller {
         return \View::make('index')->with('entry', News::where('trash', '=', '0')->get());
     }
 
-    public function show($id)
+    public function show($name)
     {
-        return \View::make('news')->with('entry', News::findOrFail($id));
+        if (is_numeric($name)) {
+            $n = News::where('id', '=', $name)->first();
+            if (is_null($n)) {
+                return \Redirect::to('404');
+            }
+            return \View::make('news')->with('entry', $n);
+        } else {
+            $n = News::where('name', '=', $name)->first();
+            if (is_null($n)) {
+                return \Redirect::to('404');
+            }
+            return \View::make('news')->with('entry', $n);
+        }
     }
 }

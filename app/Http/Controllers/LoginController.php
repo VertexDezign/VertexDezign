@@ -18,7 +18,7 @@ class LoginController extends Controller {
             'password'	=>\Input::get('password')
         ];
         if (\Auth::attempt($credentials)) {
-            return \Redirect::action('IndexController@index');
+            return \Redirect::action('BackendController@index');
         }
         return \Redirect::action('LoginController@index')->with('error', 'Failed to login, invalid credentials.');
     }

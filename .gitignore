@@ -50,3 +50,7 @@ crashlytics-build.properties
 /node_modules
 .idea
 .env
+.idea/misc.xml
+.idea/vertexDezign.iml
+.idea/workspace.xml
+composer.lock

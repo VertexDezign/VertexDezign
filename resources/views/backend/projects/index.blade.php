@@ -52,7 +52,7 @@
                 @foreach ($entry as $project)
                     <tr>
                         <td style="text-align:center;"><input type="checkbox" /></td>
-                        <td>{{$project->name}}</td>
+                        <td>{{$project->title}}</td>
                         <td>{{$project->state}}</td>
                         <?php echo '<td>' . Auth::user()->find($project->user_id)->username . '</td>' ?>
                         <td>{{$project->updated_at}}</td>

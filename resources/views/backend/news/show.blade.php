@@ -26,6 +26,12 @@
             </div>
         @endif
         <form method="post" role="post" action="@if(isset($entry)){{route('update_news')}}@else{{route('insert_news')}}@endif">
+            <!-- News url name -->
+            <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Url name</label></div>
+            <div class="three-two">
+                <input name="name" placeholder="Url name" type="text" value="@if(isset($entry)){{$entry['name']}}@endif" REQUIRED />
+            </div>
+            <div style="clear:both;"></div>
             <!-- News title -->
             <div class="three"><label class="basic-label" style="margin-bottom:8.5px;">Title</label></div>
             <div class="three-two">

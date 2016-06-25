@@ -48,7 +48,7 @@
                         <h4><a id="{{$project->id}}">{{$project->title}}</a></h4>
                         <p>{!!str_limit($project->desc, 55, "...")!!}</p>
                     </div>
-                    <a href="{{ URL::route('show_projects', $project->id) }}"><button>View</button></a>
+                    <a href="{{ URL::route('show_projects', ['name' => $project->name]) }}"><button>View</button></a>
                 </div>
             </div>
         @endforeach

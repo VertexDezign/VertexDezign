@@ -15,6 +15,7 @@ class CreateNewsTable extends Migration {
 		Schema::create('news', function(Blueprint $table)
 		{
             $table->increments('id')->unsigned();
+            $table->string('name', 255)->nullable();
             $table->string('title', 255)->nullable();
             $table->text('body')->nullable();
             $table->string('image', 255)->nullable();
@@ -28,6 +29,7 @@ class CreateNewsTable extends Migration {
         DB::table('news')->insert(
             array(
                 'id' => '1',
+                'title' => 'dts-released',
                 'title' => 'DTS Released',
                 'body' => 'Get it now!',
                 'image' => '',

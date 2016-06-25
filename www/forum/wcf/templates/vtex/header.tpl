@@ -1,3 +1,11 @@
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8639304076819326",
+        enable_page_level_ads: true
+    });
+</script>
+
 <style>
 html {
     overflow-y:scroll;box-sizing:border-box;
@@ -15,7 +23,7 @@ html {
     width:1000px;margin:0px auto;
 }
 .mobile-menu-toggler {
-    width:50px;height:50px;background:#2D8633 url("http://new.vertexdezign.net/images/backend/menu-alt.png") no-repeat scroll center center;display:none;float:right;margin-top:25px;margin-right:10px;cursor:pointer;
+    width:50px;height:50px;background:#2D8633 url("/images/backend/menu-alt.png") no-repeat scroll center center;display:none;float:right;margin-top:25px;margin-right:10px;cursor:pointer;
 }
 .menu-holder {
     width:calc(100% - 500px);float:left;padding-left:calc(100% - 950px);box-sizing:border-box;
@@ -112,20 +120,20 @@ html {
 
 <nav class="nav">
     <div class="logoVT">
-        <a style="text-decoration: none;color:inherit;" href="http://new.vertexdezign.net"><img src="http://new.vertexdezign.net/images/logo.png"/></a>
+        <a style="text-decoration: none;color:inherit;" href="/"><img src="/images/logo.png"/></a>
     </div>
   <div class="containerVT" style="padding:initial">
       <div class="mobile-menu-toggler" onclick="$('.controllers.responsive-mobile').slideToggle();"></div>
       <div class="menu-holder">
           <ul class="controllers">
-                  <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
-                  <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
-                  <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/downloads">Downloads</a></li>
+                  <li><a href="/forum">Forum</a></li>
           </ul>
           <ul class="controllers responsive-mobile" style="display:none;">
-                <li><a href="http://new.vertexdezign.net/projects">Projects</a></li>
-                <li><a href="http://new.vertexdezign.net/downloads">Downloads</a></li>
-                <li><a href="http://new.vertexdezign.net/forum">Forum</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/downloads">Downloads</a></li>
+                <li><a href="/forum">Forum</a></li>
           </ul>
           <div style="clear:both;"></div>
       </div>

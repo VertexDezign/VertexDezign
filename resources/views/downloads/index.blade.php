@@ -47,7 +47,7 @@
                             <h4><a id="{{$download->id}}">{{$download->title}}</a></h4>
                             <p>{!!str_limit($download->desc, 55, "...")!!}</p>
                         </div>
-                        <a href="{{ URL::route('show_downloads', $download->id) }}"><button>View</button></a>
+                        <a href="{{ URL::route('show_downloads', ['name' => $download->name, 'id' => $download->id]) }}"><button>View</button></a>
                     </div>
                 </div>
             @endforeach

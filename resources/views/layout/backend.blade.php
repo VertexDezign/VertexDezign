@@ -5,7 +5,7 @@ use App\News;
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
     <script type="text/javascript" src="{{asset('/source/jquery.fancybox.pack.js')}}"></script>
     <link href="{{ asset('/css/backend.css') }}" rel="stylesheet">
@@ -94,6 +94,7 @@ use App\News;
             <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>WIP</p></a></li>
             <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/partners.png')}}"/><p>Todo's</p></a></li>
             @if($permission == 'admin')
+                <li><a href="{{URL('/backend/users')}}"><img src="{{URL('/images/backend/menu/news.png')}}"/><p>Users</p></a></li>
                 <li><a href="{{URL('/backend/news')}}"><img src="{{URL('/images/backend/menu/news.png')}}"/><p>News</p></a></li>
                 <li><a href="{{URL('/backend/projects')}}"><img src="{{URL('/images/backend/menu/projects.png')}}"/><p>Projects</p></a></li>
                 <li><a href="{{URL('/backend/downloads')}}"><img src="{{URL('/images/backend/menu/downloads.png')}}"/><p>Downloads</p></a></li>
@@ -112,7 +113,7 @@ use App\News;
             <button style="float:right;margin-right:5px;" class="rotate" onclick="toggleMenu('settings-menu');"><img src="{{URL('/images/backend/settings.png')}}" /></button>
             <button style="float:right;margin-right:5px;"><img src="{{URL('/images/backend/bell.png')}}" /></button>
             <ul class="dropdown" id="settings-menu">
-                <li><a>My Account</a></li>
+                <li><a href="{{URL::route('accountManagement', Auth::user()->username)}}">My Account</a></li>
                 <li><a>Settings</a></li>
                 <li style="border-top:1px solid #e4e4e4;"><a href="{{URL('/logout')}}">Logout</a></li>
             </ul>
