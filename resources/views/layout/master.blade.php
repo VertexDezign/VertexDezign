@@ -11,6 +11,7 @@
         <!-- Title Meta -->
         <title>@yield('title') - VertexDezign</title>
         <meta name="description" content="@yield('description')">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
         <script type="text/javascript">
@@ -19,6 +20,16 @@
 
         <script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script>
         <!-- End Cookie Consent plugin -->
+
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-8639304076819326",
+                enable_page_level_ads: true
+            });
+        </script>
+
 
     </head>
     <body>
