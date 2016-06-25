@@ -39,33 +39,22 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
-                    </div>
-                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>Wopster</h4>
-                        <p>Model/Ingame/Script</p>
-                    </div>
-                </div>
-            </div>
-            <div class="three">
-                <div class="panel">
-                    <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
-                    </div>
-                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>Xentro</h4>
-                        <p>Model/Texture/Ingame/Script</p>
-                    </div>
-                </div>
-            </div>
-            <div class="three">
-                <div class="panel">
-                    <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members/grisu118.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Grisu118</h4>
-                        <p>Ingame/Script</p>
+                        <p>Admin - Ingame/Script</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Eicher-Fan</h4>
+                        <p>Co-Admin</p>
                     </div>
                 </div>
             </div>
@@ -80,17 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="three">
-                <div class="panel">
-                    <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
-                    </div>
-                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>Eicher-Fan</h4>
-                        <p>Forum moderator</p>
-                    </div>
-                </div>
-            </div>
+
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
