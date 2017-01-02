@@ -30,7 +30,7 @@ class ProjectsController extends Controller
                 } elseif ($filter == 'Maps') {
                     return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('category', '=', '4')->orderBy('created_at', 'desc')->get());
                 } elseif ($filter == 'Mods') {
-                    return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->orderBy('created_at', 'desc')->get());
+                    return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where(function ($query) {$query->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7');})->orderBy('created_at', 'desc')->get());
                 } elseif ($filter == 'Scripts') {
                     return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('category', '=', '6')->orderBy('created_at', 'desc')->get());
                 }
@@ -41,7 +41,7 @@ class ProjectsController extends Controller
             } elseif ($filter == 'Maps') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '4')->orderBy('created_at', 'desc')->get());
             } elseif ($filter == 'Mods') {
-                return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7')->orderBy('created_at', 'desc')->get());
+                return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where(function ($query) {$query->where('category', '=', '1')->orWhere('category', '=', '2')->orWhere('category', '=', '3')->orWhere('category', '=', '5')->orWhere('category', '=', '7');})->orderBy('created_at', 'desc')->get());
             } elseif ($filter == 'Scripts') {
                 return \View::make('projects.index')->with('entry', Project::where('trash', '=', '0')->where('state', '=', '1')->where('category', '=', '6')->orderBy('created_at', 'desc')->get());
             }
