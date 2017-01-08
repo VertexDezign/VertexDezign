@@ -134,9 +134,10 @@
                     </div>
                     <div class="three" style="text-align:right;">
                         <h3>Follow us</h3>
-                        <a href="https://www.facebook.com/pages/Vertexdezign/592374234121373"><img src="{{{URL('/images/layout/fb.png')}}}" style="float:right;margin-right:-10px;" /></a>
+                        <a href="https://www.facebook.com/pages/Vertexdezign/592374234121373" target="_blank"><img src="{{{URL('/images/layout/fb.png')}}}" style="float:right;margin-right:-10px;" /></a>
+                        <a href="https://www.youtube.com/channel/UCKD2Uu8sUe8xVbeVCNafGpg" target="_blank"><img src="{{{URL('/images/layout/yt.png')}}}" style="float:right;margin-right:-5px;" /></a>
                         <div style="clear:Both;margin-bottom:25px;"></div>
-                        <small>Copyright &copy; {{{date('Y')}}} VertexDezign</small>
+                        <small>Copyright &copy; 2015 - {{{date('Y')}}} VertexDezign</small>
                         <div style="clear:Both;"></div>
                         <small><a style="color: #777; text-decoration: none;" href="{{URL("/forum/index.php/LegalNotice/")}}">Impressum</a></small>
                     </div>
