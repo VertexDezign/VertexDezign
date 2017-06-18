@@ -43,7 +43,7 @@
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Grisu118</h4>
-                        <p>Admin - Ingame/Script</p>
+                        <p>Admin</p>
                     </div>
                 </div>
             </div>
@@ -61,15 +61,14 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                        <div style="height:200px;background:url({{URL('/images/layout/members/niggels.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>Niggels939</h4>
-                        <p>Texture/Map</p>
+                        <p>Leader ModTeam</p>
                     </div>
                 </div>
             </div>
-
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
@@ -84,11 +83,88 @@
             <div class="three">
                 <div class="panel">
                     <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members/steffen30muc.jpg')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Steffen30muc</h4>
+                        <p>Modding, Texturing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
                         <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>Srgtsmokealot</h4>
-                        <p>Forum moderator</p>
+                        <h4>John Deere 6930</h4>
+                        <p>Modelling, Ingaming, Scripting</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>L4Icce</h4>
+                        <p>Modelling, Texturing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members/katsuo.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Katsuo</h4>
+                        <p>Modelling, Texturing, Mapping</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members/K3MN1K.jpg')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>K3MN1K</h4>
+                        <p>Video Guru</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>GeneralX©</h4>
+                        <p>Modding</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>fqC.Art</h4>
+                        <p>Modelling, Texturing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="panel">
+                    <div class="panel-img">
+                        <div style="height:200px;background:url({{URL('/images/layout/members/deelerz.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
+                    </div>
+                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
+                        <h4>Deelerz</h4>
+                        <p>Modelling, Ingaming</p>
                     </div>
                 </div>
             </div>
