@@ -131,7 +131,7 @@
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>K3MN1K</h4>
-                        <p>Video Guru</p>
+                        <p>Modelling, Video Guru</p>
                     </div>
                 </div>
             </div>
