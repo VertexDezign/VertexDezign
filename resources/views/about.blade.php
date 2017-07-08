@@ -64,7 +64,7 @@
                         <div style="height:200px;background:url({{URL('/images/layout/members/niggels.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>Niggels939</h4>
+                        <h4>Niggels</h4>
                         <p>Leader ModTeam</p>
                     </div>
                 </div>
