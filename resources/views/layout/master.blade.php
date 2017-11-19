@@ -44,11 +44,9 @@
                             @if (! \Auth::check())
                                 <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                                 <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                             @else
                                 <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                                 <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                                 <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
                                 <li><a href="{{{URL('/logout')}}}">Logout</a></li>
                             @endif
@@ -57,11 +55,9 @@
                             @if (! \Auth::check())
                                 <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                                 <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                             @else
                                 <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                                 <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                                 <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
                                 <li><a href="{{{URL('/logout')}}}">Logout</a></li>
                             @endif
@@ -113,11 +109,9 @@
                             @if (! \Auth::check())
                                 <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                                 <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                             @else
                                 <li><a href="{{{URL('/projects')}}}">Projects</a></li>
                                 <li><a href="{{{URL('/downloads')}}}">Downloads</a></li>
-                                <li><a href="{{{URL('/forum')}}}">Forum</a></li>
                                 <li><a href="{{{URL('/backend')}}}">Dashboard</a></li>
                             @endif
                         </ul>
