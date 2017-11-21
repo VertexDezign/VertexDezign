@@ -141,30 +141,8 @@
                         <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
                     </div>
                     <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>GeneralX©</h4>
-                        <p>Modding</p>
-                    </div>
-                </div>
-            </div>
-            <div class="three">
-                <div class="panel">
-                    <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
-                    </div>
-                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
                         <h4>fqC.Art</h4>
                         <p>Modelling, Texturing</p>
-                    </div>
-                </div>
-            </div>
-            <div class="three">
-                <div class="panel">
-                    <div class="panel-img">
-                        <div style="height:200px;background:url({{URL('/images/layout/members/deelerz.png')}}) center center;background-size:auto;background-repeat:no-repeat;"></div>
-                    </div>
-                    <div class="panel-body" style="padding:5px;padding-bottom:5px;">
-                        <h4>Deelerz</h4>
-                        <p>Modelling, Ingaming</p>
                     </div>
                 </div>
             </div>
